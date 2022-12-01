@@ -2,14 +2,14 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
 import EmailIcon from '@mui/icons-material/EmailOutlined';
-
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
 interface IProps {
     color: string;
     backgroundColor: string;
     hoverBackgroundColor: string;
     title: string;
-    type: 'mail' | 'none';
+    type: 'mail' | 'linkedIn' | 'none';
     onClick: React.MouseEventHandler<HTMLButtonElement> 
 }
 
@@ -28,7 +28,7 @@ const CustomizedButton = (props: IProps) => {
       }));
   return (
     <>
-      <ColorButton onClick={e  => props.onClick(e)}  startIcon={props.type=== 'mail' ? <EmailIcon/> : ''} variant="contained">{props.title}</ColorButton>
+      <ColorButton onClick={e  => props.onClick(e)}  startIcon={props.type=== 'mail' ? <EmailIcon/> : props.type === 'linkedIn' ? <LinkedInIcon/> : ''} variant="contained">{props.title}</ColorButton>
       </>
   );
 }

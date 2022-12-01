@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.image{
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+}
+
+.card{
+    color: white;
+    font-family: 'Sora', sans-serif;
+    width: 25%;
+    text-align: left;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.name{
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+@media only screen and (max-width: 600px){
+    .card{
+        color: white;
+        font-family: 'Sora', sans-serif;
+        width: 50%;
+        text-align: left;
+        margin: auto;
+        margin-top: 10%;
+    }
+}
