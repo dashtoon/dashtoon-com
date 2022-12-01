@@ -1,0 +1,113 @@
+.navbar{
+    display: flex;
+    background-color: rgba(206, 54, 92, 1);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+    height: 6vh;
+    position: fixed;
+    top: 0;
+    width: 96%;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.logo{
+    width: 20px;
+    height: 20px;
+}
+
+.link{
+    cursor: pointer;
+    padding-right: 2%;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    background-color: rgba(206, 54, 92, 1);
+}
+
+.list {
+    list-style-type: none;
+    background: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.btn {
+    display: none !important;
+    position: absolute !important;
+    right: 10px !important;
+    top: 7px !important;
+    
+    color: #000 !important;
+    
+}
+
+@media screen and (max-width: 500px){
+    .links {
+        flex-direction: column;
+        height: auto;
+        display: none;
+        color: black;
+    }
+    .items:nth-child(1){
+        border-top: 1px solid rgba(255, 255, 255, 0.555);
+        margin-top: 50px;
+    }
+    .items {
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.555);
+        text-align: center;
+        margin-right: 0px;
+        padding: 20px 0;
+    }
+    .btn {
+        display: block !important;
+    }
+
+    .toggledNavbar{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2%;
+        height: 10vh;
+        position: relative;
+        margin: 5px auto;
+        margin-bottom: 0;
+        border-radius: 10px;
+        width: 90%;
+    }
+
+    .linksToggled {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        color: black;
+    }
+
+    .linkToggled{
+        padding: 3%;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    
+}
