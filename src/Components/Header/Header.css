@@ -13,7 +13,7 @@
 .links{
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 285px;
     color: white;
     font-family: 'Sora', sans-serif;
     font-size: 1.125rem;
@@ -35,7 +35,7 @@ nav {
     top: 0;
     width: 100%;
     
-    background-color: rgba(206, 54, 92, 1);
+    
 }
 
 .list {
@@ -88,7 +88,7 @@ nav {
         justify-content: space-between;
         align-items: center;
         padding: 0 2%;
-        height: 10vh;
+        
         position: relative;
         margin: 5px auto;
         margin-bottom: 0;

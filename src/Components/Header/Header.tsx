@@ -43,6 +43,9 @@ const Header = () => {
                 <div className="link" onClick={() => { navigate('/')}}>
                     Home
                 </div>
+                <div className="link" onClick={() => { window.open('https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36', '_blank')}}>
+                    Careers
+                </div>
                 <div className="link" onClick={() => {navigate('/about-us'); }}> 
                     About Us
                 </div>
@@ -56,6 +59,9 @@ const Header = () => {
             <div className="linksToggled">
                 <div className="linkToggled" onClick={() => {toggleNav(); navigate('/')}}>
                     Home
+                </div>
+                <div className="linkToggled" onClick={() => {toggleNav(); window.open('https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36', '_blank')}}>
+                    Careers
                 </div>
                 <div className="linkToggled" onClick={() => {toggleNav(); navigate('/about-us'); }}> 
                     About Us
