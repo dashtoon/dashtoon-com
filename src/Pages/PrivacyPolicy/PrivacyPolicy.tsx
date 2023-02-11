@@ -7,11 +7,11 @@ const PrivacyPolicy = () => {
             <h1>Privacy Policy</h1>
             <h2>1. INTRODUCTION</h2>
             <p>
-                Dashverse Corp is an entity registered in the United States of America. We are engaged in the business of providing, managing, operating and hosting a digital platform, under the brand Dashtoon that allows users to create, read and share digital comics. We are committed to ensuring that privacy of our clients, visitors, and other users of the website at https://www.dashtoon.com or any other website, mobile version of the Website or mobile application of Dashverse Corp or any of its affiliates or licensees (collectively, the “Website”) is always respected. In this Policy, “Dashtoon”, “we”, or “us” refers to Dashverse Corp and its affiliates, successors and assigns, and “you” refers to a user who has provided any information including Personal Information (as defined below) and using any features therein.<br></br>
+                Dashverse Corp is an entity registered in the United States of America. We are engaged in the business of providing, managing, operating and hosting a digital platform, under the brand Dashtoon that allows users to create, read and share digital comics. We are committed to ensuring that privacy of our clients, visitors, and other users of the website at https://www.dashtoon.com or any other website, mobile version of the Website or mobile application of Dashverse Corp or any of its affiliates or licensees (collectively, the “Website”) is always respected. In this Policy, “Dashtoon”, “we”, or “us” refers to Dashverse Corp and its affiliates, successors and assigns, and “you” refers to a user who has provided any information including Personal Information (as defined below) and using any features therein.<br></br><br></br>
 
-                The protection and security of your Personal Information and Usage Information (as defined below) is one of our top priorities. This Privacy Policy discloses and explains how we collect, use, share and protect Personal Information, Usage Information or any other information about you. We also provide information regarding how you can access and update your Personal Information and make certain choices about how your Personal Information is used by us. This Privacy Policy does not apply to information we collect by other means (including offline) or from other sources.<br></br>
+                The protection and security of your Personal Information and Usage Information (as defined below) is one of our top priorities. This Privacy Policy discloses and explains how we collect, use, share and protect Personal Information, Usage Information or any other information about you. We also provide information regarding how you can access and update your Personal Information and make certain choices about how your Personal Information is used by us. This Privacy Policy does not apply to information we collect by other means (including offline) or from other sources.<br></br><br></br>
 
-                This Privacy Policy explains what information of yours will be collected by Dashtoon when you access the Website, how the information will be used, and how you can control the collection, correction and/or deletion of information. We will not use or share your information with anyone except as described in this Privacy Policy. The use of information collected through our Website shall be limited to the purposes under this Privacy Policy.<br></br>
+                This Privacy Policy explains what information of yours will be collected by Dashtoon when you access the Website, how the information will be used, and how you can control the collection, correction and/or deletion of information. We will not use or share your information with anyone except as described in this Privacy Policy. The use of information collected through our Website shall be limited to the purposes under this Privacy Policy.<br></br><br></br>
             </p>
             <h2>2. INFORMATION COLLECTION BY DASHTOON</h2>
             <h3>2.1 Data Controller and Data Processor:</h3>
@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
             <h2>3. USE OF INFORMATION COLLECTED</h2>
             <h3>3.1 Business Purposes:</h3>
             <p>
-                Dashtoon does not share any Personal Information with any third party without your consent, except when directed by the law. Dashtoon can use this data to verify user identity in line with engagement initiated by the user. We will communicate with you using the contact information provided by you in order to respond to any queries that you may have and to provide any information that you may request regarding the Products or services. We may communicate with you either by written, physical communication, email, telephone, SMS or via notifications on your mobile device. We may also send strictly product or service-related announcements to you periodically and when it is necessary to do so. For instance, if our products or services are temporarily suspended for maintenance, we might send you an email, text message, flash notification or telephone call. If you do not wish to receive such alerts, you have the option to unsubscribe from such emails by writing to us at the E-mail ID mentioned in Section 18.2(Customer Services).<br></br>
+                Dashtoon does not share any Personal Information with any third party without your consent, except when directed by the law. Dashtoon can use this data to verify user identity in line with engagement initiated by the user. We will communicate with you using the contact information provided by you in order to respond to any queries that you may have and to provide any information that you may request regarding the Products or services. We may communicate with you either by written, physical communication, email, telephone, SMS or via notifications on your mobile device. We may also send strictly product or service-related announcements to you periodically and when it is necessary to do so. For instance, if our products or services are temporarily suspended for maintenance, we might send you an email, text message, flash notification or telephone call. If you do not wish to receive such alerts, you have the option to unsubscribe from such emails by writing to us at the E-mail ID mentioned in Section 18.2(Customer Services).<br></br><br></br>
 
                 We may use Personal Information or Usage Information collected through the Website in the following ways:
 
@@ -103,11 +103,11 @@ const PrivacyPolicy = () => {
             </p>
             <h2>7. CHILDREN</h2>
             <p>
-                Dashtoon’s Terms of Use available at https://www.dashtoon.com/terms-and-conditions contain restrictions on how minors can access and use the Website. You are required to carefully read and comply with the same.<br></br>
+                Dashtoon’s Terms of Use available at https://www.dashtoon.com/terms-and-conditions contain restrictions on how minors can access and use the Website. You are required to carefully read and comply with the same.<br></br><br></br>
 
-                Any collection of Personal Information of children is intended to comply with applicable law in each relevant jurisdiction, including the Children’s Online Privacy Protection Act applicable in the United States of America. Dashtoon requires parental consent before Personal Information belonging to children is submitted or collected unless the information concerned falls within an exception recognized under applicable law. Dashtoon does not make Personal Information collected from children publicly available nor do we enable children to do so on the Website. A child’s participation in any activity or service contained on the Website is not conditional upon disclosure of more Personal Information than reasonably necessary to participate in such activity or service.<br></br>
+                Any collection of Personal Information of children is intended to comply with applicable law in each relevant jurisdiction, including the Children’s Online Privacy Protection Act applicable in the United States of America. Dashtoon requires parental consent before Personal Information belonging to children is submitted or collected unless the information concerned falls within an exception recognized under applicable law. Dashtoon does not make Personal Information collected from children publicly available nor do we enable children to do so on the Website. A child’s participation in any activity or service contained on the Website is not conditional upon disclosure of more Personal Information than reasonably necessary to participate in such activity or service.<br></br><br></br>
 
-                Parents may contact us at the E-mail ID mentioned in Section 18.2 (Customer Services) to review, update or delete any of their children’s Personal Information and to elect for us not to collect any additional Personal Information from their children. We will not change how we handle previously collected information without providing notice and obtaining parental consent wherever necessary.<br></br>
+                Parents may contact us at the E-mail ID mentioned in Section 18.2 (Customer Services) to review, update or delete any of their children’s Personal Information and to elect for us not to collect any additional Personal Information from their children. We will not change how we handle previously collected information without providing notice and obtaining parental consent wherever necessary.<br></br><br></br>
             </p>
             <h2>8. SECURITY</h2>
             <p>
@@ -123,13 +123,13 @@ const PrivacyPolicy = () => {
             </p>
             <h2>11. CHANGE OF INFORMATION AND CANCELLATION OF ACCOUNT</h2>
             <p>
-                You are responsible for maintaining the accuracy of the information you submit to us, such as your contact information provided as part of account registration. If your Personal Information changes, or if you no longer desire to access the Website, you may correct, delete inaccuracies, or amend information by contacting us through at the E-mail ID mentioned in Section 18.2 (Customer Services) and we shall endeavor to respond within 72 (seventy two) hours of receipt of communication.<br></br>
+                You are responsible for maintaining the accuracy of the information you submit to us, such as your contact information provided as part of account registration. If your Personal Information changes, or if you no longer desire to access the Website, you may correct, delete inaccuracies, or amend information by contacting us through at the E-mail ID mentioned in Section 18.2 (Customer Services) and we shall endeavor to respond within 72 (seventy two) hours of receipt of communication.<br></br><br></br>
 
-                You have the right to request that we rectify or delete the personal data or restrict the processing of your personal data, if you think they are inaccurate. Furthermore, you have the right to object against the processing based on our legitimate interests as a legal basis. We are required to assess and act on your request. Additionally, you also have the right to data portability if it should become relevant. You have a right to lodge a complaint with your local supervisory authority.<br></br>
+                You have the right to request that we rectify or delete the personal data or restrict the processing of your personal data, if you think they are inaccurate. Furthermore, you have the right to object against the processing based on our legitimate interests as a legal basis. We are required to assess and act on your request. Additionally, you also have the right to data portability if it should become relevant. You have a right to lodge a complaint with your local supervisory authority.<br></br><br></br>
 
-                You may also cancel or modify your communications that you have elected to receive from the Website by logging into your user account and changing your communication preferences.<br></br>
+                You may also cancel or modify your communications that you have elected to receive from the Website by logging into your user account and changing your communication preferences.<br></br><br></br>
 
-                If you wish to cancel your account or request that we no longer use your information to provide you details with respect to our products or services and the Website, please write to us at the E-mail ID mentioned in Section 18.2 (Customer Services).<br></br>
+                If you wish to cancel your account or request that we no longer use your information to provide you details with respect to our products or services and the Website, please write to us at the E-mail ID mentioned in Section 18.2 (Customer Services).<br></br><br></br>
             </p>
             <h2>12. OPT IN</h2>
             <p>
@@ -166,15 +166,15 @@ const PrivacyPolicy = () => {
             </p>
             <h3>18.3 GRIEVANCE OFFICER</h3>
             <p>
-                In case you have any concerns in relation to the usage and processing of your personal information, content which violates our Privacy Policy/Terms and Conditions then you may contact our Grievance Officer at below:<br></br>
+                In case you have any concerns in relation to the usage and processing of your personal information, content which violates our Privacy Policy/Terms and Conditions then you may contact our Grievance Officer at below:<br></br><br></br>
 
-                Name: Sanidhya Narain<br></br>
+                Name: Sanidhya Narain<br></br><br></br>
 
-                Address: 6 Braconhyrst, Roxborough Park, Harrow, Greater London - HA13BD<br></br>
+                Address: 6 Braconhyrst, Roxborough Park, Harrow, Greater London - HA13BD<br></br><br></br>
 
-                Hours: 10:00 A.M. to 1:00 P.M. GMT<br></br>
+                Hours: 10:00 A.M. to 1:00 P.M. GMT<br></br><br></br>
 
-                Email: sanidhya@dashtoon.com<br></br>
+                Email: sanidhya@dashtoon.com<br></br><br></br>
             </p>
             <h2>California Consumer Privacy Act (CCPA) Addendum</h2>
             <p>
@@ -182,66 +182,66 @@ const PrivacyPolicy = () => {
             </p>
             <h3>1. Your rights under the CCPA:</h3>
             <p>
-                Under the CCPA, you have the right to:<br></br>
+                Under the CCPA, you have the right to:<br></br><br></br>
 
-                <b>1.1 Access</b> the categories and specific pieces of personal data Dashtoon has collected, the categories of sources from which the personal data is collected, the business purpose(s) for collecting the personal data, and the categories of third parties with whom Dashtoon has shared personal data;<br></br>
+                <b>1.1 Access</b> the categories and specific pieces of personal data Dashtoon has collected, the categories of sources from which the personal data is collected, the business purpose(s) for collecting the personal data, and the categories of third parties with whom Dashtoon has shared personal data;<br></br><br></br>
 
-                <b>1.2 Delete</b> personal data under certain circumstances; and<br></br>
+                <b>1.2 Delete</b> personal data under certain circumstances; and<br></br><br></br>
 
-                <b>1.3 Opt out of the “sale</b> of personal data. We do not sell your personal data in the conventional sense. However, like many companies, we use advertising services that try to tailor online ads to your interests based on information collected via cookies and similar technologies about your online activity. This is called interest-based advertising. The CCPA’s statutory definition of the term “sale” is broad and may include interest-based advertising<br></br>
+                <b>1.3 Opt out of the “sale</b> of personal data. We do not sell your personal data in the conventional sense. However, like many companies, we use advertising services that try to tailor online ads to your interests based on information collected via cookies and similar technologies about your online activity. This is called interest-based advertising. The CCPA’s statutory definition of the term “sale” is broad and may include interest-based advertising<br></br><br></br>
 
-                <b>1.4</b>  Dashtoon will not discriminate against you and/or charge you for exercising any of these rights, which is further in line with your rights under the CCPA. Dashtoon is not obliged to respond to more than two requests within a 12-month period.<br></br>
+                <b>1.4</b>  Dashtoon will not discriminate against you and/or charge you for exercising any of these rights, which is further in line with your rights under the CCPA. Dashtoon is not obliged to respond to more than two requests within a 12-month period.<br></br><br></br>
 
-                <b>1.5</b> To exercise your rights, contact us by emailing at the E-mail ID mentioned in Section 18.2 (Customer Services). To opt out of the use of cookies on our sites for interest-based advertising purposes, follow the instructions in this Privacy Policy.<br></br>
+                <b>1.5</b> To exercise your rights, contact us by emailing at the E-mail ID mentioned in Section 18.2 (Customer Services). To opt out of the use of cookies on our sites for interest-based advertising purposes, follow the instructions in this Privacy Policy.<br></br><br></br>
 
-                <b>1.6</b> We will acknowledge receipt of your request within 3 (three) business days, and provide a substantive response within 45 (forty five) business days, or inform you of the reason and extension period (up to 90 (ninety) days) in writing.<br></br>
+                <b>1.6</b> We will acknowledge receipt of your request within 3 (three) business days, and provide a substantive response within 45 (forty five) business days, or inform you of the reason and extension period (up to 90 (ninety) days) in writing.<br></br><br></br>
 
-                <b>1.7</b> Under the CCPA, only you or an authorized agent may make a request related to your personal data. Note that to respond to your requests to access or delete personal data under the CCPA, we must verify your identity. We may do so by requiring you to log into your Dashtoon account (if applicable), provide information relating to your account (which will be compared to information we have, such as profile information), give a declaration as to your identity under penalty of perjury, and/or provide additional information. You may designate an authorized agent to submit your verified consumer request by providing written permission and verifying your identity, or through proof of power of attorney.<br></br>
+                <b>1.7</b> Under the CCPA, only you or an authorized agent may make a request related to your personal data. Note that to respond to your requests to access or delete personal data under the CCPA, we must verify your identity. We may do so by requiring you to log into your Dashtoon account (if applicable), provide information relating to your account (which will be compared to information we have, such as profile information), give a declaration as to your identity under penalty of perjury, and/or provide additional information. You may designate an authorized agent to submit your verified consumer request by providing written permission and verifying your identity, or through proof of power of attorney.<br></br><br></br>
             </p>
             <h2>2. California’s Shine the Light Law</h2>
             <p>If You are a User in Virginia, this Addendum applies to you. Except as otherwise modified by this VCDPA Addendum, all provisions of the above Privacy Policy shall remain in full force and effect.</p>
             <h3>1. Your rights under the VCDPA:</h3>
             <p>
-                Under the VCDPA, you have the right to:<br></br>
+                Under the VCDPA, you have the right to:<br></br><br></br>
 
-                <b>1.1 Access</b> personal data that a business processes about you;<br></br>
+                <b>1.1 Access</b> personal data that a business processes about you;<br></br><br></br>
 
-                <b>1.2 Correct inaccuracies</b> in that data, taking into account the nature of the data and the purpose of the processing;<br></br>
+                <b>1.2 Correct inaccuracies</b> in that data, taking into account the nature of the data and the purpose of the processing;<br></br><br></br>
 
-                <b>1.3 Delete</b> personal data provided or obtained about you, subject to certain exceptions laid out in the VCDPA;<br></br>
+                <b>1.3 Delete</b> personal data provided or obtained about you, subject to certain exceptions laid out in the VCDPA;<br></br><br></br>
 
-                <b>1.4 Obtain a copy</b> of your personal data that they previously provided to Dashtoon in a portable and, to the extent technically feasible, readily usable format;<br></br>
+                <b>1.4 Obtain a copy</b> of your personal data that they previously provided to Dashtoon in a portable and, to the extent technically feasible, readily usable format;<br></br><br></br>
 
-                <b>1.5 Opt-out</b> of processing for targeted advertising, the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects concerning you;<br></br>
+                <b>1.5 Opt-out</b> of processing for targeted advertising, the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects concerning you;<br></br><br></br>
 
-                <b>1.6</b> Dashtoon will not discriminate against you and/or charge you for exercising any of these rights, which is further in line with your rights under the VCDPA. You may request up to twice annually and after that if Dashtoon is satisfied that the request is manifestly unfounded, excessive, or repetitive, Dashtoon may charge you a reasonable fee to cover the administrative costs of complying with the request or decline to act on the request.<br></br>
+                <b>1.6</b> Dashtoon will not discriminate against you and/or charge you for exercising any of these rights, which is further in line with your rights under the VCDPA. You may request up to twice annually and after that if Dashtoon is satisfied that the request is manifestly unfounded, excessive, or repetitive, Dashtoon may charge you a reasonable fee to cover the administrative costs of complying with the request or decline to act on the request.<br></br><br></br>
 
-                <b>1.7</b> To exercise your rights, contact us by emailing at the E-mail ID mentioned in Section 18.2 (Customer Services). To opt out of the use of cookies on our sites for interest-based advertising purposes, follow the instructions in this Privacy Policy.<br></br>
+                <b>1.7</b> To exercise your rights, contact us by emailing at the E-mail ID mentioned in Section 18.2 (Customer Services). To opt out of the use of cookies on our sites for interest-based advertising purposes, follow the instructions in this Privacy Policy.<br></br><br></br>
 
-                <b>1.8</b> We will acknowledge receipt of your request within 3 (three) business days, and provide a substantive response within 45 calendar days, or inform you of the reason and extension period (up to 90 days) in writing.<br></br>
+                <b>1.8</b> We will acknowledge receipt of your request within 3 (three) business days, and provide a substantive response within 45 calendar days, or inform you of the reason and extension period (up to 90 days) in writing.<br></br><br></br>
 
-                <b>1.9</b> In the event that you are dissatisfied by the decision, you may appeal within 15 (fifteen) days. We will acknowledge receipt of your request within 3 (three) business days and provide a substantive response within 60 business days. In the event that Dashtoon does not wish to entertain the appeal by the you, you have the right to approach the Attorney General of Virginia.<br></br>
+                <b>1.9</b> In the event that you are dissatisfied by the decision, you may appeal within 15 (fifteen) days. We will acknowledge receipt of your request within 3 (three) business days and provide a substantive response within 60 business days. In the event that Dashtoon does not wish to entertain the appeal by the you, you have the right to approach the Attorney General of Virginia.<br></br><br></br>
             </p>
             <h2>Colorado Privacy Act (CPA)</h2>
             <p>If You are a User in Colorado, this Addendum applies to you. Except as otherwise modified by this Addendum, all provisions of the above Privacy Policy shall remain in full force and effect.</p>
             <h3>1. Your rights under the CPA:</h3>
             <p>Under the CPA, you have the right to:
 
-                <b>1.1 Access</b> personal data that a business processes about you;<br></br>
+                <b>1.1 Access</b> personal data that a business processes about you;<br></br><br></br>
 
-                <b>1.2 Correct inaccuracies</b> in that data, taking into account the nature of the data and the purpose of the processing;<br></br>
+                <b>1.2 Correct inaccuracies</b> in that data, taking into account the nature of the data and the purpose of the processing;<br></br><br></br>
 
-                <b>1.3 Delete</b> personal data provided or obtained about you, subject to certain exceptions<br></br>
+                <b>1.3 Delete</b> personal data provided or obtained about you, subject to certain exceptions<br></br><br></br>
 
-                <b>1.4 Obtain a copy</b> of your personal data that they previously provided to Dashtoon in a portable and, to the extent technically feasible, readily usable format;<br></br>
+                <b>1.4 Obtain a copy</b> of your personal data that they previously provided to Dashtoon in a portable and, to the extent technically feasible, readily usable format;<br></br><br></br>
 
-                <b>1.5 Opt-out</b> of processing for targeted advertising, the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects concerning you;<br></br>
+                <b>1.5 Opt-out</b> of processing for targeted advertising, the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects concerning you;<br></br><br></br>
 
-                <b>1.6</b> Dashtoon shall not discriminate against you for exercising any of these rights, which is further in line with your rights under the CPA. After the first request, Dashtoon may charge such amount as may be required to process such requests;<br></br>
+                <b>1.6</b> Dashtoon shall not discriminate against you for exercising any of these rights, which is further in line with your rights under the CPA. After the first request, Dashtoon may charge such amount as may be required to process such requests;<br></br><br></br>
 
-                <b>1.7</b> To exercise your rights, contact us by emailing at the E-mail ID mentioned in Section 18.2 (Customer Services). . To opt out of the use of cookies on our sites for interest-based advertising purposes, follow the instructions in this Privacy Policy.<br></br>
+                <b>1.7</b> To exercise your rights, contact us by emailing at the E-mail ID mentioned in Section 18.2 (Customer Services). . To opt out of the use of cookies on our sites for interest-based advertising purposes, follow the instructions in this Privacy Policy.<br></br><br></br>
 
-                <b>1.8</b> We will acknowledge receipt of your request within 3 (three) business days, and provide a substantive response within 45 (forty five) calendar days, thereafter you shall have the right to appeal within 15 (fifteen) business days.<br></br>
+                <b>1.8</b> We will acknowledge receipt of your request within 3 (three) business days, and provide a substantive response within 45 (forty five) calendar days, thereafter you shall have the right to appeal within 15 (fifteen) business days.<br></br><br></br>
 
                 <b>1.9</b> On receipt of your appeal, Dashtoon shall provide a substantive response within 45 (forty-five) calendar days or inform you of the reason and extension period of an additional 60 (sixty) days (total up to 105 (one hundred and five) days) in writing. In the event that you are dissatisfied, you have the right to approach the Attorney General of Colorado.</p>
         </div>

@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Home from './Pages/Home/Home';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import About from './Pages/About/About';
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "./Pages/TermsAndConditions/TermsAndConditions";
 
 function App() {
     return (
@@ -17,6 +17,7 @@ function App() {
                     }
                     />
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                 </Route>
             </Routes>
         </div>
