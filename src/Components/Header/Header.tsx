@@ -1,88 +1,163 @@
-import { Outlet, Link, useNavigate } from "react-router-dom";
-import './Header.css'
-import Logo from '../../Assets/Images/dashtoon-logo.png'
-import { useEffect, useState } from "react";
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import './Header.css';
+import Logo from '../../Assets/Images/dashtoon-logo.png';
+import { useEffect, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-
 const Header = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [toggleMenu, setToggleMenu] = useState(true)
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [toggleMenu, setToggleMenu] = useState(true);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
+  useEffect(() => {
+    const changeWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
 
-        const changeWidth = () => {
-          setScreenWidth(window.innerWidth);
-        }
-    
-        window.addEventListener('resize', changeWidth)
-    
-        return () => {
-            window.removeEventListener('resize', changeWidth)
-        }
-      }, [])
+    window.addEventListener('resize', changeWidth);
 
-    const toggleNav = () => {
-        setToggleMenu(!toggleMenu)
-        console.log(toggleMenu)
-      }
+    return () => {
+      window.removeEventListener('resize', changeWidth);
+    };
+  }, []);
+
+  const toggleNav = () => {
+    setToggleMenu(!toggleMenu);
+    console.log(toggleMenu);
+  };
 
   return (
     <>
-        <nav>
-        {(toggleMenu || screenWidth > 500) ? (
-        <div className="navbar">
-            <div >
-                <img className="logo" src={Logo} alt="logo"/>
+      <nav>
+        {toggleMenu || screenWidth > 500 ? (
+          <div className='navbar'>
+            <div>
+              <img className='logo' src={Logo} alt='logo' />
             </div>
-            <div className="links">
-                <div className="link" onClick={() => { navigate('/')}}>
-                    Home
-                </div>
-                <div className="link" onClick={() => { window.open('https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36', '_blank')}}>
-                    Careers
-                </div>
-                <div className="link" onClick={() => {navigate('/about-us'); }}> 
-                    About Us
-                </div>
+            <div className='links'>
+              <div
+                className='link'
+                onClick={() => {
+                  navigate('/');
+                }}
+              >
+                Home
+              </div>
+              <div
+                className='link'
+                onClick={() => {
+                  window.open(
+                    'https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36',
+                    '_blank'
+                  );
+                }}
+              >
+                Careers
+              </div>
+              <div
+                className='link'
+                onClick={() => {
+                  navigate('/about-us');
+                }}
+              >
+                About Us
+              </div>
+              <div
+                className='link'
+                onClick={() => {
+                  navigate('/privacy-policy');
+                }}
+              >
+                Privacy Policy
+              </div>
+              <div
+                className='link'
+                onClick={() => {
+                  navigate('/terms-and-conditions');
+                }}
+              >
+                Terms & Conditions
+              </div>
             </div>
-        </div>
-        ): 
-        (
-            
-            <div className="toggledNavbar">
-           
-            <div className="linksToggled">
-                <div className="linkToggled" onClick={() => {toggleNav(); navigate('/')}}>
-                    Home
-                </div>
-                <div className="linkToggled" onClick={() => {toggleNav(); window.open('https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36', '_blank')}}>
-                    Careers
-                </div>
-                <div className="linkToggled" onClick={() => {toggleNav(); navigate('/about-us'); }}> 
-                    About Us
-                </div>
+          </div>
+        ) : (
+          <div className='toggledNavbar'>
+            <div className='linksToggled'>
+              <div
+                className='linkToggled'
+                onClick={() => {
+                  toggleNav();
+                  navigate('/');
+                }}
+              >
+                Home
+              </div>
+              <div
+                className='linkToggled'
+                onClick={() => {
+                  toggleNav();
+                  window.open(
+                    'https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36',
+                    '_blank'
+                  );
+                }}
+              >
+                Careers
+              </div>
+              <div
+                className='linkToggled'
+                onClick={() => {
+                  toggleNav();
+                  navigate('/about-us');
+                }}
+              >
+                About Us
+              </div>
+              <div
+                className='linkToggled'
+                onClick={() => {
+                  navigate('/privacy-policy');
+                }}
+              >
+                Privacy Policy
+              </div>
+              <div
+                className='linkToggled'
+                onClick={() => {
+                  navigate('/terms-and-conditions');
+                }}
+              >
+                Terms & Conditions
+              </div>
             </div>
-        </div>
+          </div>
         )}
 
-
-
-
-            {toggleMenu ? (   <IconButton className="btn" onClick={() => toggleNav()} aria-label="delete" size="large">
-     <MenuIcon fontSize="inherit" />
-</IconButton>) : (   <IconButton className="btn" onClick={() => toggleNav()} aria-label="delete" size="large">
-     <CloseIcon fontSize="inherit" />
-</IconButton>)}
-     
-        </nav>
-
+        {toggleMenu ? (
+          <IconButton
+            className='btn'
+            onClick={() => toggleNav()}
+            aria-label='delete'
+            size='large'
+          >
+            <MenuIcon fontSize='inherit' />
+          </IconButton>
+        ) : (
+          <IconButton
+            className='btn'
+            onClick={() => toggleNav()}
+            aria-label='delete'
+            size='large'
+          >
+            <CloseIcon fontSize='inherit' />
+          </IconButton>
+        )}
+      </nav>
     </>
-  )
+  );
 };
 
 export default Header;
