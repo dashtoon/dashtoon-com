@@ -1,10 +1,10 @@
 .navbar {
   display: flex;
-  background-color: rgba(206, 54, 92, 1);
+  background-color: #000000;
   justify-content: space-between;
   align-items: center;
   padding: 0 2%;
-  height: 6vh;
+  padding-top: 1%;
   position: fixed;
   top: 0;
   width: 96%;
@@ -13,18 +13,32 @@
 .links {
   display: flex;
   justify-content: space-between;
-  width: 600px;
+  width: 400px;
   color: white;
-  font-family: 'Sora', sans-serif;
-  font-size: 1.125rem;
+  font-size: 24px;
   font-weight: 400;
 }
 
-.logo {
-  width: 20px;
-  height: 20px;
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
+.logo-with-text {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+}
 .link {
   cursor: pointer;
   padding-right: 2%;
@@ -34,6 +48,34 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+.read-button {
+  background: rgba(237, 15, 95, 0.94);
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #000000;
+  font-family: Poppins, sans-serif;
+  border: none;
+}
+
+.read-button {
+  background: rgba(237, 15, 95, 0.94);
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #000000;
+  font-family: Poppins, sans-serif;
+  border: none;
+}
+
+.read-button:hover {
+  background: rgba(237, 15, 95, 1);
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .list {

@@ -34,8 +34,9 @@ const Header = () => {
       <nav>
         {toggleMenu || screenWidth > 500 ? (
           <div className='navbar'>
-            <div>
+            <div className='logo-with-text'>
               <img className='logo' src={Logo} alt='logo' />
+              <span className='logo-text'>DASHTOON</span>
             </div>
             <div className='links'>
               <div
@@ -44,7 +45,15 @@ const Header = () => {
                   navigate('/');
                 }}
               >
-                Home
+                home
+              </div>
+              <div
+                className='link'
+                onClick={() => {
+                  navigate('/about-us');
+                }}
+              >
+                about us
               </div>
               <div
                 className='link'
@@ -55,33 +64,13 @@ const Header = () => {
                   );
                 }}
               >
-                Careers
-              </div>
-              <div
-                className='link'
-                onClick={() => {
-                  navigate('/about-us');
-                }}
-              >
-                About Us
-              </div>
-              <div
-                className='link'
-                onClick={() => {
-                  navigate('/privacy-policy');
-                }}
-              >
-                Privacy Policy
-              </div>
-              <div
-                className='link'
-                onClick={() => {
-                  navigate('/terms-and-conditions');
-                }}
-              >
-                Terms & Conditions
+                careers
               </div>
             </div>
+            <div style={{ width: '10%' }}></div>
+            {/* <div>
+              <button className='read-button'>Read Now</button>
+            </div> */}
           </div>
         ) : (
           <div className='toggledNavbar'>
@@ -116,22 +105,6 @@ const Header = () => {
               >
                 About Us
               </div>
-              <div
-                className='linkToggled'
-                onClick={() => {
-                  navigate('/privacy-policy');
-                }}
-              >
-                Privacy Policy
-              </div>
-              <div
-                className='linkToggled'
-                onClick={() => {
-                  navigate('/terms-and-conditions');
-                }}
-              >
-                Terms & Conditions
-              </div>
             </div>
           </div>
         )}
@@ -143,7 +116,7 @@ const Header = () => {
             aria-label='delete'
             size='large'
           >
-            <MenuIcon fontSize='inherit' />
+            <MenuIcon color={'info'} fontSize='inherit' />
           </IconButton>
         ) : (
           <IconButton

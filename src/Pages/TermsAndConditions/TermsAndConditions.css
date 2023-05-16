@@ -1,33 +1,32 @@
 .terms-and-conditions-container {
-    width: 80%;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    text-align: left;
-    padding: 30px;
-    box-sizing: border-box;
+  width: 80%;
+  margin: 5% auto;
+  text-align: left;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 body {
-    color: white;
-    padding: 10px;
+  color: white;
+  padding: 10px;
 }
 
 a {
-    color: white;
+  color: white;
 }
 
 h1 {
-    font-size: 32px;
-    margin-bottom: 30px;
+  font-size: 32px;
+  margin-bottom: 30px;
 }
 
 h2 {
-    font-size: 24px;
-    margin: 40px 0 20px;
+  font-size: 24px;
+  margin: 40px 0 20px;
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }

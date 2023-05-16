@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: landing-page-com
+  name: landing-page-com
+spec:
+  selector:
+    matchLabels:
+      app: landing-page-com
+  template:
+    metadata:
+      labels:
+        app: landing-page-com
+    spec:
+      containers:
+        - image: dashtoon.azurecr.io/landing-page-com
+          imagePullPolicy: Always
+          name: landing-page-com
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata: name:landing-page-com-service
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: landing-page-com
+  sessionAffinity: None
+  type: ClusterIP

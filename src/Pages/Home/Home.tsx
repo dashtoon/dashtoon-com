@@ -1,42 +1,76 @@
 import React from 'react';
-import './Home.css'
-import Logo from '../../Assets/Images/logotext.png'
+import './Home.css';
+import Logo from '../../Assets/Images/image1.png';
+
 import CustomizedButton from '../../Components/Button/Button';
+import { Button, Divider } from '@mui/material';
+import HorizontalImageList from '../../Components/HorizontalImageList/HorizontalImageList';
+import RomanceImage from '../../Assets/Images/Romance.png';
+import ThrillerImage from '../../Assets/Images/Thriller.png';
+import FantasyImage from '../../Assets/Images/Fantasy.png';
+import ActionImage from '../../Assets/Images/Action.png';
+import Footer from '../../Components/Footer/Footer';
 
 const Home = () => {
+  const images = [
+    { imageSrc: RomanceImage, name: 'Romance' },
+    { imageSrc: ThrillerImage, name: 'Thriller' },
+    { imageSrc: ActionImage, name: 'Action' },
+    { imageSrc: FantasyImage, name: 'Comedy, Fantasy & Much More' },
+  ];
 
-    const handleMailButton = () => {
-        window.open('https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=contact@dashtoon.com', '_blank')
-    }
-
-    const handleComingSoonButton = () => {
-        
-    }
-    return(
-        <>
-            <div className='home'>
-                <div style={{paddingTop: '5%'}}>
-                    <img className='main-logo' src={Logo} alt="logo"/>
-                </div>
-                <div className='content'>
-                    Lightning Fast Comics, Like Never 
-                    Before
-                </div>
-                <div className='sub-content'>
-                    Dashtoon aims to revolutionise webcomics and introduce you to storytelling like never before! 
-                </div>
-                <div className='actions'>
-                   <div>
-                   <CustomizedButton onClick={handleComingSoonButton}title='Coming Soon!' color='white' backgroundColor='#9f0521' hoverBackgroundColor='#ca0227' type='none'/>
-                    </div>
-                    <div style={{paddingTop: '10px'}}>
-                    <CustomizedButton onClick={handleMailButton} title='contact@dashtoon.com' color='white' backgroundColor='#9f0521' hoverBackgroundColor='#ca0227' type='mail'/>
-                    </div>
-
-                </div>
-            </div>
-        </>
+  const GooglePlayButton: React.FC = () => {
+    return (
+      <a href='https://play.google.com/store'>
+        <img
+          src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'
+          alt='Get it on Google Play'
+          className='google-play-button'
+        />
+      </a>
     );
-}
+  };
 
-export default Home
+  const AppStoreButton: React.FC = () => {
+    return (
+      <a href='https://www.apple.com/app-store/'>
+        <img
+          src='https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png'
+          alt='Download on the App Store'
+          className='app-store-button'
+        />
+      </a>
+    );
+  };
+
+  return (
+    <>
+      <div className='home'>
+        <div style={{ paddingTop: '5%' }}></div>
+        <div className='main-content'>
+          <div className='content'>
+            <div>The World's Best Comics Have a New Home</div>
+            <div className='sub-content'>
+              No more waiting for weeks, daily new episodes
+            </div>
+            <div className='buttons-container'>
+              <GooglePlayButton />
+              <AppStoreButton />
+            </div>
+          </div>
+          <div>
+            <img className='main-logo' src={Logo} alt='logo' />
+          </div>
+        </div>
+        <div className='genre'>
+          <h1>All the Genres you love</h1>
+          <HorizontalImageList images={images} />
+        </div>
+
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default Home;

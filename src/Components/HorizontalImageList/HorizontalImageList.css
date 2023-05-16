@@ -1,0 +1,6 @@
+.horizontal-image-list {
+  display: flex;
+  overflow-x: auto;
+  overflow: auto;
+  padding: 10px;
+}

@@ -1,69 +1,214 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
-.home{
-    background-color: #ce365b;
-    min-height: 94vh;
+.home {
+  background-color: #000000;
+  min-height: 94vh;
+  margin-top: 6vh;
+  padding-bottom: 10px;
+}
+
+.main-logo {
+  width: 500px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+}
+
+.content {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: white;
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 2%;
+}
+
+.sub-content {
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  margin-top: 10%;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.google-play-button {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+  width: 160px;
+  height: 70px;
+}
+
+.app-store-button {
+  margin-top: 10px;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  height: 50px;
+}
+
+.google-play-button:hover,
+.app-store-button:hover {
+  transform: scale(1.1);
+}
+
+.genre {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-with-text1 {
+  display: flex;
+  align-items: center;
+}
+
+.logo1 {
+  width: 30px;
+  height: 30px;
+}
+
+.logo-text1 {
+  font-weight: 700;
+  font-size: 16;
+  color: white;
+}
+
+.mail {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.icon-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.icon-button:hover {
+  background-color: grey;
+}
+
+.icon {
+  color: white;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 950px) {
+  .home {
+    background-color: #000000;
+    height: 94vh;
     margin-top: 6vh;
-    padding-bottom: 10px;
-}
+  }
 
-.main-logo{
-    width: 500px;
-}
+  .main-logo {
+    width: 300px;
+  }
 
-.content{
-    font-family: 'Sora', sans-serif;
-    font-size: 3.25rem;
+  .content {
+    font-size: 1.25rem;
     font-weight: 800;
     color: white;
-    width: 50%;
-    margin: 0 auto;
-    
+    line-height: 25px;
     padding-top: 2%;
-}
+    width: 80%;
+  }
 
-.sub-content{
-    font-family: 'Sora', sans-serif;
-    font-size: 1.125rem;
+  .sub-content {
+    font-size: 1;
     font-weight: 400;
-    color: white; 
+    color: white;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .google-play-button,
+  .app-store-button {
+    width: 200px;
+    height: 60px;
+  }
+
+  .genre {
+    margin-top: 5%;
+  }
 }
 
-.actions{
-    padding-top: 2%;
-}
+@media only screen and (max-width: 600px) {
+  .home {
+    padding-top: 10%;
+  }
 
+  .main-logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
 
+  .main-content {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+  }
 
-@media only screen and (max-width: 950px){
-    .home{
-        background-color: #ce365b;
-        height: 94vh;
-        margin-top: 6vh;
-    }
-    
-    .main-logo{
-        width: 300px;
-    }
-    
-    .content{
-        font-family: 'Sora', sans-serif;
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: white;
-        line-height: 25px;
-        padding-top: 2%;
-        width: 80%
-    }
-    
-    .sub-content{
-        font-family: 'Sora', sans-serif;
-        font-size: 1;
-        font-weight: 400;
-        color: white; 
-    }
-    
-    .actions{
-        padding-top: 2%;
-    }
+  .content {
+    font-size: 2rem;
+    width: 90%;
+    text-align: center;
+  }
+
+  .sub-content {
+    font-size: 16px;
+    margin-top: 5%;
+    text-align: center;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+  .google-play-button,
+  .app-store-button {
+    width: 200px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+
+  .genre {
+    margin-top: 10%;
+  }
+
+  .genre h1 {
+    font-size: 1.5rem;
+  }
+
+  .genre .horizontal-image-list {
+    flex-direction: column;
+    align-items: center;
+  }
 }
