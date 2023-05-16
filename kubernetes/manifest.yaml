@@ -25,7 +25,8 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-metadata: name:landing-page-com-service
+metadata:
+  name: landing-page-com-service
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
