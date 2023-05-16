@@ -7,6 +7,7 @@ import {
 } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import LogoText from '../../Assets/Images/dashtoon-logo.png';
+import './Footer.css';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const Footer = () => {
   return (
     <>
       <div
+        className='lower-div'
         style={{
           display: 'flex',
           flexDirection: 'row',
@@ -105,32 +107,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          width: '80%',
-          height: '1px',
-          backgroundColor: 'white',
-          margin: '20px auto',
-        }}
-      ></div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: '80%',
-          margin: '20px auto',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div>© 2022 Dashtoon. All right reserved.</div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            width: '30%',
-            justifyContent: 'space-between',
-          }}
-        >
+      <div className='divider'></div>
+      <div className='footer-actions'>
+        <div className='copyright'>© 2022 Dashtoon. All right reserved.</div>
+        <div className='links-bar'>
           <div
             className='link'
             onClick={() => {

@@ -34,7 +34,7 @@ const Header = () => {
       <nav>
         {toggleMenu || screenWidth > 500 ? (
           <div className='navbar'>
-            <div className='logo-with-text'>
+            <div className='logo-with-text' onClick={() => navigate('/')}>
               <img className='logo' src={Logo} alt='logo' />
               <span className='logo-text'>DASHTOON</span>
             </div>
@@ -116,7 +116,7 @@ const Header = () => {
             aria-label='delete'
             size='large'
           >
-            <MenuIcon color={'info'} fontSize='inherit' />
+            <MenuIcon sx={{ color: 'white' }} fontSize='inherit' />
           </IconButton>
         ) : (
           <IconButton

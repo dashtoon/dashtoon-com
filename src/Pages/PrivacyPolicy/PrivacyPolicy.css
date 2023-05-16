@@ -30,3 +30,14 @@ p {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 950px) {
+  .privacy-policy-container {
+    width: 100%;
+    margin: 5% auto;
+    text-align: left;
+    padding: 30px;
+    box-sizing: border-box;
+    margin-top: 5vh;
+  }
+}
