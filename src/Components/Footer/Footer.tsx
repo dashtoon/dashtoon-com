@@ -19,7 +19,8 @@ const Footer = () => {
   };
 
   const handleInstagramClick = () => {
-    window.location.href = 'https://www.instagram.com/dashtoon_/';
+    window.location.href =
+      'https://instagram.com/comicsbydash?igshid=MzRlODBiNWFlZA==';
   };
 
   const handleYoutubeButton = () => {
@@ -75,7 +76,7 @@ const Footer = () => {
               <FaTwitter className='icon' />
             </a>
             <a
-              href='https://www.instagram.com/dashtoon_/'
+              href='https://instagram.com/comicsbydash?igshid=MzRlODBiNWFlZA=='
               className='icon-button'
               onClick={handleInstagramClick}
             >

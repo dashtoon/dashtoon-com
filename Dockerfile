@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build app
-RUN npm build
+RUN npm run build
 
 # Stage 2 - Create the run-time image
 FROM nginx:stable

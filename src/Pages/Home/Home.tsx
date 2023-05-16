@@ -21,7 +21,7 @@ const Home = () => {
 
   const GooglePlayButton: React.FC = () => {
     return (
-      <a href='https://play.google.com/store'>
+      <a href='https://play.google.com/store/apps/details?id=com.dashtoon.app'>
         <img
           src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'
           alt='Get it on Google Play'
@@ -33,7 +33,7 @@ const Home = () => {
 
   const AppStoreButton: React.FC = () => {
     return (
-      <a href='https://www.apple.com/app-store/'>
+      <a href='https://apps.apple.com/us/app/dashtoon-comics-graphic-novels/id1661508865'>
         <img
           src='https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png'
           alt='Download on the App Store'
