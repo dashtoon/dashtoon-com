@@ -96,6 +96,15 @@ const Footer = () => {
         <div>
           <div
             onClick={() => {
+              navigate('/bug-bounty');
+            }}
+            className='mail'
+            style={{ marginBottom: '10%' }}
+          >
+            Bug Bounty
+          </div>
+          <div
+            onClick={() => {
               window.open(
                 'https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36',
                 '_blank'
