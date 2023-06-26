@@ -67,7 +67,7 @@ const BugBounty = () => {
         <p>
           The current scope is limited to: <br></br> dashtoon.com <br></br>{' '}
           auth.dashtoon.com <br></br>
-          web.dashtoon.com <br></br> Dashtoon Android/iOS application
+          Dashtoon Android/iOS application
         </p>
         <h2>Rewards Structure</h2>
         <p>
