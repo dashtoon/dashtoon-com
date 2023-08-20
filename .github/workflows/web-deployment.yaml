@@ -3,7 +3,7 @@ name: landing-page-deploy-image
 on:
   push:
     branches:
-      - main
+      - '*'
 
 jobs:
   build:
@@ -58,14 +58,14 @@ jobs:
       - name: Set the Kubernetes context
         uses: azure/aks-set-context@v3
         with:
-          resource-group: rg-k8s-cen
-          cluster-name: k8s-cen
+          resource-group: rg-k8s-west-us
+          cluster-name: k8s-west-us
         id: login
       - name: Deploying
         uses: azure/k8s-deploy@v4
         with:
-          resource-group: rg-k8s-cen
-          name: k8s-cen
+          resource-group: rg-k8s-west-us
+          name: k8s-west-us
           action: deploy
           strategy: basic
           private-cluster: true
