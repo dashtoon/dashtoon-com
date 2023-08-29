@@ -25,7 +25,7 @@ const Footer = () => {
   };
 
   const handleYoutubeButton = () => {
-    window.location.href = 'https://www.youtube.com/@dashtoon_/featured';
+    window.location.href = 'https://www.youtube.com/@dashtoonapp/featured';
   };
 
   const handleMailButton = () => {
