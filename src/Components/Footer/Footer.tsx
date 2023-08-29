@@ -85,7 +85,7 @@ const Footer = () => {
               <FaInstagram className='icon' />
             </a>
             <a
-              href='https://www.youtube.com/@dashtoon_/featured'
+              href='https://www.youtube.com/@dashtoonapp/featured'
               className='icon-button'
               onClick={handleYoutubeButton}
             >
