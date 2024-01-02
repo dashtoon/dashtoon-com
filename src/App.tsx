@@ -1,13 +1,15 @@
 import React from 'react';
-import {CssBaseline} from "@mui/material";
+import {Box, createTheme, CssBaseline} from "@mui/material";
 import PageRoutes from "./Components/PageRoutes/PageRoutes";
+
+const materialTheme = createTheme();
 
 const App = () => {
     return (
-        <div className='App'>
+        <Box>
             <CssBaseline/>
             <PageRoutes/>
-        </div>
+        </Box>
     );
 };
 
