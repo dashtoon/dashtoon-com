@@ -3,7 +3,7 @@ import './Home.css';
 import Logo from '../../Assets/Images/image1.png';
 
 import CustomizedButton from '../../Components/Button/Button';
-import { Button, Divider } from '@mui/material';
+import {Button, Divider, Typography} from '@mui/material';
 import HorizontalImageList from '../../Components/HorizontalImageList/HorizontalImageList';
 import RomanceImage from '../../Assets/Images/Romance.png';
 import ThrillerImage from '../../Assets/Images/Thriller.png';

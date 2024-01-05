@@ -1,0 +1,1 @@
+export const getREM = (px: number) => `${px * 0.06}rem`
