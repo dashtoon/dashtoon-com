@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web-app
+  name: dash-web
+spec:
+  selector:
+    matchLabels:
+      app: dash-web
+  template:
+    metadata:
+      labels:
+        app: dash-web
+    spec:
+      containers:
+      - image: dashtoon.azurecr.io/dash-web
+        imagePullPolicy: Always
+        name: dash-web
+        ports:
+          - containerPort: 80
+            name: http
+            protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dash-web-service
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: dash-web
+  sessionAffinity: None
+  type: ClusterIP
+
