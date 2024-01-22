@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap');
+
+.episode-list-web {
+    background: #232222;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*padding: 16px;*/
+    width: 100%; /* Adjust this width as necessary */
+    height: 878px; /* Give a fixed height to the container */
+    overflow-y: auto; /* Allow scrolling within the container */
+}
+
+.show-info-container-web {
+    display: flex;
+    justify-content: space-between; /* This will space items apart */
+    align-items: center;
+    padding: 8px 2px 8px 2px;
+    width: 100%; /* Updated width to use the full container width */
+    box-sizing: border-box;
+}
+
+.show-info-web {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This will vertically center the children */
+    align-items: start; /* Align text to the start (left) */
+    /* New Styles Below */
+    padding: 0 16px;
+    color:  #FCFCFC;
+    font-family: Outfit, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+}
+
+.episodes-web {
+    display: flex;
+    flex-direction: column; /* Stack episodes vertically */
+}
+
+.episode-item-web {
+    border-radius: 16px;
+    align-items: center;
+    width: calc(100% - 32px);
+    background-color: #2D2B2B;
+    overflow: hidden; /* ensures no content spills out */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow */
+    display: flex;
+    gap: 8px;
+    padding: 0 8px 0 8px;
+    flex-direction: row; /* Separator between episode items */
+    margin-right: auto; /* Ensures alignment to the left */
+    margin-left: auto;
+    margin-bottom: 8px;
+}
+
+.episode-thumbnail-web {
+    flex-shrink: 0;
+    width: 50px; /* Set a fixed width for the thumbnail */
+    height: 50px; /* Set the height equal to width to keep it square */
+    border-radius: 4px; /* Adjust border-radius as needed */
+    overflow: hidden; /* Hide overflow */
+    /* If img is a child element of episode-thumbnail-web, ensure it covers the full area: */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.episode-thumbnail-web img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures the image covers the entire area without distortion */
+    border-radius: 4px; /* Match the parent's border-radius */
+}
+
+.episode-info-web {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    justify-content: flex-start; /* This will vertically center the children */
+    align-items: start; /* Align text to the start (left) */
+    padding: 0 16px 16px 0;
+}
+
+.episode-title-web {
+    font-size: 16px; /* Set the desired font size */
+    color: #FCFCFC; /* Color of the text */ /* Adjust spacing between title and date */
+    display: flex; /* Updated to display flex */
+    align-items: flex-start;
+    margin-bottom: auto;
+    /* Medium 16 */
+    font-family: Geologica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+.episode-date-web {
+    /* Lighter color for the date */
+    color: #535353;
+    /* Medium 12 */
+    font-family: Geologica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
+    display: flex; /* Updated to display flex */
+    align-items: flex-start;
+    margin-bottom: auto;
+}
+
+
+.sort-button-web {
+    background: #212121; /* Black background */
+    border: none;
+
+    border-radius: 45px; /* Optional: rounded corners */
+
+    display: inline-flex;
+    padding: 4px 9px;
+    justify-content: center;
+    align-items: center;
+    gap: -16px;
+
+    color:  #FCFCFC;
+    /* Medium 14 */
+    font-family: Geologica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+}
+.sort-button-icon-web {
+    margin-left: 8px; /* Add space between text and icon */
+}

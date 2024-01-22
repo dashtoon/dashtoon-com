@@ -1,0 +1,305 @@
+/* src/pages/ShowMobile/mobileStyles.css */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap');
+.show-container {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.show-image-container {
+    position: relative;
+    width: 100%;
+    height: 45vh; /* Adjust this to cover less than half of the viewport height */
+    overflow: hidden;
+}
+
+.show-image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+.show-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%; /* Set how large you want the image to be, up to 100% */
+    max-height: 90%;
+    z-index: 2;
+    border-radius: 8px; /* If you want rounded corners on the main image */
+}
+
+.show-details {
+    padding: 14px;
+    border-radius: 12px 12px 0 0; /* Only round the top corners */
+    background: #232222;
+    z-index: 2; /* Ensure the details section is above the image container */
+    position: relative; /* Add relative for stacking context */
+    box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5); /* Add a shadow to lift the detail panel */
+    /* Remove negative margin-top if it's causing the issue */
+}
+
+/*!* Additional layer to overlap the image container *!*/
+/*.show-details:before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: -10px; !* Adjust this value to overlap the amount you want *!*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    height: 10px; !* Same as the negative offset to create a smooth transition *!*/
+/*    background: #232222; !* Same background as .show-details *!*/
+/*    border-radius: 12px 12px 0 0; !* Rounded top corners *!*/
+/*    z-index: -1; !* Set behind .show-details content, but above .show-image-background *!*/
+/*}*/
+
+.show-title {
+    /* Styles for the show title */
+    text-align: left;
+    padding: 0 8px;
+    margin-bottom: 8px;
+    color: #FCFCFC;
+    font-family: Geologica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 30px; /* 150% */
+}
+
+.show-genres {
+    /* Styles for the genre tags */
+    text-align: left;
+    padding: 0 8px;
+    margin-bottom: 8px;
+}
+
+.genre-tag {
+    /* Styles for individual genre tags */
+    color: #fff; /* White text color */
+    background-color:  #535353;
+    border-radius: 45px;
+    padding: 4px 8px; /* Padding inside the tags */
+    display: inline-block; /* Display tags inline */
+    margin-right: 8px;
+    font-family: Geologica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 16.8px */
+}
+
+.description-container {
+    position: relative;
+    text-align: left;
+    padding: 0 8px;
+}
+
+.show-description {
+    /* Styles for the initial display of the description */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px; /* Adjust spacing as needed */
+    position: relative; /* Add relative positioning */
+    color:  #898989;
+    /* Regular 14 Body */
+    font-family: Geologica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 22.4px */
+}
+
+.show-description.expanded {
+    /* Styles for the expanded description */
+    display: block;
+}
+
+.read-more-button {
+    /* Styles for the 'Read More' button */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    padding: 0; /* Remove padding */
+    cursor: pointer;
+    color:  #898989;
+    /* Regular 14 Body */
+    font-family: Geologica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 22.4px */
+}
+
+
+.read-episode-button {
+    /* Styles for the 'Read Free Episode' button */
+    border-radius: 12px;
+    background: #9FF; /* Fallback color is #9FF if --Primary-Color is not defined */
+    box-shadow: 0px -3px 41px 0px rgba(0, 0, 0, 0.37);
+    padding: 10px 8px; /* Vertical and horizontal padding */
+    width: calc(100% - 16px); /* 100% of the container's width minus both left and right margins */
+    box-sizing: border-box;
+
+    display: inline-flex;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    /* Text styling inside the button */
+    color: #030303; /* Fallback color is #030303 if --Primary-Black is not defined */
+    font-family: 'Geologica', sans-serif; /* Ensure that the 'Geologica' font is either imported or available on the system */
+    font-size: 16px;
+    font-style: normal;
+    line-height: 24px; /* 150% */
+
+    /* Existing styles */
+    border: none; /* No border */
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.episode-list {
+    background: #232222; /* Dark background color for the episode list */
+    border-radius: 8px; /* Rounded corners for the episode list container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow-y: auto; /* Enable vertical scrolling */
+    width: 100%; /* Set width to 100% to prevent overflow */
+    max-width: 100vw;
+}
+
+.show-info-container {
+    display: flex;
+    justify-content: space-between; /* This will space items apart */
+    align-items: center;
+    padding: 4px 2px 4px 2px;
+    width: 100%; /* Updated width to use the full container width */
+    box-sizing: border-box;
+}
+
+.show-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This will vertically center the children */
+    align-items: start; /* Align text to the start (left) */
+    /* New Styles Below */
+    padding: 0 8px 0 8px;
+    color:  #C9C9C9;
+    /* Medium 16 */
+    font-family: Geologica, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+
+/* Styles for Each Episode Card */
+.episode-item {
+    border-radius: 20px;
+    align-items: center;
+    background-color: #2D2B2B;
+    overflow: hidden; /* ensures no content spills out */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow */
+    display: flex;
+    gap: 16px;
+    padding: 0 8px 0 8px;
+    flex-direction: row; /* Separator between episode items */
+    margin-right: auto; /* Ensures alignment to the left */
+    margin-left: auto;
+    margin-bottom: 8px;
+}
+
+.episode-thumbnail {
+    flex-shrink: 0;
+    width: 50px; /* Set a fixed width for the thumbnail */
+    height: 50px; /* Set the height equal to width to keep it square */
+    border-radius: 4px; /* Adjust border-radius as needed */
+    overflow: hidden; /* Hide overflow */
+    /* If img is a child element of episode-thumbnail-web, ensure it covers the full area: */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.episode-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures the image covers the entire area without distortion */
+    border-radius: 4px; /* Match the parent's border-radius */
+}
+
+/* Styles for the Episode Info right of the Thumbnail */
+.episode-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* This will vertically center the children */
+    align-items: start; /* Align text to the start (left) */
+    padding: 0 16px 16px 0;
+}
+
+.episode-title {
+    font-size: 16px; /* Set the desired font size */
+    color: #ffffff; /* Color of the text */ /* Adjust spacing between title and date */
+    display: flex; /* Updated to display flex */
+    align-items: flex-start;
+    margin-bottom: auto;
+    font-family: Geologica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+
+.episode-date {
+     /* Lighter color for the date */
+    display: flex; /* Updated to display flex */
+    align-items: flex-start;
+    margin-bottom: auto;
+    color: #535353;
+    /* Medium 12 */
+    font-family: Geologica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
+
+}
+
+.episode-free-tag {
+    background-color: #4CAF50; /* Green background for the free tag */
+    color: #ffffff; /* White color for the tag text */
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 12px; /* Adjust the font size for the tag */
+    align-self: flex-start; /* Align to the start of the flex container */
+}
+
+.sort-button::before {
+    content: '|'; /* This is the vertical bar separator */
+    margin-right: 8px; /* Right margin to create space after the bar */
+    color: inherit;
+}
+
+.sort-button {
+    background: transparent;
+    border: none;
+    color:  #C9C9C9;
+    /* Medium 14 */
+    font-family: Geologica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+}
+
+/* Add more specific styles as needed */

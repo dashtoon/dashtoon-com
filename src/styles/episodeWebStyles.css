@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap');
+
+.episode-container-web {
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    background: #000; /* Black background */
+}
+
+.episode-navigation-bar-web {
+    color: #212121;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding:4px;
+    background: #212121; /* Darker color for the top bar */
+    border-bottom: 0;
+}
+
+.back-button-web {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.nav-text-web {
+    display: flex;
+    margin-left: 8px;
+    flex-direction: column;
+    gap: 1px;
+    align-items: flex-start;
+    padding-left: 36px;
+    width: 100%;
+    color:  #FCFCFC;
+    font-family: Outfit, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+}
+.nav-text-web div:last-child {
+    color: #898989; /* Color for currentEpisode?.name */
+    font-family: Geologica, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 175% */
+}
+
+.top-bar-web {
+    border-bottom: 0px;
+}
+
+.episode-images-web {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.episode-panel-web {
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.nav-button-web {
+    background-color: transparent;
+    color: #FCFCFC;
+    border: none;
+    font-family: Geologica, sans-serif;
+    font-weight: 500;
+    width: auto;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 24px;
+    /*line-height: 24px;*/
+    padding: 12px 20px; /* Adjust padding for wider buttons */
+    cursor: pointer;
+    margin-left: 8px; /* Add some margin between buttons */
+}
+
+.bottom-bar-web {
+    display: none; /* Hide the bottom bar */
+}

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap');
+
+
+.show-details-web {
+    /* Container styles to center the card */
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    align-items: flex-start;
+    max-width: 750px; /* Set the maximum width for larger screens */
+    width: 100%; /* Take the full width for small to medium screens */
+    margin: auto;
+    background: #232222;
+    border-radius: 24px;
+    padding: 24px;
+    box-sizing: border-box; /* Padding is included in the width */
+}
+
+.show-image-web {
+    display: block; /* Remove any default inline properties */
+    width: 100%; /* Set the image to expand to the full width of its parent */
+    height: auto; /* Keep image aspect ratio */
+    border-radius: 24px; /* Rounded corners for the image */
+    margin-bottom: 0px;
+}
+
+.show-title-web {
+    text-align: center;
+    margin-bottom: 8px;
+    font-family: Geologica, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    padding: 0;
+    font-weight: 700;
+    line-height: 125%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.show-genres-web {
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: row;
+}
+
+.genre-tag-web {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 45px;
+    gap: 10px;
+    color: #fff; /* White text color */
+    background-color: #535353;
+    margin-right: 8px;
+    font-family: Geologica, sans-serif;
+    padding: 10px 13px 10px 13px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.description-container-web {
+    position: relative;
+    text-align: left;
+    padding: 0;
+}
+
+.show-description-web {
+
+    color: #999;
+    font-family: Geologica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px; /* Adjust spacing as needed */
+    position: relative;
+    text-align: left/* Space for Read More button */
+}
+
+.read-more-button-web {
+    color : #999;
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    padding: 0; /* Remove padding */
+    cursor: pointer;
+    font-family: Geologica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px; /* Adjust spacing as needed */
+    position: relative;
+    text-align: left/* Space for Read More button */
+}
+
+.read-episode-button-web {
+
+    color:  #030303;
+    font-family: Geologica,sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
+    border-radius: 12px;
+    background: #9FF; /* Fallback color is #9FF if --Primary-Color is not defined */
+    box-shadow: 0px -3px 41px 0px rgba(0, 0, 0, 0.37);
+    margin: 0 8px;
+    padding: 10px 20px; /* Vertical and horizontal padding */
+    width: calc(100% - 16px); /* 100% of the container's width minus both left and right margins */
+    box-sizing: border-box;
+
+    display: inline-flex;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    /* Existing styles */
+    border: none; /* No border */
+    cursor: pointer;
+    margin-bottom: 2px;
+}
