@@ -1,7 +1,7 @@
-// import { config } from '../Config/Config';
+import { config } from '../Config/Config';
 import { auth } from '../firebaseConfig';
 
-const baseUrl = 'https://dev-api.dashtoon.ai';
+const baseUrl = config.baseUrl;
 
 export const getPathWithPlaceholders = (path: string) => {
     // Define a mapping of known prefixes to their placeholders
