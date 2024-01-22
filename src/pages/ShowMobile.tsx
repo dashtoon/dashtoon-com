@@ -27,6 +27,7 @@ const ShowMobile = () => {
         const fetchShow = async () => {
 
             try {
+
                 await signInAnonymouslyIfNeeded();  // ensure Firebase anonymous auth
                 const metaData: string[] = ['DETAIL_PAGE_THUMBNAIL_V2']; // Specify the metadata you need
                 // const show = await getShowByIdReq('SHOJjHch75Ecbqc6e8V', metaData);
