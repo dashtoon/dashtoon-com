@@ -77,7 +77,10 @@ const ShowMobile = () => {
     const firstEpisode = episodes.find((episode) => episode.sequence === 1);
 
 
-    const firstEpisodeId = firstEpisode?.id || 'defaultEpisodeId';
+    const firstEpisodeId = firstEpisode?.id;
+    if (!firstEpisodeId) {
+        navigate(`/show/${showId}`); // Replace with specific navigation if needed
+    }
 
     return (
         <div className="show-container">

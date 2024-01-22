@@ -41,7 +41,11 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
     const firstEpisode = episodes.find((episode) => episode.sequence === 1);
 
 
-    const firstEpisodeId = firstEpisode?.id || 'defaultEpisodeId';
+    const firstEpisodeId = firstEpisode?.id;
+
+    if (!firstEpisodeId) {
+        navigate(`/show/${showId}`); // Replace with specific navigation if needed
+    }
 
     const genres : string | undefined = showInformation?.genre;
     return (
