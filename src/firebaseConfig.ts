@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth , signInAnonymously} from 'firebase/auth';
 
 const hostname = window.location.hostname;
-const isProduction = hostname === process.env.REACT_APP_DEV_API_BASE_URL;
+const isProduction = hostname === "web.dashtoon.com";
 
 const FIREBASE_CONFIG = {
     apiKey: isProduction
