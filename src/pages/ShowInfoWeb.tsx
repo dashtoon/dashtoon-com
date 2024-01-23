@@ -3,6 +3,7 @@ import '../styles/showInfoWebStyles.css';
 import {Show} from "../types/Show";
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {useNavigate} from "react-router-dom";
+import { getCDNImageUrl } from '../services/cdnImage';
 
 type ShowInfoProps = {
     showId : string;
@@ -31,7 +32,7 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
     };
 
     const goToEpisode = (episodeId: string) => {
-        navigate(`/show/${showId}/episode/${episodeId}`);
+        navigate(`/show/${showId}/episodes/${episodeId}`);
     };
 
 
@@ -43,14 +44,15 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
 
     const firstEpisodeId = firstEpisode?.id;
 
-    if (!firstEpisodeId) {
-        navigate(`/show/${showId}`); // Replace with specific navigation if needed
-    }
+    // if (!firstEpisodeId) {
+    //     navigate(`/show/${showId}`); // Replace with specific navigation if needed
+    // }
 
     const genres : string | undefined = showInformation?.genre;
     return (
         <div className="show-details-web">
-            <img className="show-image-web" src={showThumbnailUrl} alt={showInformation?.name || 'Show cover image'} />
+            {showThumbnailUrl && <img className="show-image-web" src={getCDNImageUrl(showThumbnailUrl, '')}
+                                      alt={showInformation?.name}/>}
             <p className="show-title-web">{showInformation?.name}</p>
             <div className="show-genres-web">
                 {genres?.split(', ').map(genre => (
@@ -67,7 +69,7 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
                     )}
                 </p>
             </div>
-            <button className="read-episode-button-web" onClick={() => goToEpisode(firstEpisodeId)}>Read Free Episode</button>
+            <button className="read-episode-button-web" onClick={() => goToEpisode(firstEpisodeId!)}>Read Free Episode</button>
         </div>
     );
 };

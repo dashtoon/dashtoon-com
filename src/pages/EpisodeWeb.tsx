@@ -7,6 +7,7 @@ import '../styles/episodeWebStyles.css'
 import {getEpisodesList, getPanelsByEpisodeId, getShowByIdReq} from "../services/showService";
 import {FaArrowLeft} from "react-icons/fa";
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
+import {getCDNImageUrl} from "../services/cdnImage";
 
 type RouteParams = {
     showId: string;
@@ -22,6 +23,8 @@ const EpisodeWeb = () => {
     const [panelErrors, setPanelErrors] = useState<{ [key: string]: boolean }>({});
 
     const [showInformation, setShowInformation] = useState<Show>();
+
+   const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchPanels = async () => {
             try {
@@ -40,8 +43,9 @@ const EpisodeWeb = () => {
 
                 setEpisodesInfo(episodeList);
                 // Process the loaded panels as needed
+                setLoading(false);
+                // console.log(loading);
 
-                console.log(panelData);
 
             } catch (error) {
                 console.error('Error fetching panels:', error);
@@ -79,7 +83,7 @@ const EpisodeWeb = () => {
     // Logic to determine previous and next episode IDs
     const goToPrevious = () => {
         if (currentEpisode && currentEpisode?.sequence >= 1) {
-            navigate(`/show/${showId}/episode/${previousEpisodeId}`);
+            navigate(`/show/${showId}/episodes/${previousEpisodeId}`);
         }
     };
 
@@ -98,7 +102,7 @@ const EpisodeWeb = () => {
 
     const goToNext = () => {
         if (currentEpisode && currentEpisode?.sequence < 10) {
-            navigate(`/show/${showId}/episode/${nextEpisodeId}`);
+            navigate(`/show/${showId}/episodes/${nextEpisodeId}`);
         }
     };
 
@@ -106,8 +110,12 @@ const EpisodeWeb = () => {
         navigate(`/show/${showId}`); // Replace with specific navigation if needed
     };
 
+
     return (
         <div className="episode-container-web">
+            {loading && <div className="loading-screen-web">
+                <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
+            </div>}
             <div className="episode-navigation-bar-web top-bar-web">
                 <button onClick={goToShowMobile} className="back-button-web">
                     <FaArrowLeft/>
@@ -128,7 +136,7 @@ const EpisodeWeb = () => {
             <div className="episode-images-web">
                 {panels.map((panel) => (
                     <img
-                        src={panel.imageUrl}
+                        src={getCDNImageUrl(panel.imageUrl, '')}
                         alt={`Panel ${panel.sequence}`}
                         onError={() => handleImageError(panel.imageUrl)}
                         className="episode-panel-web"

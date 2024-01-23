@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/mobileStyles.css';
 import { Episode, EpisodeResponse } from '../types/episodeData';
-
+import {getCDNImageUrl} from "../services/cdnImage";
 type EpisodeListMobileProps = {
     showId: string;
     numberOfEpisode: string;
@@ -16,7 +16,7 @@ const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({ showId, numberOfE
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
     const goToEpisode = (episodeId: string) => {
-        navigate(`/show/${showId}/episode/${episodeId}`);
+        navigate(`/show/${showId}/episodes/${episodeId}`);
     };
 
 
@@ -51,7 +51,7 @@ const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({ showId, numberOfE
                 {sortedEpisodes.map((episode, index) => (
                     <div key={index} className="episode-item" onClick={() => goToEpisode(episode.id)}>
                         <div className="episode-thumbnail">
-                            <img src={episode.thumbNailUrl} alt={`Thumbnail for ${episode.name}`} />
+                            <img src={getCDNImageUrl(episode.thumbNailUrl,'')} alt={`Thumbnail for ${episode.name}`} />
                         </div>
                         <div className="episode-info">
                             <h3 className="episode-title">{episode.name}</h3>

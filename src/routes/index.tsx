@@ -10,7 +10,7 @@ const DesktopRoutes: React.FC = () => (
     <Routes>
         <Route path='/*' element={<InvalidUrlPage/>}/>
         <Route path='/show/:showId' element={<ShowWeb/>}/>
-        <Route path='/show/:showId/episode/:episodeId' element={<EpisodeWeb/>}/>
+        <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeWeb/>}/>
     </Routes>
 );
 
@@ -18,7 +18,7 @@ const MobileRoutes: React.FC = () => (
     <Routes>
         <Route path='/*' element={<InvalidUrlPage />} />
         <Route path='/show/:showId' element={<ShowMobile/>}/>
-        <Route path='/show/:showId/episode/:episodeId' element={<EpisodeMobile/>}/>
+        <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeMobile/>}/>
     </Routes>
 );
 

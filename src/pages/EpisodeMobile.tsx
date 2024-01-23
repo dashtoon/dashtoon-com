@@ -8,7 +8,7 @@ import {Show} from "../types/Show";
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import useAnonymousSignIn from "../Hooks/useAnonymousSignIn";
-
+import { getCDNImageUrl } from '../services/cdnImage';
 type RouteParams = {
   showId: string;
   episodeId: string;
@@ -24,6 +24,7 @@ const EpisodeMobile: React.FC = () => {
   const [panels, setPanels] = useState<Panel[]>([]);
   const [panelErrors, setPanelErrors] = useState<{ [key: string]: boolean }>({});
 
+  const [loading, setLoading] = useState(true);
   const [showInformation, setShowInformation] = useState<Show>();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,8 +43,9 @@ const EpisodeMobile: React.FC = () => {
         const episodeList = await getEpisodesList(showId ? showId : '');
 
         setEpisodesInfo(episodeList);
+        setLoading(false);
 
-        console.log(panelData);
+        // console.log(panelData);
 
       } catch (error) {
         console.error('Error fetching panels:', error);
@@ -80,7 +82,7 @@ const EpisodeMobile: React.FC = () => {
   // Logic to determine previous and next episode IDs
   const goToPrevious = () => {
     if (currentEpisode && currentEpisode?.sequence >= 1) {
-      navigate(`/show/${showId}/episode/${previousEpisodeId}`);
+      navigate(`/show/${showId}/episodes/${previousEpisodeId}`);
     }
   };
 
@@ -99,7 +101,7 @@ const EpisodeMobile: React.FC = () => {
 
   const goToNext = () => {
     if (currentEpisode && currentEpisode?.sequence < 10) {
-      navigate(`/show/${showId}/episode/${nextEpisodeId}`);
+      navigate(`/show/${showId}/episodes/${nextEpisodeId}`);
     }
   };
 
@@ -107,8 +109,13 @@ const EpisodeMobile: React.FC = () => {
     navigate(`/show/${showId}`); // Replace with specific navigation if needed
   };
 
+
+
   return (
     <div className="episode-container">
+      {loading && <div className="loading-screen">
+        <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
+      </div>}
       <div className="episode-navigation-bar top-bar">
         <button onClick={goToShowMobile} className="back-button">
           <FaArrowLeft/>
@@ -121,7 +128,7 @@ const EpisodeMobile: React.FC = () => {
       <div className="episode-images">
         {panels.map((panel) => (
             <img
-                src={panel.imageUrl}
+                src={ getCDNImageUrl(panel.imageUrl, '')}
                 alt={`Panel ${panel.sequence}`}
                 onError={() => handleImageError(panel.imageUrl)}
                 className="episode-panel"

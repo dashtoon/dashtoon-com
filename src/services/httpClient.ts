@@ -85,7 +85,7 @@ class HttpClient {
     static async post(path: string, body: any, additionalHeaders: {} = {}): Promise<any> {
         const idToken = auth.currentUser ? await auth.currentUser.getIdToken() : null;
         const finalPath = `${baseUrl}${path}`
-        console.log(finalPath);
+        // console.log(finalPath);
         const response = await fetch(finalPath, {
             method: 'POST',
             headers: {
@@ -98,7 +98,7 @@ class HttpClient {
         if (response.ok) {
             return await response.json();
         } else {
-            console.log(response);
+            // console.log(response);
             const message = await response.json();
             throw Error(message.message);
         }
@@ -107,7 +107,7 @@ class HttpClient {
     static async get(path: string, additionalHeaders: {} = {}): Promise<any> {
         const idToken = auth.currentUser ? await auth.currentUser.getIdToken() : null;
         const finalPath = `${baseUrl}${path}`
-        console.log(idToken);
+        // console.log(idToken);
         const response = await fetch(finalPath, {
             method: 'GET',
             headers: {

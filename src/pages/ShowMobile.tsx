@@ -8,6 +8,7 @@ import {Episode, EpisodeResponse} from "../types/episodeData";
 import {Show} from '../types/Show';
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {ListenOptions} from "node:net";
+import {getCDNImageUrl} from "../services/cdnImage";
 
 const ShowMobile = () => {
     const { currentUser, signInAnonymouslyIfNeeded } = useAnonymousSignIn();
@@ -20,6 +21,7 @@ const ShowMobile = () => {
         setDescriptionExpanded(!isDescriptionExpanded);
     };
 
+    const [loading, setLoading] = useState(true);
     const [episodesInfo, setEpisodesInfo] = useState<EpisodeResponse[]>();
     const [showInformation, setShowInformation] = useState<Show>();
 
@@ -38,10 +40,13 @@ const ShowMobile = () => {
 
                 setEpisodesInfo(episodeList);
 
-                console.log(episodeList);
+                setLoading(false);
+
+                // console.log(episodeList);
 
             } catch (error) {
                 console.error('Error fetching show data:', error);
+                setLoading(false);
             }
         };
 
@@ -78,27 +83,31 @@ const ShowMobile = () => {
 
 
     const firstEpisodeId = firstEpisode?.id;
-    if (!firstEpisodeId) {
-        navigate(`/show/${showId}`); // Replace with specific navigation if needed
-    }
+    // if (!firstEpisodeId) {
+    //     navigate(`/show/${showId}`); // Replace with specific navigation if needed
+    // }
 
     return (
         <div className="show-container">
+            {loading && <div className="loading-screen">
+                <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
+            </div>}
             <div className="show-image-container">
-                {/* Blurred background image */}
+                {showThumbnailUrl &&
                 <img
-                    src={showThumbnailUrl}
+                    src={getCDNImageUrl(showThumbnailUrl, '')}
                     alt="Blurred Background"
                     className="show-image-background"
                     aria-hidden="true" // Marks element as hidden for screen readers
                 />
-
-                {/* Main image */}
+                }
+                { showThumbnailUrl &&
                 <img
-                    src={showThumbnailUrl}
+                    src={getCDNImageUrl(showThumbnailUrl, '')}
                     alt={showInformation?.name || 'Show cover image'}
                     className="show-image"
                 />
+            }
             </div>
             <div className="show-details">
                 <h1 className="show-title">{showInformation?.name}</h1>
@@ -117,7 +126,7 @@ const ShowMobile = () => {
                         )}
                     </p>
                 </div>
-                <button className="read-episode-button" onClick={() => {navigate(`/show/${showId}/episode/${firstEpisodeId}`)}}>Read Free Episode</button>
+                <button className="read-episode-button" onClick={() => {navigate(`/show/${showId}/episodes/${firstEpisodeId}`)}}>Read Free Episode</button>
                 <EpisodeListMobile showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}/>
             </div>
 

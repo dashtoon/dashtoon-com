@@ -10,12 +10,14 @@ import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {getEpisodesList, getShowByIdReq} from "../services/showService"; // Adjust path as needed
 
 const ShowWeb: React.FC = () => {
-    // Assume 'show' object and 'episodes' array contain all relevant data
+
     const { currentUser, signInAnonymouslyIfNeeded } = useAnonymousSignIn();
     let {showId} = useParams<{ showId?: string }>();
 
     const [episodesInfo, setEpisodesInfo] = useState<EpisodeResponse[]>();
     const [showInformation, setShowInformation] = useState<Show>();
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchShow = async () => {
@@ -29,11 +31,13 @@ const ShowWeb: React.FC = () => {
 
 
                 setEpisodesInfo(episodeList);
+                setLoading(false);
 
-                console.log(episodeList);
+                // console.log(episodeList);
 
             } catch (error) {
                 console.error('Error fetching show data:', error);
+                setLoading(false);
             }
         };
 
@@ -57,12 +61,16 @@ const ShowWeb: React.FC = () => {
 
     const showThumbnailUrl = thumbnailMetaData?.value;
 
+    //This would get replaced by a backdrop of the original homescreen:
     const backgroundStyle = {
         backgroundImage: `url(${showThumbnailUrl})`,
     };
 
     return (
         <div className="show-web-container">
+            {loading && <div className="loading-screen-web">
+                <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
+            </div>}
             <div className="show-background" style={backgroundStyle}></div>
             <div className="overlay"></div>
             <div className="black-card show-info-web-container">
