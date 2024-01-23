@@ -128,7 +128,7 @@ const EpisodeMobile: React.FC = () => {
       <div className="episode-images">
         {panels.map((panel) => (
             <img
-                src={ getCDNImageUrl(panel.imageUrl, '')}
+                src={getCDNImageUrl(panel.imageUrl, '')}
                 alt={`Panel ${panel.sequence}`}
                 onError={() => handleImageError(panel.imageUrl)}
                 className="episode-panel"

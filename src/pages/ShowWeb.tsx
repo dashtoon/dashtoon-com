@@ -67,6 +67,7 @@ const ShowWeb: React.FC = () => {
     };
 
     return (
+        <div className="central-comp">
         <div className="show-web-container">
             {loading && <div className="loading-screen-web">
                 <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
@@ -79,6 +80,7 @@ const ShowWeb: React.FC = () => {
             <div className="black-card episode-list-web-container">
                 <EpisodeListWeb showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}/>
             </div>
+        </div>
         </div>
     );
 };

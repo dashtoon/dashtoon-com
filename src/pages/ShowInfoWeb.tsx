@@ -61,12 +61,13 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
             </div>
             <div className="description-container-web">
                 <p className="show-description-web">
-                    {isDescriptionExpanded ? showInformation?.description : clippedDescription}
-                    {showInformation && showInformation.description.length > 160 && (
-                        <button className="read-more-button-web" onClick={toggleDescription}>
-                            {isDescriptionExpanded ? '...Read Less' : 'Read More'}
-                        </button>
-                    )}
+                    {showInformation?.description}
+                    {/*{isDescriptionExpanded ? showInformation?.description : clippedDescription}*/}
+                    {/*{showInformation && showInformation.description.length > 160 && (*/}
+                    {/*    <button className="read-more-button-web" onClick={toggleDescription}>*/}
+                    {/*        {isDescriptionExpanded ? '...Read Less' : 'Read More'}*/}
+                    {/*    </button>*/}
+                    {/*)}*/}
                 </p>
             </div>
             <button className="read-episode-button-web" onClick={() => goToEpisode(firstEpisodeId!)}>Read Free Episode</button>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {Panel} from "../types/Panel";
@@ -14,8 +14,8 @@ type RouteParams = {
     episodeId: string;
 };
 const EpisodeWeb = () => {
-    const { currentUser, signInAnonymouslyIfNeeded } = useAnonymousSignIn();
-    const { showId, episodeId } = useParams<RouteParams>();
+    const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();
+    const {showId, episodeId} = useParams<RouteParams>();
     const navigate = useNavigate();
 
     const [episodesInfo, setEpisodesInfo] = useState<EpisodeResponse[]>();
@@ -24,7 +24,7 @@ const EpisodeWeb = () => {
 
     const [showInformation, setShowInformation] = useState<Show>();
 
-   const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchPanels = async () => {
             try {
@@ -36,7 +36,7 @@ const EpisodeWeb = () => {
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
                 setShowInformation(show[0]);
 
-                const panelData = await getPanelsByEpisodeId(episodeId? episodeId : '');
+                const panelData = await getPanelsByEpisodeId(episodeId ? episodeId : '');
                 setPanels(panelData);
 
                 const episodeList = await getEpisodesList(showId ? showId : '');
@@ -65,7 +65,7 @@ const EpisodeWeb = () => {
 
     const episodes: Episode[] = episodesInfo?.map((episodeResponse: EpisodeResponse) => episodeResponse.episode) || [];
 
-    const currentEpisode :Episode | undefined = episodes?.find((episode) => episode.id === episodeId);
+    const currentEpisode: Episode | undefined = episodes?.find((episode) => episode.id === episodeId);
     const episodeName = currentEpisode?.name || 'Episode Name';
     const getPreviousEpisodeId = () => {
         if (!currentEpisode || currentEpisode.sequence <= 1) return '';
@@ -122,7 +122,7 @@ const EpisodeWeb = () => {
                 </button>
                 <div className="nav-text-web">
                     <div>{showInformation?.name}</div>
-                    <div >{currentEpisode?.name}</div>
+                    <div>{currentEpisode?.name}</div>
                 </div>
                 <button onClick={goToPrevious} className="nav-button-web"
                         disabled={!currentEpisode || currentEpisode.sequence <= 1}>

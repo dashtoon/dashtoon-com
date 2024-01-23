@@ -11,8 +11,8 @@
     width: 100%; /* Take the full width for small to medium screens */
     margin: auto;
     background: #232222;
-    border-radius: 24px;
-    padding: 24px;
+    /*border-radius: 24px;*/
+    padding: 0px;
     box-sizing: border-box; /* Padding is included in the width */
 }
 
