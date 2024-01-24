@@ -8,7 +8,7 @@ import {Show} from "../types/Show";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {getEpisodesList, getShowByIdReq} from "../services/showService"; // Adjust path as needed
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet-async";
 
 const ShowWeb: React.FC = () => {
 

@@ -9,7 +9,7 @@ import {Show} from '../types/Show';
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {ListenOptions} from "node:net";
 import {getCDNImageUrl} from "../services/cdnImage";
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet-async";
 
 const ShowMobile = () => {
     const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();

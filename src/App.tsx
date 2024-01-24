@@ -7,11 +7,13 @@ import Helmet, { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   return (
-      <Router>
-      <div className="App">
-        <AppRoutes />
-      </div>
-    </Router>
+      <HelmetProvider>
+          <Router>
+              <div className="App">
+                  <AppRoutes />
+              </div>
+          </Router>
+      </HelmetProvider>
   );
 }
 
