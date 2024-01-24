@@ -8,10 +8,11 @@ import {Show} from "../types/Show";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {getEpisodesList, getShowByIdReq} from "../services/showService"; // Adjust path as needed
+import {Helmet} from "react-helmet";
 
 const ShowWeb: React.FC = () => {
 
-    const { currentUser, signInAnonymouslyIfNeeded } = useAnonymousSignIn();
+    const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();
     let {showId} = useParams<{ showId?: string }>();
 
     const [episodesInfo, setEpisodesInfo] = useState<EpisodeResponse[]>();
@@ -66,22 +67,44 @@ const ShowWeb: React.FC = () => {
         backgroundImage: `url(${showThumbnailUrl})`,
     };
 
+    const clippedDescription = showInformation && showInformation.description.length > 100
+        ? `${showInformation.description.slice(0, 100)}...`
+        : showInformation?.description;
+
     return (
-        <div className="central-comp">
-        <div className="show-web-container">
-            {loading && <div className="loading-screen-web">
-                <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
-            </div>}
-            <div className="show-background" style={backgroundStyle}></div>
-            <div className="overlay"></div>
-            <div className="black-card show-info-web-container">
-                <ShowInfoWeb showId={showId!} showInformation={showInformation!} episodeInfo={episodesInfo!}/>
+        <>
+            <Helmet>
+                <title>{showInformation?.name || 'Dashtoon'}</title>
+                <meta property="og:title" content={showInformation?.name || 'Dashtoon'}/>
+                <meta
+                    property="og:description"
+                    content={clippedDescription || 'Dashtoon: Comics & Manga'}
+                />
+                <meta
+                    property="og:image"
+                    content={showThumbnailUrl || '%PUBLIC_URL%/default_thumbnail.jpg'}
+                />
+                <meta property="og:url" content={window.location.href}/>
+                <meta property="og:type" content="website"/>
+            </Helmet>
+
+            <div className="central-comp">
+                <div className="show-web-container">
+                    {loading && <div className="loading-screen-web">
+                        <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
+                    </div>}
+                    <div className="show-background" style={backgroundStyle}></div>
+                    <div className="overlay"></div>
+                    <div className="black-card show-info-web-container">
+                        <ShowInfoWeb showId={showId!} showInformation={showInformation!} episodeInfo={episodesInfo!}/>
+                    </div>
+                    <div className="black-card episode-list-web-container">
+                        <EpisodeListWeb showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}/>
+                    </div>
+                </div>
             </div>
-            <div className="black-card episode-list-web-container">
-                <EpisodeListWeb showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}/>
-            </div>
-        </div>
-        </div>
+        </>
+
     );
 };
 

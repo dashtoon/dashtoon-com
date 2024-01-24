@@ -21,10 +21,6 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
 
     const showThumbnailUrl = thumbnailMetaData?.value;
 
-    const clippedDescription = showInformation && showInformation.description.length > 160
-        ? `${showInformation.description.slice(0, 150)}...`
-        : showInformation?.description;
-
     const [isDescriptionExpanded, setDescriptionExpanded] = useState(false);
 
     const toggleDescription = () => {

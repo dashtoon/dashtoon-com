@@ -9,9 +9,10 @@ import {Show} from '../types/Show';
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {ListenOptions} from "node:net";
 import {getCDNImageUrl} from "../services/cdnImage";
+import {Helmet} from "react-helmet";
 
 const ShowMobile = () => {
-    const { currentUser, signInAnonymouslyIfNeeded } = useAnonymousSignIn();
+    const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();
     let {showId} = useParams<{ showId?: string }>();
     const navigate = useNavigate();
 
@@ -70,7 +71,7 @@ const ShowMobile = () => {
 
     const episodeCount = episodeCountMetaData?.value;
 
-    const genres : string | undefined = showInformation?.genre;
+    const genres: string | undefined = showInformation?.genre;
 
     const clippedDescription = showInformation && showInformation.description.length > 90
         ? `${showInformation.description.slice(0, 70)}...`
@@ -88,49 +89,70 @@ const ShowMobile = () => {
     // }
 
     return (
-        <div className="show-container">
-            {loading && <div className="loading-screen">
-                <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
-            </div>}
-            <div className="show-image-container">
-                {showThumbnailUrl &&
-                <img
-                    src={getCDNImageUrl(showThumbnailUrl, '')}
-                    alt="Blurred Background"
-                    className="show-image-background"
-                    aria-hidden="true" // Marks element as hidden for screen readers
+        <>
+            <Helmet>
+                <title>{showInformation?.name || 'Dashtoon'}</title>
+                <meta property="og:title" content={showInformation?.name || 'Dashtoon'}/>
+                <meta
+                    property="og:description"
+                    content={clippedDescription || 'Dashtoon: Comics & Manga'}
                 />
-                }
-                { showThumbnailUrl &&
-                <img
-                    src={getCDNImageUrl(showThumbnailUrl, '')}
-                    alt={showInformation?.name || 'Show cover image'}
-                    className="show-image"
+                <meta
+                    property="og:image"
+                    content={showThumbnailUrl || '%PUBLIC_URL%/default_thumbnail.jpg'}
                 />
-            }
-            </div>
-            <div className="show-details">
-                <h1 className="show-title">{showInformation?.name}</h1>
-                <div className="show-genres">
-                    {genres?.split(', ').map(genre => (
-                        <span key={genre} className="genre-tag">{genre}</span>
-                    ))}
+                <meta property="og:url" content={window.location.href}/>
+                <meta property="og:type" content="website"/>
+            </Helmet>
+
+            <div className="show-container">
+                {loading && <div className="loading-screen">
+                    <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
+                </div>}
+                <div className="show-image-container">
+                    {showThumbnailUrl &&
+                        <img
+                            src={getCDNImageUrl(showThumbnailUrl, '')}
+                            alt="Blurred Background"
+                            className="show-image-background"
+                            aria-hidden="true" // Marks element as hidden for screen readers
+                        />
+                    }
+                    {showThumbnailUrl &&
+                        <img
+                            src={getCDNImageUrl(showThumbnailUrl, '')}
+                            alt={showInformation?.name || 'Show cover image'}
+                            className="show-image"
+                        />
+                    }
                 </div>
-                <div className="description-container">
-                    <p className="show-description">
-                        {isDescriptionExpanded ? showInformation?.description : clippedDescription}
-                        {showInformation && showInformation.description.length > 100 && (
-                            <button className="read-more-button" onClick={toggleDescription}>
-                                {isDescriptionExpanded ? '...Read Less' : 'Read More'}
-                            </button>
-                        )}
-                    </p>
+                <div className="show-details">
+                    <h1 className="show-title">{showInformation?.name}</h1>
+                    <div className="show-genres">
+                        {genres?.split(', ').map(genre => (
+                            <span key={genre} className="genre-tag">{genre}</span>
+                        ))}
+                    </div>
+                    <div className="description-container">
+                        <p className="show-description">
+                            {isDescriptionExpanded ? showInformation?.description : clippedDescription}
+                            {showInformation && showInformation.description.length > 100 && (
+                                <button className="read-more-button" onClick={toggleDescription}>
+                                    {isDescriptionExpanded ? '...Read Less' : 'Read More'}
+                                </button>
+                            )}
+                        </p>
+                    </div>
+                    <button className="read-episode-button" onClick={() => {
+                        navigate(`/show/${showId}/episodes/${firstEpisodeId}`)
+                    }}>Read Free Episode
+                    </button>
+                    <EpisodeListMobile showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}/>
                 </div>
-                <button className="read-episode-button" onClick={() => {navigate(`/show/${showId}/episodes/${firstEpisodeId}`)}}>Read Free Episode</button>
-                <EpisodeListMobile showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}/>
+
             </div>
 
-        </div>
+        </>
     );
 };
 
