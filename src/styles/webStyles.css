@@ -92,11 +92,11 @@
 }
 
 /* Hide scrollbar for aesthetic reasons, optional */
-.episode-list-web-container::-webkit-scrollbar {
-    display: none;
-}
-.episode-list-web-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+/*.episode-list-web-container::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
+/*.episode-list-web-container {*/
+/*    -ms-overflow-style: none;*/
+/*    scrollbar-width: none;*/
+/*}*/
 

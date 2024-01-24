@@ -56,6 +56,7 @@ const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({ showId, numberOfE
                         <div className="episode-info">
                             <h3 className="episode-title">{episode.name}</h3>
                             <p className="episode-date">{formatDate(episode.createdAt)}</p>
+                            <div className="episode-free-tag">Free</div>
                         </div>
                     </div>
                 ))}
