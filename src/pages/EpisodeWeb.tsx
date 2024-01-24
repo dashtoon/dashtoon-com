@@ -129,7 +129,7 @@ const EpisodeWeb = () => {
                     Prev. Ep.
                 </button>
                 <button onClick={goToNext} className="nav-button-web"
-                        disabled={!currentEpisode || currentEpisode.sequence >= 10}>
+                        disabled={!currentEpisode || currentEpisode.sequence >= Math.min(10, episodes.length)}>
                     Next Ep.
                 </button>
             </div>

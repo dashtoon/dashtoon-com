@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import '../styles/mobileStyles.css';
-import { Episode, EpisodeResponse } from '../types/episodeData';
+import {Episode, EpisodeResponse} from '../types/episodeData';
 import {getCDNImageUrl} from "../services/cdnImage";
+
 type EpisodeListMobileProps = {
     showId: string;
     numberOfEpisode: string;
     episodeInfo: EpisodeResponse[];
 };
 
-const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({ showId, numberOfEpisode, episodeInfo }) => {
+const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({showId, numberOfEpisode, episodeInfo}) => {
     const navigate = useNavigate();
 
     // State to manage sorting order
@@ -36,7 +37,7 @@ const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({ showId, numberOfE
 
     const formatDate = (epochTime: number) => {
         const date = new Date(epochTime);
-        return `${date.toLocaleString('default', { month: 'short' })} ${date.getDate()}, ${date.getFullYear()}`;
+        return `${date.toLocaleString('default', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`;
     };
 
     return (
@@ -44,14 +45,14 @@ const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({ showId, numberOfE
             <div className="show-info-container">
                 <p className="show-info">{numberOfEpisode} Episodes</p>
                 <button className="sort-button" onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}>
-                   Sort   ↑↓
+                    Sort ↑↓
                 </button>
             </div>
             <div className="episodes">
                 {sortedEpisodes.map((episode, index) => (
                     <div key={index} className="episode-item" onClick={() => goToEpisode(episode.id)}>
                         <div className="episode-thumbnail">
-                            <img src={getCDNImageUrl(episode.thumbNailUrl,'')} alt={`Thumbnail for ${episode.name}`} />
+                            <img src={getCDNImageUrl(episode.thumbNailUrl, '')} alt={`Thumbnail for ${episode.name}`}/>
                         </div>
                         <div className="episode-info">
                             <h3 className="episode-title">{episode.name}</h3>

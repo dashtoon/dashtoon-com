@@ -26,6 +26,7 @@ const EpisodeMobile: React.FC = () => {
 
   const [loading, setLoading] = useState(true);
   const [showInformation, setShowInformation] = useState<Show>();
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchPanels = async () => {
@@ -139,7 +140,7 @@ const EpisodeMobile: React.FC = () => {
         <button onClick={goToPrevious} className="nav-button"
                 disabled={!currentEpisode || currentEpisode.sequence <= 1}>Prev. Ep.
         </button>
-        <button onClick={goToNext} className="nav-button" disabled={!currentEpisode || currentEpisode.sequence >= 10}>Next Ep.</button>
+        <button onClick={goToNext} className="nav-button" disabled={!currentEpisode || currentEpisode.sequence >= Math.min(10, episodes.length)}>Next Ep.</button>
       </div>
     </div>
   );

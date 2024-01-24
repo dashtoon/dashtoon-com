@@ -8,7 +8,6 @@ import {Show} from "../types/Show";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {getEpisodesList, getShowByIdReq} from "../services/showService"; // Adjust path as needed
-import {Helmet} from "react-helmet-async";
 
 const ShowWeb: React.FC = () => {
 
@@ -72,22 +71,6 @@ const ShowWeb: React.FC = () => {
         : showInformation?.description;
 
     return (
-        <>
-            <Helmet>
-                <title>{showInformation?.name || 'Dashtoon'}</title>
-                <meta property="og:title" content={showInformation?.name || 'Dashtoon'}/>
-                <meta
-                    property="og:description"
-                    content={clippedDescription || 'Dashtoon: Comics & Manga'}
-                />
-                <meta
-                    property="og:image"
-                    content={showThumbnailUrl || '%PUBLIC_URL%/default_thumbnail.jpg'}
-                />
-                <meta property="og:url" content={window.location.href}/>
-                <meta property="og:type" content="website"/>
-            </Helmet>
-
             <div className="central-comp">
                 <div className="show-web-container">
                     {loading && <div className="loading-screen-web">
@@ -103,8 +86,6 @@ const ShowWeb: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </>
-
     );
 };
 

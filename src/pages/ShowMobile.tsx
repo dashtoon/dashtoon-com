@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import '../styles/mobileStyles.css';
 import EpisodeListMobile from './EpisodeListMobile';
-import {signInAnonymouslyAndGetToken} from '../firebaseConfig';
+
 import {getEpisodesList, getPanelsByEpisodeId, getShowByIdReq} from '../services/showService';
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {Show} from '../types/Show';
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
-import {ListenOptions} from "node:net";
+
 import {getCDNImageUrl} from "../services/cdnImage";
-import {Helmet} from "react-helmet-async";
+
 
 const ShowMobile = () => {
     const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();
@@ -89,22 +89,6 @@ const ShowMobile = () => {
     // }
 
     return (
-        <>
-            <Helmet>
-                <title>{showInformation?.name || 'Dashtoon'}</title>
-                <meta property="og:title" content={showInformation?.name || 'Dashtoon'}/>
-                <meta
-                    property="og:description"
-                    content={clippedDescription || 'Dashtoon: Comics & Manga'}
-                />
-                <meta
-                    property="og:image"
-                    content={showThumbnailUrl || '%PUBLIC_URL%/default_thumbnail.jpg'}
-                />
-                <meta property="og:url" content={window.location.href}/>
-                <meta property="og:type" content="website"/>
-            </Helmet>
-
             <div className="show-container">
                 {loading && <div className="loading-screen">
                     <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
@@ -151,8 +135,6 @@ const ShowMobile = () => {
                 </div>
 
             </div>
-
-        </>
     );
 };
 

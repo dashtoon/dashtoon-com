@@ -44,7 +44,7 @@
 }
 
 .episode-item-web {
-    border-radius: 16px;
+    border-radius: 20px;
     align-items: center;
     width: calc(100% - 32px);
     background-color: #2D2B2B;
@@ -52,7 +52,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow */
     display: flex;
     gap: 8px;
-    padding: 0 8px 0 8px;
+    padding: 10px;
     flex-direction: row; /* Separator between episode items */
     margin-right: auto; /* Ensures alignment to the left */
     margin-left: auto;
@@ -61,9 +61,9 @@
 
 .episode-thumbnail-web {
     flex-shrink: 0;
-    width: 50px; /* Set a fixed width for the thumbnail */
-    height: 50px; /* Set the height equal to width to keep it square */
-    border-radius: 4px; /* Adjust border-radius as needed */
+    width: 88px; /* Set a fixed width for the thumbnail */
+    height: 88px; /* Set the height equal to width to keep it square */
+    border-radius: 8px; /* Adjust border-radius as needed */
     overflow: hidden; /* Hide overflow */
     /* If img is a child element of episode-thumbnail-web, ensure it covers the full area: */
     display: flex;
@@ -74,7 +74,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* This ensures the image covers the entire area without distortion */
-    border-radius: 4px; /* Match the parent's border-radius */
+    border-radius: 8px; /* Match the parent's border-radius */
 }
 
 .episode-info-web {
@@ -84,7 +84,8 @@
     gap: 1px;
     justify-content: flex-start; /* This will vertically center the children */
     align-items: start; /* Align text to the start (left) */
-    padding: 0 16px 16px 0;
+    align-self: flex-start;
+    padding: 0 0px 0px 0;
 }
 
 .episode-title-web {
@@ -92,7 +93,7 @@
     color: #FCFCFC; /* Color of the text */ /* Adjust spacing between title and date */
     display: flex; /* Updated to display flex */
     align-items: flex-start;
-    margin-bottom: auto;
+    margin:0;
     /* Medium 16 */
     font-family: Geologica, sans-serif;
     font-style: normal;
@@ -110,9 +111,27 @@
     line-height: 16px; /* 133.333% */
     display: flex; /* Updated to display flex */
     align-items: flex-start;
-    margin-bottom: auto;
+    margin: 0;
 }
 
+.episode-free-tag {
+    display: flex;
+    /*width: 40px;*/
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    width: 40px;
+    gap: 4px;
+    color: #fcfcfc;
+    font-family: Geologica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 4px;
+    background: #006a6a;
+}
 
 .sort-button-web {
     background: #212121; /* Black background */

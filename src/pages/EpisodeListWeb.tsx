@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import '../styles/episodeListWebStyle.css';
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {getCDNImageUrl} from "../services/cdnImage";
@@ -10,7 +10,7 @@ type EpisodeListProps = {
     episodeInfo: EpisodeResponse[];
 };
 
-const EpisodeListWeb: React.FC<EpisodeListProps> = ({ showId, numberOfEpisode, episodeInfo }) => {
+const EpisodeListWeb: React.FC<EpisodeListProps> = ({showId, numberOfEpisode, episodeInfo}) => {
     const navigate = useNavigate();
 
     // State to manage sorting order
@@ -37,7 +37,7 @@ const EpisodeListWeb: React.FC<EpisodeListProps> = ({ showId, numberOfEpisode, e
 
     const formatDate = (epochTime: number) => {
         const date = new Date(epochTime);
-        return `${date.toLocaleString('default', { month: 'short' })} ${date.getDate()}, ${date.getFullYear()}`;
+        return `${date.toLocaleString('default', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`;
     };
 
     return (
@@ -52,11 +52,12 @@ const EpisodeListWeb: React.FC<EpisodeListProps> = ({ showId, numberOfEpisode, e
                 {sortedEpisodes.map((episode, index) => (
                     <div key={index} className="episode-item-web" onClick={() => goToEpisode(episode.id)}>
                         <div className="episode-thumbnail-web">
-                            <img src={getCDNImageUrl(episode.thumbNailUrl, '')} alt={`Thumbnail for ${episode.name}`} />
+                            <img src={getCDNImageUrl(episode.thumbNailUrl, '')} alt={`Thumbnail for ${episode.name}`}/>
                         </div>
                         <div className="episode-info-web">
                             <h3 className="episode-title-web">{episode.name}</h3>
                             <p className="episode-date-web">{formatDate(episode.createdAt)}</p>
+                            <div className="episode-free-tag">Free</div>
                         </div>
                     </div>
                 ))}
