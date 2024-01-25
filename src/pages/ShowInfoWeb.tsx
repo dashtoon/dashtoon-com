@@ -17,7 +17,7 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
 
     const thumbnailMetaData = showInformation?.metadata?.find((metadata: {
         type: string;
-    }) => metadata.type === 'DETAIL_PAGE_THUMBNAIL_V2');
+    }) => metadata.type === 'BANNER_THUMBNAIL_V2');
 
     const showThumbnailUrl = thumbnailMetaData?.value;
 

@@ -4,18 +4,18 @@
     max-width: 100%;
     margin: auto;
     text-align: center;
-  }
+}
 
-  .episode-navigation-bar {
+.episode-navigation-bar {
     padding: 8px;
     background: #212121; /* Slight transparency */
     color: #fff;
     display: flex;
     align-items: center;
     position: relative;
-  }
+}
 
-  .back-button {
+.back-button {
     cursor: pointer;
     background: transparent;
     border: none;
@@ -27,41 +27,42 @@
     top: 50%; /* Center it vertically */
     transform: translateY(-50%); /* Adjust vertical position to center the button exactly */
     z-index: 2;
-  }
+}
 
 .nav-text {
-  /* Center the show and episode IDs in the navigation bar */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 36px; /* Add padding-left to reserve space for the back button; adjust as needed */
-  width: 100%; /* Take full available width */
-  color:  #FCFCFC;
-  /* Medium 16 */
-  font-family: Geologica, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
+    /* Center the show and episode IDs in the navigation bar */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 36px; /* Add padding-left to reserve space for the back button; adjust as needed */
+    width: 100%; /* Take full available width */
+    color: #FCFCFC;
+    /* Medium 16 */
+    font-family: Geologica, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
 }
 
 .nav-text div:last-child {
-  color: #898989; /* Color for currentEpisode?.name */
-  font-size: 14px; /* Smaller font size */
-  /* Medium 12 */
-  font-family: Geologica, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 16px; /* 133.333% */
+    color: #898989; /* Color for currentEpisode?.name */
+    font-size: 14px; /* Smaller font size */
+    /* Medium 12 */
+    font-family: Geologica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
 }
 
-  .top-bar {
+.top-bar {
     border-bottom: 0px solid #ddd;
     position: fixed;
     width: 100%;
-  }
+    transition: top 0.3s;
+}
 
-  .bottom-bar {
+.bottom-bar {
     border-top: 0px solid #ddd;
     position: fixed;
     bottom: 0;
@@ -71,31 +72,35 @@
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     justify-content: space-between;
     align-items: center;
+    transition: bottom 0.3s;
     /*z-index: 1000; !* Ensure it's above other content *!*/
-  }
+}
 
 .episode-images {
-  margin-top: 0;
-  display: flex;
-  flex-wrap: wrap; /* Ensure items wrap to the next line */
-  justify-content: flex-start; /* Align items to the start of the flex container */
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap; /* Ensure items wrap to the next line */
+    justify-content: flex-start; /* Align items to the start of the flex container */
 }
 
 .episode-panel {
-  max-width: 100%;
-  margin-bottom: 0;
-  flex: 1; /* Allow each episode panel to take equal width */
-  box-sizing: border-box; /* Ensure padding and borders are included in the width */
-  padding: 0; /* Remove any padding */
+    max-width: 100%;
+    margin-bottom: 0;
+    flex: 1; /* Allow each episode panel to take equal width */
+    box-sizing: border-box; /* Ensure padding and borders are included in the width */
+    padding: 0; /* Remove any padding */
 }
 
-  .nav-button {
+.nav-button {
     background-color: transparent; /* Transparent buttons */
     color: #fff;
     border: none;
     padding: 10px 15px;
     margin: 0; /* No margin needed */
+    gap: 3px;
     cursor: pointer;
     font-weight: bold;
-  }
+    display: flex;
+    flex-direction: row;
+}
 

@@ -8,6 +8,7 @@ import {getEpisodesList, getPanelsByEpisodeId, getShowByIdReq} from "../services
 import {FaArrowLeft} from "react-icons/fa";
 import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {getCDNImageUrl} from "../services/cdnImage";
+import EpisodeNavbarWeb from "../Components/NavbarEpisodeWeb";
 
 type RouteParams = {
     showId: string;
@@ -116,23 +117,14 @@ const EpisodeWeb = () => {
             {loading && <div className="loading-screen-web">
                 <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
             </div>}
-            <div className="episode-navigation-bar-web top-bar-web">
-                <button onClick={goToShowMobile} className="back-button-web">
-                    <FaArrowLeft/>
-                </button>
-                <div className="nav-text-web">
-                    <div>{showInformation?.name}</div>
-                    <div>{currentEpisode?.name}</div>
-                </div>
-                <button onClick={goToPrevious} className="nav-button-web"
-                        disabled={!currentEpisode || currentEpisode.sequence <= 1}>
-                    Prev. Ep.
-                </button>
-                <button onClick={goToNext} className="nav-button-web"
-                        disabled={!currentEpisode || currentEpisode.sequence >= Math.min(10, episodes.length)}>
-                    Next Ep.
-                </button>
-            </div>
+            <EpisodeNavbarWeb
+                goToShowMobile={goToShowMobile}
+                goToPrevious={goToPrevious}
+                goToNext={goToNext}
+                currentEpisode={currentEpisode}
+                showInformation={showInformation}
+                episodes={episodes}
+            />
             <div className="episode-images-web">
                 {panels.map((panel) => (
                     <img

@@ -32,7 +32,7 @@ const ShowMobile = () => {
             try {
 
                 await signInAnonymouslyIfNeeded();  // ensure Firebase anonymous auth
-                const metaData: string[] = ['DETAIL_PAGE_THUMBNAIL_V2']; // Specify the metadata you need
+                const metaData: string[] = ['BANNER_THUMBNAIL_V2']; // Specify the metadata you need
                 // const show = await getShowByIdReq('SHOJjHch75Ecbqc6e8V', metaData);
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
                 setShowInformation(show[0]);
@@ -61,7 +61,7 @@ const ShowMobile = () => {
 
     const thumbnailMetaData = showInformation?.metadata?.find((metadata: {
         type: string;
-    }) => metadata.type === 'DETAIL_PAGE_THUMBNAIL_V2');
+    }) => metadata.type === 'BANNER_THUMBNAIL_V2');
 
     const showThumbnailUrl = thumbnailMetaData?.value;
 

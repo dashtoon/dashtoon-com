@@ -11,10 +11,13 @@
     color: #212121;
     display: flex;
     align-items: center;
-    position: relative;
-    padding:4px;
+    justify-content: space-between;
+    padding: 4px;
     background: #212121; /* Darker color for the top bar */
     border-bottom: 0;
+    position: fixed;
+    width: 100%;
+    transition: top 0.3s;
 }
 
 .back-button-web {
@@ -38,14 +41,15 @@
     gap: 1px;
     align-items: flex-start;
     padding-left: 36px;
-    width: 100%;
-    color:  #FCFCFC;
+    /*width: 100%;*/
+    color: #FCFCFC;
     font-family: Outfit, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: 28px; /* 140% */
 }
+
 .nav-text-web div:last-child {
     color: #898989; /* Color for currentEpisode?.name */
     font-family: Geologica, sans-serif;
@@ -71,11 +75,18 @@
     margin-bottom: 0;
 }
 
+.navigation-button-container-web {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .nav-button-web {
     background-color: transparent;
     color: #FCFCFC;
     border: none;
     font-family: Geologica, sans-serif;
+    flex-grow: 1;
     font-weight: 500;
     width: auto;
     font-size: 16px;
@@ -85,6 +96,16 @@
     padding: 12px 20px; /* Adjust padding for wider buttons */
     cursor: pointer;
     margin-left: 8px; /* Add some margin between buttons */
+}
+
+.nav-button-web span {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+}
+
+.nav-button-web span svg {
+    margin-right: 8px; /* Adjust the margin between the icon and text */
+    margin-left: 8px;
 }
 
 .bottom-bar-web {
