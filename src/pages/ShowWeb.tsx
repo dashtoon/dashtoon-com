@@ -2,16 +2,17 @@ import React, {useEffect, useState} from 'react';
 import ShowInfoWeb from './ShowInfoWeb'; // Adjust path as needed
 import EpisodeListWeb from './EpisodeListWeb'; // Adjust path as needed
 import '../styles/webStyles.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {EpisodeResponse} from "../types/episodeData";
 import {Show} from "../types/Show";
-import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
-import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
-import {getEpisodesList, getShowByIdReq} from "../services/showService"; // Adjust path as needed
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {getEpisodesList, getShowByIdReq} from "../services/showService";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {TrackingProperties} from "../Constants/TrackingProperties";
 
 const ShowWeb: React.FC = () => {
 
-    const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();
     let {showId} = useParams<{ showId?: string }>();
 
     const [episodesInfo, setEpisodesInfo] = useState<EpisodeResponse[]>();
@@ -22,9 +23,9 @@ const ShowWeb: React.FC = () => {
     useEffect(() => {
         const fetchShow = async () => {
             try {
-                await signInAnonymouslyIfNeeded();  // ensure Firebase anonymous auth
+                await signInAnonymouslyAndGetToken();  // ensure Firebase anonymous auth
+
                 const metaData: string[] = ['BANNER_THUMBNAIL_V2']; // Specify the metadata you need
-                // const show = await getShowByIdReq('SHOJjHch75Ecbqc6e8V', metaData);
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
                 setShowInformation(show[0]);
                 const episodeList = await getEpisodesList(showId ? showId : '');
@@ -49,6 +50,23 @@ const ShowWeb: React.FC = () => {
         }
     }, [showId]);
 
+
+    useEffect(() => {
+        if (showInformation) {
+            trackEvent(
+                {
+                    event: TrackingEvents.showOpened,
+                    properties: {
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
+        }
+    }, [showInformation, showId]);
+
     const episodeCountMetaData = showInformation?.metadata?.find((metadata: {
         type: string;
     }) => metadata.type === 'EPISODE_COUNT');
@@ -61,7 +79,6 @@ const ShowWeb: React.FC = () => {
 
     const showThumbnailUrl = thumbnailMetaData?.value;
 
-    //This would get replaced by a backdrop of the original homescreen:
     const backgroundStyle = {
         backgroundImage: `url(${showThumbnailUrl})`,
     };
@@ -71,21 +88,22 @@ const ShowWeb: React.FC = () => {
         : showInformation?.description;
 
     return (
-            <div className="central-comp">
-                <div className="show-web-container">
-                    {loading && <div className="loading-screen-web">
-                        <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
-                    </div>}
-                    <div className="show-background" style={backgroundStyle}></div>
-                    <div className="overlay"></div>
-                    <div className="black-card show-info-web-container">
-                        <ShowInfoWeb showId={showId!} showInformation={showInformation!} episodeInfo={episodesInfo!}/>
-                    </div>
-                    <div className="black-card episode-list-web-container">
-                        <EpisodeListWeb showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}/>
-                    </div>
+        <div className="central-comp">
+            <div className="show-web-container">
+                {loading && <div className="loading-screen-web">
+                    <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
+                </div>}
+                <div className="show-background" style={backgroundStyle}></div>
+                <div className="overlay"></div>
+                <div className="black-card show-info-web-container">
+                    <ShowInfoWeb showId={showId!} showInformation={showInformation!} episodeInfo={episodesInfo!}/>
+                </div>
+                <div className="black-card episode-list-web-container">
+                    <EpisodeListWeb showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}
+                                    showInformation={showInformation!}/>
                 </div>
             </div>
+        </div>
     );
 };
 

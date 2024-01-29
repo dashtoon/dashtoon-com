@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../styles/showInfoWebStyles.css';
 import {Show} from "../types/Show";
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {useNavigate} from "react-router-dom";
-import { getCDNImageUrl } from '../services/cdnImage';
+import {getCDNImageUrl} from '../services/cdnImage';
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
 
 type ShowInfoProps = {
-    showId : string;
-    showInformation : Show;
+    showId: string;
+    showInformation: Show;
     episodeInfo: EpisodeResponse[];
 };
 
@@ -28,6 +30,17 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
     };
 
     const goToEpisode = (episodeId: string) => {
+        trackEvent(
+            {
+                event: TrackingEvents.buttonClicked,
+                properties: {
+                    showName: showInformation?.name,
+                    showId: showId,
+                    name: 'Read-First-Episode',
+                },
+            },
+            'CONSUMER'
+        );
         navigate(`/show/${showId}/episodes/${episodeId}`);
     };
 
@@ -40,11 +53,7 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
 
     const firstEpisodeId = firstEpisode?.id;
 
-    // if (!firstEpisodeId) {
-    //     navigate(`/show/${showId}`); // Replace with specific navigation if needed
-    // }
-
-    const genres : string | undefined = showInformation?.genre;
+    const genres: string | undefined = showInformation?.genre;
     return (
         <div className="show-details-web">
             {showThumbnailUrl && <img className="show-image-web" src={getCDNImageUrl(showThumbnailUrl, '')}
@@ -66,7 +75,8 @@ const ShowInfoWeb: React.FC<ShowInfoProps> = ({showId, showInformation, episodeI
                     {/*)}*/}
                 </p>
             </div>
-            <button className="read-episode-button-web" onClick={() => goToEpisode(firstEpisodeId!)}>Read Free Episode</button>
+            <button className="read-episode-button-web" onClick={() => goToEpisode(firstEpisodeId!)}>Read Free Episode
+            </button>
         </div>
     );
 };

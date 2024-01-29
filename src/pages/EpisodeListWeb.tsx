@@ -3,23 +3,24 @@ import {useNavigate} from 'react-router-dom';
 import '../styles/episodeListWebStyle.css';
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {getCDNImageUrl} from "../services/cdnImage";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {auth} from "../firebaseConfig";
+import {TrackingProperties} from "../Constants/TrackingProperties";
+import {Show} from "../types/Show";
 
 type EpisodeListProps = {
     showId: string;
     numberOfEpisode: string;
     episodeInfo: EpisodeResponse[];
+    showInformation: Show;
 };
 
-const EpisodeListWeb: React.FC<EpisodeListProps> = ({showId, numberOfEpisode, episodeInfo}) => {
+const EpisodeListWeb: React.FC<EpisodeListProps> = ({showId, numberOfEpisode, episodeInfo, showInformation}) => {
     const navigate = useNavigate();
 
     // State to manage sorting order
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
-
-    const goToEpisode = (episodeId: string) => {
-        navigate(`/show/${showId}/episodes/${episodeId}`);
-    };
-
 
     const episodes: Episode[] = episodeInfo?.map((episodeResponse: EpisodeResponse) => episodeResponse.episode) || [];
 
@@ -39,6 +40,31 @@ const EpisodeListWeb: React.FC<EpisodeListProps> = ({showId, numberOfEpisode, ep
         const date = new Date(epochTime);
         return `${date.toLocaleString('default', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`;
     };
+
+    const goToEpisode = (episodeId: string) => {
+        if (showInformation && showId) {
+
+            const episodeDetails = episodes?.find(
+                (episode) => episode.id === episodeId
+            );
+            trackEvent(
+                {
+                    event: TrackingEvents.buttonClicked,
+                    properties: {
+                        name: 'Episode-Card-Clicked',
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                        episodeId: episodeId,
+                        episodeName: episodeDetails?.name,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
+        }
+        navigate(`/show/${showId}/episodes/${episodeId}`);
+    };
+
 
     return (
         <div className="episode-list-web">

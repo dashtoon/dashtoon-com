@@ -1,6 +1,5 @@
 import { config } from '../Config/Config';
 import { auth } from '../firebaseConfig';
-
 const baseUrl = config.baseUrl;
 
 export const getPathWithPlaceholders = (path: string) => {

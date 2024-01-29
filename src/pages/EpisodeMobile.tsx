@@ -6,9 +6,12 @@ import {getEpisodesList, getPanelsByEpisodeId, getShowByIdReq} from "../services
 import {Panel} from "../types/Panel";
 import {Show} from "../types/Show";
 import {Episode, EpisodeResponse} from "../types/episodeData";
-import useAnonymousSignIn from "../Hooks/useAnonymousSignIn";
 import {getCDNImageUrl} from '../services/cdnImage';
 import useScrollVisibility from "../Hooks/useScroll";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {TrackingProperties} from "../Constants/TrackingProperties";
 
 type RouteParams = {
     showId: string;
@@ -17,7 +20,6 @@ type RouteParams = {
 
 
 const EpisodeMobile: React.FC = () => {
-    const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();
     const {showId, episodeId} = useParams<RouteParams>();
     const navigate = useNavigate();
 
@@ -32,7 +34,7 @@ const EpisodeMobile: React.FC = () => {
         window.scrollTo(0, 0);
         const fetchPanels = async () => {
             try {
-                await signInAnonymouslyIfNeeded();
+                await signInAnonymouslyAndGetToken();
 
                 const metaData: string[] = ['DETAIL_PAGE_THUMBNAIL_V2'];
                 // const show = await getShowByIdReq('SHOJjHch75Ecbqc6e8V', metaData);
@@ -66,6 +68,26 @@ const EpisodeMobile: React.FC = () => {
     const episodes: Episode[] = episodesInfo?.map((episodeResponse: EpisodeResponse) => episodeResponse.episode) || [];
 
     const currentEpisode: Episode | undefined = episodes?.find((episode) => episode.id === episodeId);
+
+    useEffect(() => {
+        if (showInformation && showId && currentEpisode && episodeId) {
+            // console.log("entering show screen" + auth.currentUser?.uid);
+            trackEvent(
+                {
+                    event: TrackingEvents.episodeOpened,
+                    properties: {
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                        episodeId: episodeId,
+                        episodeName: currentEpisode?.name,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
+        }
+    }, [showInformation, showId, currentEpisode, episodeId]);
+
     const getPreviousEpisodeId = () => {
         if (!currentEpisode || currentEpisode.sequence <= 1) return '';
 
@@ -79,9 +101,22 @@ const EpisodeMobile: React.FC = () => {
 
     const previousEpisodeId = getPreviousEpisodeId();
 
-    // Logic to determine previous and next episode IDs
     const goToPrevious = () => {
         if (currentEpisode && currentEpisode?.sequence >= 1) {
+            trackEvent(
+                {
+                    event: TrackingEvents.buttonClicked,
+                    properties: {
+                        name: 'Prev. Episode',
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                        episodeId: currentEpisode?.id,
+                        episodeName: currentEpisode?.name,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
             navigate(`/show/${showId}/episodes/${previousEpisodeId}`);
         }
     };
@@ -101,11 +136,39 @@ const EpisodeMobile: React.FC = () => {
 
     const goToNext = () => {
         if (currentEpisode && currentEpisode?.sequence < 10) {
+            trackEvent(
+                {
+                    event: TrackingEvents.buttonClicked,
+                    properties: {
+                        name: 'Next. Episode',
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                        episodeId: currentEpisode?.id,
+                        episodeName: currentEpisode?.name,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
             navigate(`/show/${showId}/episodes/${nextEpisodeId}`);
         }
     };
 
     const goToShowMobile = () => {
+        trackEvent(
+            {
+                event: TrackingEvents.buttonClicked,
+                properties: {
+                    name: 'Back-To-ShowScreen',
+                    userId: auth.currentUser?.uid,
+                    showId: showId,
+                    showName: showInformation?.name,
+                    episodeId: episodeId,
+                    sequence: currentEpisode?.name,
+                } as TrackingProperties,
+            },
+            'CONSUMER'
+        );
         navigate(`/show/${showId}`); // Replace with specific navigation if needed
     };
 
@@ -129,33 +192,12 @@ const EpisodeMobile: React.FC = () => {
                 </div>
             </div>
             <div className="episode-images">
-                <div className="black-background" style={{
-                    backgroundColor: 'black',
-                    paddingTop: '80px',
-                    paddingBottom:'30px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <div style={{
-                        color: 'var(--Primary-White, #FCFCFC)',
-                        fontFamily: 'Geologica',
-                        fontSize: '24px',
-                        fontStyle: 'normal',
-                        fontWeight: 700,
-                        alignSelf: 'center',
-                        justifyContent: 'center',
-                        lineHeight: '24px',
-                        letterSpacing: '1.8px',
-                        textAlign: 'center'
-                    }}>
-                        {currentEpisode?.name}
-                    </div>
+                <div className="black-background">
+                    <div className="black-background-text">{currentEpisode?.name}</div>
                 </div>
                 {panels.map((panel) => (
                     <img
+                        key={panel.id}
                         src={getCDNImageUrl(panel.imageUrl, '')}
                         alt={`Panel ${panel.sequence}`}
                         onError={() => handleImageError(panel.imageUrl)}
@@ -163,16 +205,18 @@ const EpisodeMobile: React.FC = () => {
                     />
                 ))}
             </div>
-            <div className="episode-navigation-bar bottom-bar" style={{bottom: `${isVisible ? '0' : '-100'}px`}} >
+            <div className="episode-navigation-bar bottom-bar" style={{bottom: `${isVisible ? '0' : '-100'}px`}}>
                 <div>
-                    <button onClick={goToPrevious} className="nav-button" style={{color: `${isFirstEp ? '#898989' : '#fff'}`}}
+                    <button onClick={goToPrevious} className="nav-button"
+                            style={{color: `${isFirstEp ? '#898989' : '#fff'}`}}
                             disabled={isFirstEp}><FaStepBackward/> Prev. Ep.
                     </button>
                 </div>
                 <div>
-                    <button onClick={goToNext} className="nav-button" style={{color: `${isLastEp ? '#898989' : '#fff'}`}}
+                    <button onClick={goToNext} className="nav-button"
+                            style={{color: `${isLastEp ? '#898989' : '#fff'}`}}
                             disabled={isLastEp}>
-                      Next Ep. <FaStepForward/>
+                        Next Ep. <FaStepForward/>
                     </button>
                 </div>
             </div>

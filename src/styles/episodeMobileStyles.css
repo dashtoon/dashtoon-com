@@ -76,6 +76,30 @@
     /*z-index: 1000; !* Ensure it's above other content *!*/
 }
 
+.black-background {
+    background-color: black;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.black-background-text {
+    color: #FCFCFC;
+    font-family: Geologica, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    align-self: center;
+    justify-content: center;
+    line-height: 24px;
+    letter-spacing: 1.8px;
+    text-align: center;
+}
+
 .episode-images {
     display: flex;
     background: black;

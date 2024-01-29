@@ -209,7 +209,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center; /* This will vertically center the children */
-    align-items: start; /* Align text to the start (left) */
+    align-items: flex-start; /* Align text to the start (left) */
     /* New Styles Below */
     padding: 0 8px 0 8px;
     color:  #C9C9C9;
@@ -263,7 +263,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* This will vertically center the children */
-    align-items: start; /* Align text to the start (left) */
+    align-items: flex-start; /* Align text to the start (left) */
     align-self: flex-start;
 
     padding: 0 0px 0px 0;

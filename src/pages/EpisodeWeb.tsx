@@ -5,17 +5,18 @@ import {Panel} from "../types/Panel";
 import {Show} from "../types/Show";
 import '../styles/episodeWebStyles.css'
 import {getEpisodesList, getPanelsByEpisodeId, getShowByIdReq} from "../services/showService";
-import {FaArrowLeft} from "react-icons/fa";
-import useAnonymousSignIn from '../Hooks/useAnonymousSignIn';
 import {getCDNImageUrl} from "../services/cdnImage";
 import EpisodeNavbarWeb from "../Components/NavbarEpisodeWeb";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {TrackingProperties} from "../Constants/TrackingProperties";
 
 type RouteParams = {
     showId: string;
     episodeId: string;
 };
 const EpisodeWeb = () => {
-    const {currentUser, signInAnonymouslyIfNeeded} = useAnonymousSignIn();
     const {showId, episodeId} = useParams<RouteParams>();
     const navigate = useNavigate();
 
@@ -30,10 +31,9 @@ const EpisodeWeb = () => {
         const fetchPanels = async () => {
             try {
                 // Fetch panels by episodeId
-                await signInAnonymouslyIfNeeded();
+                await signInAnonymouslyAndGetToken();
 
                 const metaData: string[] = ['DETAIL_PAGE_THUMBNAIL_V2']; // Specify the metadata you need
-                // const show = await getShowByIdReq('SHOJjHch75Ecbqc6e8V', metaData);
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
                 setShowInformation(show[0]);
 
@@ -68,6 +68,26 @@ const EpisodeWeb = () => {
 
     const currentEpisode: Episode | undefined = episodes?.find((episode) => episode.id === episodeId);
     const episodeName = currentEpisode?.name || 'Episode Name';
+
+    useEffect(() => {
+        if (showInformation && showId && currentEpisode && episodeId) {
+            // console.log("entering show screen" + auth.currentUser?.uid);
+            trackEvent(
+                {
+                    event: TrackingEvents.episodeOpened,
+                    properties: {
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                        episodeId: episodeId,
+                        episodeName: currentEpisode?.name,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
+        }
+    }, [showInformation, showId, currentEpisode, episodeId]);
+
     const getPreviousEpisodeId = () => {
         if (!currentEpisode || currentEpisode.sequence <= 1) return '';
 
@@ -84,6 +104,20 @@ const EpisodeWeb = () => {
     // Logic to determine previous and next episode IDs
     const goToPrevious = () => {
         if (currentEpisode && currentEpisode?.sequence >= 1) {
+            trackEvent(
+                {
+                    event: TrackingEvents.buttonClicked,
+                    properties: {
+                        name: 'Prev. Episode',
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                        episodeId: currentEpisode?.id,
+                        episodeName: episodeName,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
             navigate(`/show/${showId}/episodes/${previousEpisodeId}`);
         }
     };
@@ -103,11 +137,39 @@ const EpisodeWeb = () => {
 
     const goToNext = () => {
         if (currentEpisode && currentEpisode?.sequence < 10) {
+            trackEvent(
+                {
+                    event: TrackingEvents.buttonClicked,
+                    properties: {
+                        name: 'Next. Episode',
+                        userId: auth.currentUser?.uid,
+                        showId: showId,
+                        showName: showInformation?.name,
+                        episodeId: currentEpisode?.id,
+                        episodeName: episodeName,
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
             navigate(`/show/${showId}/episodes/${nextEpisodeId}`);
         }
     };
 
     const goToShowMobile = () => {
+        trackEvent(
+            {
+                event: TrackingEvents.buttonClicked,
+                properties: {
+                    name: 'Back-To-ShowScreen',
+                    userId: auth.currentUser?.uid,
+                    showId: showId,
+                    showName: showInformation?.name,
+                    episodeId: episodeId,
+                    episodeName: currentEpisode?.name,
+                } as TrackingProperties,
+            },
+            'CONSUMER'
+        );
         navigate(`/show/${showId}`); // Replace with specific navigation if needed
     };
 
@@ -126,33 +188,14 @@ const EpisodeWeb = () => {
                 episodes={episodes}
             />
             <div className="episode-images-web">
-                <div className="black-background" style={{
-                    backgroundColor: 'black',
-                    paddingTop: '80px',
-                    paddingBottom: '30px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <div style={{
-                        color: 'var(--Primary-White, #FCFCFC)',
-                        fontFamily: 'Geologica',
-                        fontSize: '24px',
-                        fontStyle: 'normal',
-                        fontWeight: 700,
-                        alignSelf: 'center',
-                        justifyContent: 'center',
-                        lineHeight: '24px',
-                        letterSpacing: '1.8px',
-                        textAlign: 'center'
-                    }}>
+                <div className="black-background-web">
+                    <div className="black-background-web-text">
                         {currentEpisode?.name}
                     </div>
                 </div>
                 {panels.map((panel) => (
                     <img
+                        key={panel.id}
                         src={getCDNImageUrl(panel.imageUrl, '')}
                         alt={`Panel ${panel.sequence}`}
                         onError={() => handleImageError(panel.imageUrl)}
