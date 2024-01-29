@@ -26,6 +26,9 @@ const EpisodeNavbarWeb: React.FC<NavbarProps> = ({
 
     const isVisible = useScrollVisibility();
 
+    const isFirstEp = !currentEpisode || currentEpisode.sequence <= 1;
+    const isLastEp = !currentEpisode || currentEpisode.sequence >= Math.min(10, episodes.length);
+
     return (
         <div className={`episode-navigation-bar-web top-bar-web`} style={{top: `${isVisible ? '0' : '-100'}px`}}>
             <button onClick={goToShowMobile} className="back-button-web">
@@ -36,12 +39,12 @@ const EpisodeNavbarWeb: React.FC<NavbarProps> = ({
                 <div>{currentEpisode?.name}</div>
             </div>
             <div className="navigation-button-container-web">
-                <button onClick={goToPrevious} className="nav-button-web"
-                        disabled={!currentEpisode || currentEpisode.sequence <= 1}>
+                <button onClick={goToPrevious} className="nav-button-web" style={{color: `${isFirstEp ? '#898989' : '#fff'}`}}
+                        disabled={isFirstEp}>
                     <span><FaStepBackward/> Prev. Ep.</span>
                 </button>
-                <button onClick={goToNext} className="nav-button-web"
-                        disabled={!currentEpisode || currentEpisode.sequence >= Math.min(10, episodes.length)}>
+                <button onClick={goToNext} className="nav-button-web" style={{color: `${isLastEp ? '#898989' : '#fff'}`}}
+                        disabled={isLastEp}>
                     <span> Next Ep. <FaStepForward/> </span>
                 </button>
             </div>

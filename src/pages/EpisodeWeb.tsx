@@ -126,6 +126,31 @@ const EpisodeWeb = () => {
                 episodes={episodes}
             />
             <div className="episode-images-web">
+                <div className="black-background" style={{
+                    backgroundColor: 'black',
+                    paddingTop: '80px',
+                    paddingBottom: '30px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <div style={{
+                        color: 'var(--Primary-White, #FCFCFC)',
+                        fontFamily: 'Geologica',
+                        fontSize: '24px',
+                        fontStyle: 'normal',
+                        fontWeight: 700,
+                        alignSelf: 'center',
+                        justifyContent: 'center',
+                        lineHeight: '24px',
+                        letterSpacing: '1.8px',
+                        textAlign: 'center'
+                    }}>
+                        {currentEpisode?.name}
+                    </div>
+                </div>
                 {panels.map((panel) => (
                     <img
                         src={getCDNImageUrl(panel.imageUrl, '')}

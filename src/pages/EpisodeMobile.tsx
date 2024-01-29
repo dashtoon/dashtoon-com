@@ -111,6 +111,9 @@ const EpisodeMobile: React.FC = () => {
 
     const isVisible = useScrollVisibility();
 
+    const isFirstEp = !currentEpisode || currentEpisode.sequence <= 1;
+    const isLastEp = !currentEpisode || currentEpisode.sequence >= Math.min(10, episodes.length);
+
     return (
         <div className="episode-container">
             {loading && <div className="loading-screen">
@@ -126,6 +129,31 @@ const EpisodeMobile: React.FC = () => {
                 </div>
             </div>
             <div className="episode-images">
+                <div className="black-background" style={{
+                    backgroundColor: 'black',
+                    paddingTop: '80px',
+                    paddingBottom:'30px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <div style={{
+                        color: 'var(--Primary-White, #FCFCFC)',
+                        fontFamily: 'Geologica',
+                        fontSize: '24px',
+                        fontStyle: 'normal',
+                        fontWeight: 700,
+                        alignSelf: 'center',
+                        justifyContent: 'center',
+                        lineHeight: '24px',
+                        letterSpacing: '1.8px',
+                        textAlign: 'center'
+                    }}>
+                        {currentEpisode?.name}
+                    </div>
+                </div>
                 {panels.map((panel) => (
                     <img
                         src={getCDNImageUrl(panel.imageUrl, '')}
@@ -135,15 +163,15 @@ const EpisodeMobile: React.FC = () => {
                     />
                 ))}
             </div>
-            <div className="episode-navigation-bar bottom-bar" style={{bottom: `${isVisible ? '0' : '-100'}px`}}>
+            <div className="episode-navigation-bar bottom-bar" style={{bottom: `${isVisible ? '0' : '-100'}px`}} >
                 <div>
-                    <button onClick={goToPrevious} className="nav-button"
-                            disabled={!currentEpisode || currentEpisode.sequence <= 1}><FaStepBackward/> Prev. Ep.
+                    <button onClick={goToPrevious} className="nav-button" style={{color: `${isFirstEp ? '#898989' : '#fff'}`}}
+                            disabled={isFirstEp}><FaStepBackward/> Prev. Ep.
                     </button>
                 </div>
                 <div>
-                    <button onClick={goToNext} className="nav-button"
-                            disabled={!currentEpisode || currentEpisode.sequence >= Math.min(10, episodes.length)}>
+                    <button onClick={goToNext} className="nav-button" style={{color: `${isLastEp ? '#898989' : '#fff'}`}}
+                            disabled={isLastEp}>
                       Next Ep. <FaStepForward/>
                     </button>
                 </div>

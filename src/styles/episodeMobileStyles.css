@@ -77,8 +77,8 @@
 }
 
 .episode-images {
-    margin-top: 0;
     display: flex;
+    background: black;
     flex-wrap: wrap; /* Ensure items wrap to the next line */
     justify-content: flex-start; /* Align items to the start of the flex container */
 }
