@@ -12,6 +12,7 @@ import {trackEvent} from "../Utils/Analytics";
 import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import {TrackingEvents} from "../Constants/TrackingEvents";
 import {TrackingProperties} from "../Constants/TrackingProperties";
+import FooterMobile from "../Components/FooterMobile";
 
 
 const ShowMobile = () => {
@@ -144,7 +145,7 @@ const ShowMobile = () => {
                 <EpisodeListMobile showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}
                                    showInformation={showInformation!}/>
             </div>
-
+            <FooterMobile></FooterMobile>
         </div>
     );
 };

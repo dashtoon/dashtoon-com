@@ -3,13 +3,15 @@ import ShowInfoWeb from './ShowInfoWeb'; // Adjust path as needed
 import EpisodeListWeb from './EpisodeListWeb'; // Adjust path as needed
 import '../styles/webStyles.css';
 import {useParams} from "react-router-dom";
-import {EpisodeResponse} from "../types/episodeData";
+import {Episode, EpisodeResponse} from "../types/episodeData";
 import {Show} from "../types/Show";
 import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import {getEpisodesList, getShowByIdReq} from "../services/showService";
 import {trackEvent} from "../Utils/Analytics";
 import {TrackingEvents} from "../Constants/TrackingEvents";
 import {TrackingProperties} from "../Constants/TrackingProperties";
+import FooterWeb from "../Components/FooterWeb";
+import {useNavigate} from 'react-router-dom';
 
 const ShowWeb: React.FC = () => {
 
@@ -88,7 +90,8 @@ const ShowWeb: React.FC = () => {
         : showInformation?.description;
 
     return (
-        <div className="central-comp">
+        <div className="show-screen">
+            <div className="content-comp">
             <div className="show-web-container">
                 {loading && <div className="loading-screen-web">
                     <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
@@ -103,6 +106,8 @@ const ShowWeb: React.FC = () => {
                                     showInformation={showInformation!}/>
                 </div>
             </div>
+            </div>
+            <FooterWeb></FooterWeb>
         </div>
     );
 };

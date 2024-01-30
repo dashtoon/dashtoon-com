@@ -8,14 +8,13 @@
     /*padding: 16px;*/
     width: 100%; /* Adjust this width as necessary */
     height: 878px; /* Give a fixed height to the container */
-    overflow-y: auto; /* Allow scrolling within the container */
 }
 
 .show-info-container-web {
     display: flex;
     justify-content: space-between; /* This will space items apart */
     align-items: flex-start;
-    padding: 0px 2px 0px 2px;
+    /*padding: 0px 2px 0px 2px;*/
     width: 100%; /* Updated width to use the full container width */
     box-sizing: border-box;
     margin-bottom: 20px;
@@ -29,7 +28,7 @@
     justify-content: flex-start; /* This will vertically center the children */
     align-items: flex-start; /* Align text to the start (left) */
     /* New Styles Below */
-    padding: 0 16px;
+    /*padding: 0 16px;*/
     color:  #FCFCFC;
     font-family: Outfit, sans-serif;
     font-size: 16px;
@@ -46,16 +45,16 @@
 .episode-item-web {
     border-radius: 20px;
     align-items: center;
-    width: calc(100% - 32px);
+    max-width: calc(100% - 20px);
     background-color: #2D2B2B;
     overflow: hidden; /* ensures no content spills out */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow */
     display: flex;
-    gap: 8px;
+    gap: 12px;
     padding: 10px;
     flex-direction: row; /* Separator between episode items */
-    margin-right: auto; /* Ensures alignment to the left */
-    margin-left: auto;
+    /*margin-right: auto; !* Ensures alignment to the left *!*/
+    /*margin-left: auto;*/
     margin-bottom: 8px;
 }
 
