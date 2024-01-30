@@ -58,7 +58,7 @@
 }
 
 .show-details {
-    padding: 14px;
+    padding: 16px;
     border-radius: 12px 12px 0 0; /* Only round the top corners */
     background: #232222;
     z-index: 2; /* Ensure the details section is above the image container */
@@ -83,7 +83,8 @@
 .show-title {
     /* Styles for the show title */
     text-align: left;
-    padding: 0 8px;
+    padding: 0;
+    margin-block-start: 0px;
     margin-bottom: 8px;
     color: #FCFCFC;
     font-family: Geologica, sans-serif;
@@ -96,7 +97,6 @@
 .show-genres {
     /* Styles for the genre tags */
     text-align: left;
-    padding: 0 8px;
     margin-bottom: 8px;
 }
 
@@ -105,7 +105,7 @@
     color: #fff; /* White text color */
     background-color:  #535353;
     border-radius: 45px;
-    padding: 4px 8px; /* Padding inside the tags */
+    padding: 10px 13px;
     display: inline-block; /* Display tags inline */
     margin-right: 8px;
     font-family: Geologica, sans-serif;
@@ -118,7 +118,7 @@
 .description-container {
     position: relative;
     text-align: left;
-    padding: 0 8px;
+    padding: 0;
 }
 
 .show-description {
@@ -163,7 +163,7 @@
     background: #9FF; /* Fallback color is #9FF if --Primary-Color is not defined */
     box-shadow: 0px -3px 41px 0px rgba(0, 0, 0, 0.37);
     padding: 10px 8px; /* Vertical and horizontal padding */
-    width: calc(100% - 16px); /* 100% of the container's width minus both left and right margins */
+    width: calc(100%); /* 100% of the container's width minus both left and right margins */
     box-sizing: border-box;
 
     display: inline-flex;
@@ -199,7 +199,7 @@
     display: flex;
     justify-content: space-between; /* This will space items apart */
     align-items: center;
-    padding: 4px 2px 4px 2px;
+    padding: 4px 0;
     width: 100%; /* Updated width to use the full container width */
     box-sizing: border-box;
 }
@@ -211,7 +211,6 @@
     justify-content: center; /* This will vertically center the children */
     align-items: flex-start; /* Align text to the start (left) */
     /* New Styles Below */
-    padding: 0 8px 0 8px;
     color:  #C9C9C9;
     /* Medium 16 */
     font-family: Geologica, sans-serif;
@@ -234,7 +233,7 @@
     flex-direction: row; /* Separator between episode items */
     margin-right: auto; /* Ensures alignment to the left */
     margin-left: auto;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .episode-thumbnail {
@@ -298,8 +297,8 @@
 
 .episode-free-tag {
     display: flex;
-    width: 40px;
-    padding: 4px;
+    /*width: 40px;*/
+    padding: 4px 4px;
     justify-content: center;
     align-items: center;
     margin-top: 15px;
@@ -317,7 +316,7 @@
 .sort-button::before {
     content: '|'; /* This is the vertical bar separator */
     margin-right: 8px; /* Right margin to create space after the bar */
-    color: inherit;
+    color: #535353;
 }
 
 .sort-button {

@@ -55,7 +55,7 @@
     flex-direction: row; /* Separator between episode items */
     /*margin-right: auto; !* Ensures alignment to the left *!*/
     /*margin-left: auto;*/
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 .episode-thumbnail-web {
@@ -113,14 +113,12 @@
     margin: 0;
 }
 
-.episode-free-tag {
+.episode-free-tag-web {
     display: flex;
-    /*width: 40px;*/
     padding: 4px;
     justify-content: center;
     align-items: center;
     margin-top: 15px;
-    width: 40px;
     gap: 4px;
     color: #fcfcfc;
     font-family: Geologica, sans-serif;

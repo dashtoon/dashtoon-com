@@ -83,7 +83,7 @@ const EpisodeListWeb: React.FC<EpisodeListProps> = ({showId, numberOfEpisode, ep
                         <div className="episode-info-web">
                             <h3 className="episode-title-web">{episode.name}</h3>
                             <p className="episode-date-web">{formatDate(episode.createdAt)}</p>
-                            <div className="episode-free-tag">Free</div>
+                            <div className="episode-free-tag-web">Free</div>
                         </div>
                     </div>
                 ))}
