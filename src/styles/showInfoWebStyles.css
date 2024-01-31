@@ -26,7 +26,7 @@
 
 .show-title-web {
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 17px;
     font-family: Geologica, sans-serif;
     font-size: 24px;
     font-style: normal;
@@ -40,7 +40,7 @@
 }
 
 .show-genres-web {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     display: flex;
     flex-direction: row;
 }
@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 45px;
-    gap: 10px;
+    gap: 12px;
     color: #fff; /* White text color */
     background-color: #535353;
     margin-right: 8px;
@@ -76,6 +76,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    margin-top: 17px;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 10px; /* Adjust spacing as needed */

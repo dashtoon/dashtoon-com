@@ -153,3 +153,16 @@
 .sort-button-icon-web {
     margin-left: 8px; /* Add space between text and icon */
 }
+
+.scrollBar {
+scrollbar-width: none; /*For firefox*/
+}
+
+::-webkit-scrollbar {
+width: 0px; /*For Chrome and Safari*/
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+    -webkit-border-radius: 6px;
+}
