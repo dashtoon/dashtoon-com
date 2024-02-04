@@ -103,6 +103,7 @@
 }
 
 .read-episode-button-web {
+    -webkit-align-self: flex-end;
     color:  #030303;
     font-family: Geologica,sans-serif;
     font-size: 20px;

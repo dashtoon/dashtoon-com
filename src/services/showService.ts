@@ -1,4 +1,5 @@
 import HttpClient from './httpClient';
+import {ShowCategory} from "../types/Show";
 // import { ShowDetailsRequest, Show } from './types';
 
 const readerApiPrefix = '/reader';
@@ -44,5 +45,18 @@ export const getPanelsByEpisodeId = async (episodeId : string) =>{
   } catch (error) {
     console.error(`Unable to get panels by episodeid: ${episodeId}`, error);
     throw error; // Re-throw the error to handle it in the calling component
+  }
+}
+
+export const getPopularShows = async (count: number) => {
+  const showCategory= ShowCategory.PUGC;
+  try {
+    return await HttpClient.get(
+        `/api/studio/show/${showCategory}/most-views/${count}`,
+        {},
+    )
+  } catch (e) {
+    console.log("Error while fetching popular shows")
+    throw e
   }
 }

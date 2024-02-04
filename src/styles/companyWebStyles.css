@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&display=swap');
+
+.company-content-web {
+    display: flex;
+    flex-direction: column;
+    background: black;
+    min-height: 100vh;
+    /*padding-top: 40px;*/
+    /* Add more styles as needed */
+}
+
+.about {
+    flex: 1;
+    gap: 20px;
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 162px;
+}
+
+.heading-about-web {
+    color: #FFF;
+    text-align: center;
+    width: 668px;
+    font-family: Geologica;
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 130%;
+    letter-spacing: 3px;
+}
+
+.about p {
+    color: #FCFCFC;
+    text-align: center;
+    font-family: Geologica;
+    width: auto;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 200%;
+}
+
+.people-web {
+    text-align: center;
+    color: #FFF;
+}
+
+.people-web h2 {
+    font-family: Geologica;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 125%; /* 37.5px */
+    letter-spacing: -1.2px;
+    margin-bottom: 70px;
+}
+
+/* Add these styles to your existing CSS file */
+
+.people-web {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.people-web-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px 160px;
+    gap: 70px;
+    /*grid-auto-columns: auto;*/
+    /*grid-auto-rows: auto;*/
+    justify-content: center;
+    align-items: center;
+}
+
+.person-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.person-image {
+    width: 201.24px;
+    height: 201.24px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.person-details {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.person-name {
+    color: #FCFCFC;
+    font-family: Geologica;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.person-position {
+    color: #999;
+    font-family: Outfit;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+
+
+/* Add more styles as needed */
+.play-store-award {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 100px 100px;
+    background: linear-gradient(102deg, #08082E 7.87%, #08082E 36.92%, #0A0A2E 48.02%, #09092D 49.4%, #383345 62.29%, #111136 82.6%, #080A32 97.88%, rgba(8, 8, 46, 0.00) 115.33%);
+    /* Add more styles as needed */
+}
+
+.play-store-info {
+    color: #FCFCFC;
+    font-family: Geologica;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 200%;
+    text-align: left;
+}
+
+.play-store-info p {
+    margin: 0; /* Remove default margin for paragraphs */
+}
+
+.play-store-info p:first-child {
+    font-size: 24px; /* Adjust the size as needed */
+}
+
+.play-store-info p:last-child {
+    font-size: 42px; /* Adjust the size as needed */
+    font-weight: 800;
+}
+
+.play-store-image {
+    width: 470px;
+    height: 264px;
+    flex-shrink: 1;
+    border-radius: 43px;
+    background: url('../assets/images/best-for-fun.png') lightgray 50% / cover no-repeat;
+    /* Add more styles as needed */
+}
+
+
+
+/* Continue with the rest of the styles for other elements... */
+/* inTheNews.css */
+
+.in-the-news-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.news-heading {
+    margin-bottom: 80px;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 125%;
+    letter-spacing: -1.2px;
+}
+
+.news-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 20px; /* Adjust as needed */
+    margin-bottom: 40px;
+    /*flex-grow: 1;*/
+    /*width: 100%;*/
+}
+
+.news-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /*flex-grow: 1;*/
+    gap: 40px;
+}
+
+.news-icon {
+    width: 100px;
+    height: 100px;
+}
+
+
+
+
+.news-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0px;
+}
+
+.news-title {
+    color: #A1A1A1;
+    /*width: 400px;*/
+    height: 48px;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 200%; /* 48px */
+    text-align: left;
+    justify-self: flex-start;
+    justify-content: flex-start;
+}
+.news-text {
+    color:  #FCFCFC;
+    justify-content: flex-start;
+    align-self: flex-start;
+    text-align: left;
+    height: 48px;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 200%; /* 48px */
+}
+
+.goto-button {
+    /*width: 84px;*/
+    /*height: 84px;*/
+    background: black;
+    width: 84px;
+    height: 84px;
+    border: transparent;
+    /*border-radius: 50%;*/
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+
+
+}
+
+.goto-button:hover {
+    background-color: #1B1B1B;
+}
+
+.back-arrow {
+    width: 32px;
+    height: 32px;
+}
+/* Add more styles as needed */

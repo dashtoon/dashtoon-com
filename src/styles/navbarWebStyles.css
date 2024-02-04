@@ -1,0 +1,103 @@
+.navbar-web-home {
+    width: 589px;
+    /*height: 69px;*/
+    /*height: 69px;*/
+    flex-shrink: 1;
+    border-radius: 672.121px;
+    border: 1px solid rgba(164, 164, 164, 0.19508);;
+    background: radial-gradient(117.73% 149.5% at 8.37% 0%, rgba(128, 128, 128, 0.36) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(12.899999618530273px);
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin-top: 40px;
+    box-shadow: black;
+    justify-content: space-between;
+    justify-self: center;
+    align-self: center;
+    top: 0;
+    position: sticky;
+    transition: ease-in top 0.3s;
+}
+
+.nav-button-web-home {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50%;
+    background: rgba(164, 164, 164, 0.19508);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.nav-button-web-home:hover {
+    border: 1px solid transparent;
+}
+
+.logo-web-home {
+    width: 56px;
+    height: 52px;
+    border-radius: 50%;
+}
+
+.logo-icon-web-home {
+    width: 32px; /* Adjust the size according to your design */
+    height: 32px;
+    border-radius: 38px;
+    /* Add any additional styles for your logo icon */
+}
+
+.nav-buttons-web-home {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.company-web-home,
+.dash-studio-web-home,
+.careers-web-home,
+.login-web-home {
+    display: flex;
+    flex-grow: 1;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: border 0.3s ease, color 0.3s ease;
+    width: auto;
+}
+
+.company-web-home:hover,
+.dash-studio-web-home:hover,
+.careers-web-home:hover,
+.login-web-home:hover {
+    border: 1px solid transparent;
+}
+
+.company-web-home,
+.dash-studio-web-home,
+.careers-web-home,
+.login-web-home {
+    color:  #c9c9c9;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.company-web-home:hover,
+.dash-studio-web-home:hover,
+.careers-web-home:hover,
+.login-web-home:hover {
+    color: #fcfcfc;
+    font-weight: 700;
+}

@@ -5,10 +5,18 @@ import ShowWeb from '../pages/ShowWeb';
 import EpisodeMobile from '../pages/EpisodeMobile';
 import EpisodeWeb from '../pages/EpisodeWeb';
 import InvalidUrlPage from '../pages/InvalidUrlPage';
+import CareersWeb from "../pages/CareersWeb";
+import CareersMobile from "../pages/CareersMobile";
+import CompanyWeb from "../pages/CompanyWeb";
+import CompanyMobile from "../pages/CompanyMobile";
+import HomePageWeb from "../pages/HomePageWeb";
 
 const DesktopRoutes: React.FC = () => (
     <Routes>
         <Route path='/*' element={<InvalidUrlPage/>}/>
+        <Route path='/company' element={<CompanyWeb/>}/>
+        <Route path='/home' element={<HomePageWeb/>} />
+        <Route path='/careers' element={<CareersWeb/>}/>
         <Route path='/show/:showId' element={<ShowWeb/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeWeb/>}/>
     </Routes>
@@ -17,6 +25,9 @@ const DesktopRoutes: React.FC = () => (
 const MobileRoutes: React.FC = () => (
     <Routes>
         <Route path='/*' element={<InvalidUrlPage />} />
+        {/*<Route path='/home' element={<HomePageWeb/>} />*/}
+        {/*<Route path='/company' element={<CompanyMobile/>}/>*/}
+        <Route path='/careers' element={<CareersMobile/>} />
         <Route path='/show/:showId' element={<ShowMobile/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeMobile/>}/>
     </Routes>

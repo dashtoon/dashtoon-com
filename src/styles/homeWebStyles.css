@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Outfit:wght@400t&Geologica:wght@400;700&display=swap');
+.body {
+
+}
+.home-page-web {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*align-items: center;*/
+    min-height: 100vh; /* Assuming you want home-content to take up at least 70% of the viewport height */
+    margin-bottom: 0px;
+
+}
+
+.home-page-web-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0; /* Adjust padding as needed */
+    flex-grow: 1;
+    min-height: 100vh;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(175deg, #1E1E1E -11.86%, #000 13.83%);
+}
+
+/* 1. NavBar web */
+.navbar-web {
+    /* Your NavBar styles go here */
+    /* Example styles: */
+    padding: 0 20px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 2. Heading section */
+.heading-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     /* Adjust margin as needed */
+}
+
+/* a. Text box with Heading: Dashtoon */
+.dashtoon-heading {
+    text-align: center;
+    flex-shrink: 1;
+    font-family: Geologica;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 75px; /* 125% */
+    margin-top: 60px;
+    margin-bottom: 0;
+    background: linear-gradient(90deg, #07E0ED 4.54%, #DF1B59 79.54%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* b. Text below the heading */
+.heading-text {
+    color: #FCFCFC;
+    font-family: Geologica;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 87.5% */
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+/* 3. Container for a grid of popular episodes */
+.popular-shows {
+    /* Your episode grid styles go here */
+    /* Leave it empty for now */
+    padding: 80px 20px 20px 20px;
+}
+
+/* 4. Review container */
+.review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    width: 80%;
+}
+
+/* a. Heading: What readers say */
+.readers-say-heading {
+    color: #FCFCFC;
+    font-family: Geologica;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 87.5% */
+}
+
+/* b. Review container below the heading */
+.review-content-web {
+    display: flex;
+    flex-direction: row;
+    gap: 52px;
+    padding: 20px 0px;
+    /*min-height: 400px;*/
+    /*max-width: 1000px*/
+    /* Add your review container styles here */
+}
+
+.review-2,
+.review-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100px;
+    justify-content: space-between;
+    padding: 22px;
+    flex-basis: calc(50% - 26px); /* Subtract half of the gap between cards */
+    max-width: calc(50% - 26px); /* Keep the same maximum size */
+}
+
+.review-1 {
+    border-radius: 24px;
+    background: linear-gradient(0deg, rgba(255, 89, 89, 0.41) 0%, rgba(255, 89, 89, 0.41) 100%), no-repeat;
+
+}
+
+.review-2 {
+
+    border-radius: 24px;
+    background: linear-gradient(0deg, rgba(89, 205, 255, 0.39) 0%, rgba(89, 205, 255, 0.39) 100%),no-repeat;
+}
+
+.stars {
+margin-bottom: 20px;
+}
+
+.review {
+    color: #FCFCFC;
+    align-self: flex-start;
+    text-align: left;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 160%; /* 32px */
+    color: #FCFCFC;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 160%; /* Updated line-height for more readability */
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.reviewer {
+    color:  #FCFCFC;
+    margin-top: auto;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 120% */
+}
+
+.app-download-prompt {
+    width: 80%;
+    padding: 0 40px;
+}
+/* 5. Get App component */
+.get-app {
+    /* Add your Get App component styles here */
+    margin-top: 24px;
+    margin-bottom: 40px;
+    padding-right: 40px;
+    padding-bottom: 0;
+    border-radius: 24px;
+    background: rgb(0,0,3);
+    background: linear-gradient(90deg, rgba(0,0,3,1) 17%, rgba(35,35,110,1) 79%, rgba(11,192,228,1) 100%);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* homeWebStyles.css */
+
+/* ... other styles ... */
+
+
+.get-app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.get-app-heading {
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 50px */
+}
+
+.download-text {
+    color: #FFF;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    /* Add your other styles here */
+}
+
+.install-icons {
+    display: flex;
+    gap: 14px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.icon-card {
+    display: flex;
+    border-radius: 12px;
+    border: 1px solid #FFF;
+    background: radial-gradient(117.73% 149.5% at 8.37% 0%, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(2.5px);
+    padding: 18px 30px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.icon-card:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
+
+.app-icons {
+    aspect-ratio: 0.95;
+    object-position: center;
+    fill: #fff;
+    width: 39.129px;
+    height: 41.378px;
+    flex-shrink: 0;
+}
+.install-prompt {
+    justify-content: flex-start;
+    align-self: start;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+.install-header {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.install-text {
+    margin-top: 8px;
+    white-space: nowrap;
+    font: 20px Inter, sans-serif;
+    font-weight: 400;
+}
+
+/*.app-image-container {*/
+/*    padding-top: 50px;*/
+/*    !* Add your other styles for the container here *!*/
+/*}*/
+
+.app-image-container {
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    position: relative;
+    aspect-ratio: 0.79;
+    max-width: 363px;
+    padding: 23px 12px 0;
+
+}
+
+
+.phone-image {
+    /*top: 20px; !* Adjust as needed *!*/
+    margin-top: auto;
+    left: 0;
+    overflow: hidden;
+    /*width: 363px;*/
+    flex-shrink: 0;
+    z-index: 1;
+    bottom: 0;
+}
+
+
+/* ... other styles ... */
+::-webkit-scrollbar {
+    width:0px;
+}
+
+/*track*/
+::-webkit-scrollbar-track {
+    background:transparent;
+}
+
+/*thumb*/
+::-webkit-scrollbar-thumb {
+    background:transparent;
+}
+
+.genre-popular {
+    color: #C9C9C9;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.creator-popular {
+    color: #999;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
