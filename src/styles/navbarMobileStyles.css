@@ -68,6 +68,8 @@
     right: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
     gap: 10px;
 }
 
@@ -82,4 +84,9 @@
     background: transparent;
     border: none;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.dropdown button:hover {
+    transform: scale(1.2); /* Scale the button on hover */
 }

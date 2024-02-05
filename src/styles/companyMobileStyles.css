@@ -5,7 +5,11 @@
     flex-direction: column;
     background: black;
     min-height: 100vh;
+
     /* Add more styles as needed */
+}
+
+.navbarCompany {
 }
 
 .about-mobile {
@@ -14,16 +18,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 162px;
+    padding: 20px 20px;
 }
 
 .heading-about-mobile {
     color: #FFF;
     text-align: center;
-    width: 668px;
     font-family: Geologica;
-    font-size: 60px;
     font-weight: 900;
+    font-size: 32px;
     line-height: 130%;
     letter-spacing: 3px;
 }
@@ -32,8 +35,7 @@
     color: #FCFCFC;
     text-align: center;
     font-family: Geologica;
-    width: auto;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 200%;
 }
@@ -45,7 +47,7 @@
 
 .people-mobile h2 {
     font-family: Geologica;
-    font-size: 30px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 800;
     line-height: 125%; /* 37.5px */
@@ -59,12 +61,12 @@
     align-items: center;
 }
 
-.people-mobile-container {
+.people-web-container-mobile {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 20px 160px;
-    gap: 70px;
+    padding: 20px 20px;
+    gap: 30px;
     /*grid-auto-columns: auto;*/
     /*grid-auto-rows: auto;*/
     justify-content: center;
@@ -79,22 +81,22 @@
 }
 
 .person-image-mobile {
-    width: 201.24px;
-    height: 201.24px;
+    width: 136.996px;
+    height: 136.996px;
     flex-shrink: 0;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .person-details-mobile {
-    margin-top: 15px;
+    margin-top: 14px;
     text-align: center;
 }
 
 .person-name-mobile {
     color: #FCFCFC;
     font-family: Geologica;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 150%;
 }
@@ -102,7 +104,7 @@
 .person-position-mobile {
     color: #999;
     font-family: Outfit;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 150%;
 }
@@ -112,9 +114,10 @@
 /* Add more styles as needed */
 .play-store-award-mobile {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 100px;
+    padding: 60px 40px;
+    gap: 70px;
     background: linear-gradient(102deg, #08082E 7.87%, #08082E 36.92%, #0A0A2E 48.02%, #09092D 49.4%, #383345 62.29%, #111136 82.6%, #080A32 97.88%, rgba(8, 8, 46, 0.00) 115.33%);
     /* Add more styles as needed */
 }
@@ -122,7 +125,6 @@
 .play-store-info-mobile {
     color: #FCFCFC;
     font-family: Geologica;
-    font-size: 24px;
     font-weight: 400;
     line-height: 200%;
     text-align: left;
@@ -133,17 +135,17 @@
 }
 
 .play-store-info-mobile p:first-child {
-    font-size: 24px; /* Adjust the size as needed */
+    font-size: 20px;/* Adjust the size as needed */
 }
 
 .play-store-info-mobile p:last-child {
-    font-size: 42px; /* Adjust the size as needed */
+    font-size: 32px; /* Adjust the size as needed */
     font-weight: 800;
 }
 
 .play-store-image-mobile {
-    width: 470px;
-    height: 264px;
+    width: 328px;
+    height: 184px;
     flex-shrink: 0;
     border-radius: 43px;
     background: url('../assets/images/best-for-fun.png') lightgray 50% / cover no-repeat;

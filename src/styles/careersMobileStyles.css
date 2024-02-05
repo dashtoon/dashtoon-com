@@ -10,7 +10,7 @@
     background-color: black;
 }
 .career-page-mobile {
-    background-color: black;
+    /*background-color: black;*/
     display: flex;
     /*min-height: 100vh;*/
     flex-direction: column;
@@ -20,6 +20,9 @@
     /*gap: 70px;*/
     min-height: 50vh;
     flex-grow: 1;
+    background: radial-gradient(200% 50% at center bottom,
+    deeppink 5%,  /* Pink color at the bottom, adjust percentage as needed */
+    black 35%);
 }
 
 .gradient-overlay-mobile {

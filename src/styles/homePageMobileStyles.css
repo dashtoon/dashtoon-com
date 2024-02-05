@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Outfit:wght@400t&Geologica:wght@400;700&display=swap');
+
+.body-mobile {
+
+}
+
+.home-page-web-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin-bottom: 0px;
+}
+
+.home-page-web-content-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+    flex-grow: 1;
+    min-height: 100vh;
+    text-align: center;
+    background: linear-gradient(175deg, #1E1E1E -11.86%, #000 13.83%);
+}
+
+/* 1. NavBar web */
+.navbar-web-mobile {
+    padding: 0 20px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 2. Heading section */
+.heading-section-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* a. Text box with Heading: Dashtoon */
+.dashtoon-heading-mobile {
+    text-align: center;
+    flex-shrink: 1;
+    font-family: Geologica;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 75px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    background: linear-gradient(90deg, #07E0ED 4.54%, #DF1B59 79.54%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* b. Text below the heading */
+.heading-text-mobile {
+    color: #FCFCFC;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin-top: 0;
+}
+
+/* 3. Container for a grid of popular episodes */
+.popular-shows-mobile {
+    /*padding: 80px 20px 20px 20px;*/
+}
+
+/* 4. Review container */
+.review-container-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* a. Heading: What readers say */
+.readers-say-heading-mobile {
+    color: #FCFCFC;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+/* b. Review container below the heading */
+.review-content-web-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0px;
+}
+
+.review-2-mobile,
+.review-1-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100px;
+    justify-content: space-between;
+    padding: 22px;
+    /*flex-basis: calc(50% - 26px);*/
+    /*max-width: calc(50% - 26px);*/
+}
+
+.review-1-mobile {
+    border-radius: 24px;
+    background: linear-gradient(0deg, rgba(255, 89, 89, 0.41) 0%, rgba(255, 89, 89, 0.41) 100%), no-repeat;
+}
+
+.review-2-mobile {
+    border-radius: 24px;
+    background: linear-gradient(0deg, rgba(89, 205, 255, 0.39) 0%, rgba(89, 205, 255, 0.39) 100%),no-repeat;
+}
+
+.stars-mobile {
+    margin-bottom: 20px;
+}
+
+.review-mobile {
+    color: #FCFCFC;
+    align-self: flex-start;
+    text-align: left;
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 160%;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.reviewer-mobile {
+    color:  #FCFCFC;
+    margin-top: auto;
+    font-family: Geologica;
+    font-size: 16px;;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.app-download-prompt-mobile {
+    /*padding: 0 16px;*/
+}
+
+/* 5. Get App component */
+.get-app-mobile {
+    margin-top: 24px;
+    margin-bottom: 40px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 0;
+    border-radius: 24px;
+    background: rgb(0,0,3);
+    background: linear-gradient(180deg, rgba(0,0,3,1) 17%, rgba(35,35,110,1) 79%, rgba(11,192,228,1) 100%);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-app-container-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.get-app-heading-mobile {
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+}
+
+.download-text-mobile {
+    color: #FFF;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.install-icons-mobile {
+    display: flex;
+    gap: 14px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.icon-card-mobile {
+    display: flex;
+    border-radius: 12px;
+    gap: 10px;
+    width: 146px;
+    height: 50px;
+    border: transparent;
+    background: radial-gradient(117.73% 149.5% at 8.37% 0%, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(2.5px);
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.icon-card-mobile :hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
+
+.app-icons-mobile {
+    aspect-ratio: 0.95;
+    object-position: center;
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    flex-shrink: 0;
+}
+.install-prompt-mobile {
+    justify-content: flex-start;
+    align-self: center;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.install-header-mobile {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.install-text-mobile {
+    margin-top: 8px;
+    white-space: nowrap;
+    font: 12px Inter, sans-serif;
+    font-weight: 400;
+}
+
+/*.app-image-container {*/
+/*    padding-top: 50px;*/
+/*    !* Add your other styles for the container here *!*/
+/*}*/
+
+.app-image-container-mobile {
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    justify-content: center;
+    position: relative;
+    aspect-ratio: 0.79;
+    max-width: 256px;
+    padding: 23px 12px 0;
+
+}
+
+
+.phone-image-mobile {
+    /*top: 20px; !* Adjust as needed *!*/
+    margin-top: auto;
+    left: 0;
+    overflow: hidden;
+    /*width: 363px;*/
+    flex-shrink: 0;
+    z-index: 1;
+    bottom: 0;
+}
+
+
+/* ... other styles ... */
+::-webkit-scrollbar {
+    width:0px;
+}
+
+/*track*/
+::-webkit-scrollbar-track {
+    background:transparent;
+}
+
+/*thumb*/
+::-webkit-scrollbar-thumb {
+    background:transparent;
+}
+
+.genre-popular-mobile {
+    color: #C9C9C9;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.creator-popular-mobile {
+    color: #999;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}

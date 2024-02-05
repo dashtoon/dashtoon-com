@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/navbarMobileStyles.css'; // Import your stylesheet
 import {ReactComponent as HomeButton} from "../assets/icons/Frame 4.svg";
 import {ReactComponent as MenuButton} from "../assets/icons/fi_9121524.svg";
+import {useNavigate} from "react-router-dom";
 
 const MobileNavbar = () => {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -10,10 +11,15 @@ const MobileNavbar = () => {
         setDropdownVisible(!isDropdownVisible);
     };
 
+    const navigate = useNavigate();
+    const navigateTo = (route : string) => {
+        navigate(`/${route}`);
+    };
+
     return (
         <div className="mobile-navbar">
             <div className="home-button">
-                <div className="home-icon"> <HomeButton></HomeButton> </div>
+                <div className="home-icon" onClick={() => navigateTo('home')}> <HomeButton></HomeButton> </div>
             </div>
 
             <div className="menu-button" onClick={toggleDropdown}>
@@ -22,10 +28,10 @@ const MobileNavbar = () => {
 
                 {isDropdownVisible && (
                     <div className="dropdown">
-                        <button>Home</button>
-                        <button>Company</button>
-                        <button>DashStudio</button>
-                        <button>Careers</button>
+                        <button onClick={() => navigateTo('home')}>Home </button>
+                        <button onClick={() => navigateTo('company')}>Company</button>
+                        <button onClick={() => window.open('https://www.dashtoon.ai/', '_blank')}>DashStudio</button>
+                        <button onClick={() => navigateTo('careers')}>Careers</button>
                         <button>Login</button>
                     </div>
                 )}

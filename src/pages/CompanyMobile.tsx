@@ -17,6 +17,7 @@ const peopleData: Person[] = [
 const CompanyContentMobile = () => {
     return (
         <div className="company-content-mobile">
+
             <div className="about-mobile">
                 <NavbarMobile/>
                 <div className="heading-about-mobile">

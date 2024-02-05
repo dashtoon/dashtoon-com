@@ -123,7 +123,7 @@ const ShowMobile = () => {
             </div>
             <div className="show-details">
                 <h1 className="show-title">{showInformation?.name}</h1>
-                <div className="show-genres">
+                <div className="genre-container-isntall">
                     {genres?.split(', ').map(genre => (
                         <span key={genre} className="genre-tag">{genre}</span>
                     ))}
