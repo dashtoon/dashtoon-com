@@ -5,9 +5,6 @@ import '../styles/installAppStyles.css';
 import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import {getEpisodesList, getShowByIdReq} from "../services/showService";
 import {Show} from "../types/Show";
-import {trackEvent} from "../Utils/Analytics";
-import {TrackingEvents} from "../Constants/TrackingEvents";
-import {TrackingProperties} from "../Constants/TrackingProperties";
 import {getCDNImageUrl} from "../services/cdnImage";
 
 interface InstallAppProps {
@@ -65,15 +62,17 @@ const InstallApp: React.FC<InstallAppProps> = () => {
                 },
                 body: JSON.stringify({
                     data: {
-                        af_ad: newQueryParams.get('af_ad'),
-                        af_adset: newQueryParams.get('af_adset'),
-                        af_channel: newQueryParams.get('af_channel'),
-                        af_dp: `app://dashtoon/mobile/show/${showId}}`,
+                        af_ad: 'yellow_bananas',
+                        af_adset: 'my_adset',
+                        af_android_url: 'https://feedme.ca/buybananas',
+                        af_channel: 'my_channel',
+                        af_dp: 'afbasicapp://mainactivity',
+                        af_ios_url: 'https://feedme.ca/buybananas',
                         c: 'my_campaign',
-                        deep_link_value: 'https://dashtoon.onelink.me',
+                        deep_link_value: 'bananas',
                         deep_link_sub1: 10,
                         is_retargeting: true,
-                        pid: newQueryParams.get('pid')
+                        pid: 'my_media_source_SMS'
                     }
                 })
             };
@@ -94,24 +93,7 @@ const InstallApp: React.FC<InstallAppProps> = () => {
         };
 
         fetchData();
-    }, [location]);
-
-    useEffect(() => {
-        if (showInformation && showId) {
-            // console.log("entering show screen" + auth.currentUser?.uid);
-            trackEvent(
-                {
-                    event: TrackingEvents.showOpened,
-                    properties: {
-                        userId: auth.currentUser?.uid,
-                        showId: showId,
-                        showName: showInformation?.name,
-                    } as TrackingProperties,
-                },
-                'CONSUMER'
-            );
-        }
-    }, [showInformation, showId]);
+    }, []);
 
     const installApp = () => {
         // Add your installation logic here
@@ -142,7 +124,7 @@ const InstallApp: React.FC<InstallAppProps> = () => {
             </div>
 
             {/* Description */}
-            <div className="description" style={{marginTop: '20px'}}>
+            <div className="description-deeplink" style={{marginTop: '20px'}}>
                 {showInformation?.description}
             </div>
 
