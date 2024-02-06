@@ -22,6 +22,10 @@ const HomePageWeb: React.FC = () => {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
         const fetchData = async () => {
             await signInAnonymouslyAndGetToken();
             const response = await getPopularShows(20);

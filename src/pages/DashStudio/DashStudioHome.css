@@ -1,0 +1,318 @@
+/* WebPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&display=swap');
+
+.web-page-container {
+    /* Your global styles for the entire page */
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Navbar Styles */
+/* Heading Section Styles */
+
+.heading-section-studio {
+    /* Styles for the heading section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-text-studio {
+    /* Styles for the heading text */
+    padding: 0 200px;
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica, sans-serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%; /* 78px */
+    margin-top: 100px;
+}
+
+.heading-image {
+    /* Styles for the heading image */
+    width: 1019px;
+    height: 573.188px;
+    flex-shrink: 0;
+    margin-top: 60px;
+}
+
+.create-dashtoon-button {
+    display: inline-flex;
+    height: 69px;
+    padding: 22.5px 36px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+    border: transparent;
+    cursor: pointer;
+}
+
+/* Features Section Styles */
+.features-section {
+    /* Styles for the features section */
+    display: flex;
+    flex-direction: column;
+    gap : 120px;
+    padding: 0 120px;
+    margin-top: 100px;
+}
+
+.features-heading {
+    /* Styles for the features heading */
+}
+
+.features-content {
+    /* Styles for the features content (flex container) */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-section {
+    /* Styles for the text section inside features content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.features-content-heading {
+    color: #3090FC;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 200%; /* 48px */
+}
+
+.features-content-description {
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 139%; /* 50.04px */
+    text-align: left;
+}
+
+.image-section {
+    /* Styles for the image section inside features content */
+}
+
+/* ComicSection.css */
+
+.comic-section-container {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-family: 'Geologica', sans-serif;
+    margin-top: 100px;
+}
+
+.comic-content {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.comic-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 48px;
+    margin-bottom: 0;
+}
+
+.comic-subtitle {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 50.04px;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.comic-btn-container {
+    margin-top: 24px;
+    display: inline-flex;
+    height: 69px;
+    padding: 22.5px 33px 22.5px 36px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+    border: transparent;
+    cursor: pointer;
+}
+
+
+
+.youtube-video-container {
+    margin-top: 90px;
+    text-align: center;
+    margin-bottom: 100px;
+    border: 1px solid #fff;
+}
+
+.youtube-video {
+    width: 1118px;
+    height: 631px;
+    border: none;
+}
+
+.joinUs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 100px;
+
+}
+
+/* MyComponent.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.mainContainer {
+    justify-content: center;
+    border-radius: 23px;
+    border: 1px solid #fff;
+    background: radial-gradient(
+            76.22% 119.14% at -102.2% 55.19%,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(28, 28, 28, 0.37) 100%
+    );
+    backdrop-filter: blur(27.7px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #fff;
+    padding: 20px 20px;
+    gap: 20px
+}
+
+@media (max-width: 991px) {
+    .mainContainer {
+        padding: 0 20px;
+    }
+}
+
+.joinTitle {
+    color: #3090fc;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 200%; /* 48px */
+}
+
+@media (max-width: 991px) {
+    .title {
+        max-width: 100%;
+    }
+}
+
+.joinDescription {
+    text-align: left;
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 139%; /* 50.04px */
+}
+
+@media (max-width: 991px) {
+    .description {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+}
+
+.joinButton {
+    display: inline-flex;
+    padding: 19px 28px 18px 22px;
+    align-items: center;
+    border-radius: 40px;
+    border: 1px solid #FFF;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+    border: transparent;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+    .joinButton {
+        white-space: initial;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+}
+
+.discord-container-web {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 120px);
+    height: 387px;
+    flex-shrink: 0;
+    border-radius: 23px;
+    background: radial-gradient(
+            76.22% 119.14% at -102.2% 55.19%,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(28, 28, 28, 0.37) 100%
+    );
+    backdrop-filter: blur(27.7px);
+    overflow: hidden;
+    gap: 40px;
+    margin-bottom: 150px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.joinDiscordImage {
+    width: 50%;
+    height: 150%;
+    object-fit: cover;
+    margin-top: -40px;
+}
+
+.discordInfoWeb {
+    justify-content: center;
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #fff;
+    padding: 40px 20px;
+}

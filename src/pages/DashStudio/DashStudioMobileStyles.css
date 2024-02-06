@@ -1,0 +1,297 @@
+/* WebPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&display=swap');
+
+.web-page-container-mobile {
+    /* Your global styles for the entire page */
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+
+/* Navbar Styles */
+/* Heading Section Styles */
+
+.heading-section-studio-mobile {
+    /* Styles for the heading section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-text-studio-mobile {
+    /* Styles for the heading text */
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%; /* 41.6px */
+    margin-top: 50px;
+}
+
+.heading-image-mobile {
+    /* Styles for the heading image */
+    width: 325px;
+    height: 193px;
+    flex-shrink: 0;
+    margin-top: 60px;
+}
+
+.create-dashtoon-button-mobile {
+    display: inline-flex;
+    padding: 8px 21px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    border-radius: 40px;
+    border: transparent;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+}
+/* Features Section Styles */
+.features-section-mobile {
+    /* Styles for the features section */
+    display: flex;
+    flex-direction: column;
+    gap : 60px;
+    margin-top: 80px;
+}
+
+.features-heading-mobile {
+    /* Styles for the features heading */
+    color: #FFF;
+
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 200%; /* 32px */
+}
+
+.features-content-mobile {
+    /* Styles for the features content (flex container) */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+
+.text-section-mobile {
+    /* Styles for the text section inside features content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.features-content-heading-mobile {
+    color: #3090FC;
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 200%; /* 32px */ /* 48px */
+}
+
+.features-content-description-mobile {
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 139%; /* 33.36px */
+}
+
+.image-section-mobile {
+    /* Styles for the image section inside features content */
+
+}
+
+/* ComicSection.css */
+
+.comic-section-container-mobile {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-family: 'Geologica', sans-serif;
+    margin-top: 100px;
+}
+
+.comic-content-mobile {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.comic-title-mobile {
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 35px */
+}
+
+.comic-subtitle-mobile {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 50.04px;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.comic-btn-container-mobile {
+    display: inline-flex;
+    padding: 8px 21px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    border-radius: 40px;
+    border: transparent;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+}
+
+
+
+.youtube-video-container-mobile {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 83px;
+}
+
+.youtube-video-mobile {
+    border: 1px solid #FFFFFF;
+    width: calc(100% - 40px);
+    height: 207px;
+}
+
+.joinUs-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 100px;
+
+}
+
+/* MyComponent.module.css */
+
+.container-mobile {
+    display: flex;
+    justify-content: center;
+}
+
+.mainContainer-mobile {
+    border-radius: 23px;
+    border: 1px solid #fff;
+    background: radial-gradient(
+            76.22% 119.14% at -102.2% 55.19%,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(28, 28, 28, 0.37) 100%
+    );
+    backdrop-filter: blur(27.7px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #fff;
+    padding: 20px 20px;
+}
+
+
+
+.joinTitle-mobile {
+    color: #3090FC;
+    font-family: Geologica;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 200%; /* 32px */
+}
+
+
+.joinDescription-mobile {
+    text-align: left;
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 139%; /* 38.92px */
+}
+
+
+.joinButton-mobile {
+    margin-top: 20px;
+    display: inline-flex;
+    padding: 8px 92px 8px 100px;
+    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: transparent;
+    border-radius: 40px;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    color: #FFFFFF;
+}
+
+
+.discord-container-web-mobile {
+    display: flex;
+    flex-direction: row;
+    width: 1314px;
+    height: 387px;
+    flex-shrink: 0;
+    border-radius: 23px;
+    background: radial-gradient(
+            76.22% 119.14% at -102.2% 55.19%,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(28, 28, 28, 0.37) 100%
+    );
+    backdrop-filter: blur(27.7px);
+    overflow: hidden;
+    gap: 40px;
+    margin-bottom: 150px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.joinDiscordImage-mobile {
+    width: 50%;
+    height: 150%;
+    object-fit: cover;
+    margin-top: -40px;
+}
+
+.discordInfoWeb-mobile {
+    justify-content: center;
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #fff;
+    padding: 40px 20px;
+}

@@ -19,7 +19,7 @@ const MobileNavbar = () => {
     return (
         <div className="mobile-navbar">
             <div className="home-button">
-                <div className="home-icon" onClick={() => navigateTo('home')}> <HomeButton></HomeButton> </div>
+                <div className="home-icon" onClick={() => navigateTo('')}> <HomeButton></HomeButton> </div>
             </div>
 
             <div className="menu-button" onClick={toggleDropdown}>
@@ -28,9 +28,9 @@ const MobileNavbar = () => {
 
                 {isDropdownVisible && (
                     <div className="dropdown">
-                        <button onClick={() => navigateTo('home')}>Home </button>
+                        <button onClick={() => navigateTo('')}>Home </button>
                         <button onClick={() => navigateTo('company')}>Company</button>
-                        <button onClick={() => window.open('https://www.dashtoon.ai/', '_blank')}>DashStudio</button>
+                        <button onClick={() => navigateTo('studio')}>DashStudio</button>
                         <button onClick={() => navigateTo('careers')}>Careers</button>
                         <button>Login</button>
                     </div>

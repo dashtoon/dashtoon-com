@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import NavbarWeb from '../Components/NavbarWeb'; // Import your Navbar component
 import FooterWeb from '../Components/FooterWeb'; // Import your Footer component
 import '../styles/companyWebStyles.css';
@@ -16,9 +16,13 @@ const peopleData: Person[] = [
 ];
 
 const CompanyContentWeb = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className="company-content-web">
-            <NavbarWeb/>
+            <NavbarWeb currentPage={'company'}/>
             <div className="about">
                 <div className="heading-about-web">
                     Pioneering the Comic Revolution

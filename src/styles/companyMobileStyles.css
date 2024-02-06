@@ -116,6 +116,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     padding: 60px 40px;
     gap: 70px;
     background: linear-gradient(102deg, #08082E 7.87%, #08082E 36.92%, #0A0A2E 48.02%, #09092D 49.4%, #383345 62.29%, #111136 82.6%, #080A32 97.88%, rgba(8, 8, 46, 0.00) 115.33%);

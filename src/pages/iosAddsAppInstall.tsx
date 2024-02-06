@@ -12,7 +12,7 @@ interface InstallAppProps {
 }
 
 const InstallApp: React.FC<InstallAppProps> = () => {
-    const { showId } = useParams<{ showId: string }>();
+    const {showId} = useParams<{ showId: string }>();
 
 
     // Replace with actual values or dynamic content based on showId
@@ -48,53 +48,6 @@ const InstallApp: React.FC<InstallAppProps> = () => {
 
     const [deepLinkUrl, setDeepLinkUrl] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-
-            const newQueryParams = new URLSearchParams(location.search);
-
-            const options = {
-                method: 'POST',
-                headers: {
-                    accept: 'application/json',
-                    'content-type': 'application/json',
-                    authorization: '1b3u1l4h00169000034S4iqAAC1s6h3a2t'
-                },
-                body: JSON.stringify({
-                    data: {
-                        af_ad: 'yellow_bananas',
-                        af_adset: 'my_adset',
-                        af_android_url: 'https://feedme.ca/buybananas',
-                        af_channel: 'my_channel',
-                        af_dp: 'afbasicapp://mainactivity',
-                        af_ios_url: 'https://feedme.ca/buybananas',
-                        c: 'my_campaign',
-                        deep_link_value: 'bananas',
-                        deep_link_sub1: 10,
-                        is_retargeting: true,
-                        pid: 'my_media_source_SMS'
-                    }
-                })
-            };
-
-            try {
-                const response = await fetch('https://onelink.appsflyer.com/shortlink/v1/ifIy', options);
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const result = await response.json();
-                // Assuming the result is an object with a 'shortLink' property, update the state
-                setDeepLinkUrl(result);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchData();
-    }, []);
-
     const installApp = () => {
         // Add your installation logic here
         alert('App installation logic goes here!');
@@ -108,12 +61,47 @@ const InstallApp: React.FC<InstallAppProps> = () => {
 
     const showThumbnailUrl = thumbnailMetaData?.value;
 
+    useEffect(() => {
+        // WARNING: For POST requests, body is set to null by browsers.
+        var data = JSON.stringify({
+            "data": {
+                "af_ad": "yellow_bananas",
+                "af_adset": "my_adset",
+                "af_android_url": "https://feedme.ca/buybananas",
+                "af_channel": "my_channel",
+                "af_dp": "afbasicapp://mainactivity",
+                "af_ios_url": "https://feedme.ca/buybananas",
+                "c": "my_campaign",
+                "deep_link_value": "bananas",
+                "deep_link_sub1": 10,
+                "is_retargeting": false,
+                "pid": "my_media_source_SMS"
+            }
+        });
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function() {
+            if(this.readyState === 4) {
+                console.log(this.responseText);
+            }
+        });
+
+        xhr.open("POST", "https://onelink.appsflyer.com/shortlink/v1/ifIy");
+        xhr.setRequestHeader("accept", "application/json");
+        xhr.setRequestHeader("authorization", "1b3u1l4h00169000034S4iqAAC1s6h3a2t");
+        xhr.setRequestHeader("content-type", "application/json");
+
+        xhr.send(data);
+    }, []);
 
     return (
         <div className="install-app">
             {/* Image Container */}
             <div className="image-container">
-                { showThumbnailUrl && <img src={getCDNImageUrl(showThumbnailUrl ,'262','390')} alt="Show" style={{borderRadius: '12px', objectFit: 'contain' }} />}
+                {showThumbnailUrl && <img src={getCDNImageUrl(showThumbnailUrl, '262', '390')} alt="Show"
+                                          style={{borderRadius: '12px', objectFit: 'contain'}}/>}
             </div>
 
             {/* Genres */}

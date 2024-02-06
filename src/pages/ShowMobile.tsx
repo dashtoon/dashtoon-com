@@ -30,6 +30,10 @@ const ShowMobile = () => {
     const [showInformation, setShowInformation] = useState<Show>();
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
         const fetchShow = async () => {
             try {
                 await signInAnonymouslyAndGetToken();  // ensure Firebase anonymous auth
@@ -123,7 +127,7 @@ const ShowMobile = () => {
             </div>
             <div className="show-details">
                 <h1 className="show-title">{showInformation?.name}</h1>
-                <div className="genre-container-isntall">
+                <div className="show-genres">
                     {genres?.split(', ').map(genre => (
                         <span key={genre} className="genre-tag">{genre}</span>
                     ))}

@@ -31,7 +31,7 @@ const DashtoonInTheNews = () => {
                 </div>
             </div>
 
-            <div style={{width: '1140px', height: '1px', background: '#404040'}}/>
+            <div style={{width: '80%', height: '1px', margin:'3px', background: '#404040'}}/>
 
             <div className="news-component">
                 <div className="news-item">

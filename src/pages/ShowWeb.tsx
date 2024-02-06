@@ -8,6 +8,7 @@ import {Show} from "../types/Show";
 import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import {getEpisodesList, getShowByIdReq} from "../services/showService";
 import {trackEvent} from "../Utils/Analytics";
+import crossIcon from "../assets/icons/crossIcon.png";
 import {TrackingEvents} from "../Constants/TrackingEvents";
 import {TrackingProperties} from "../Constants/TrackingProperties";
 import FooterWeb from "../Components/FooterWeb";
@@ -15,12 +16,17 @@ import {useNavigate} from 'react-router-dom';
 
 const ShowWeb: React.FC = () => {
 
+    const navigate = useNavigate();
     let {showId} = useParams<{ showId?: string }>();
 
     const [episodesInfo, setEpisodesInfo] = useState<EpisodeResponse[]>();
     const [showInformation, setShowInformation] = useState<Show>();
 
     const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     useEffect(() => {
         const fetchShow = async () => {
@@ -92,9 +98,19 @@ const ShowWeb: React.FC = () => {
     return (
         <div className="show-screen">
             <div className="content-comp">
-            <div className="show-web-container">
-                {loading && <div className="loading-screen-web">
-                    <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
+
+                {/*<div className="cross-icon" onClick={() => {*/}
+                {/*    navigate('/');*/}
+                {/*}}>*/}
+                {/*    <img*/}
+                {/*        src={crossIcon} // Replace with the actual path*/}
+                {/*        alt="Cross Icon"*/}
+                {/*        style={{width: '42px', height: '42px'}}*/}
+                {/*    />*/}
+                {/*</div>*/}
+                <div className="show-web-container">
+                    {loading && <div className="loading-screen-web">
+                        <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
                 </div>}
                 <div className="show-background" style={backgroundStyle}></div>
                 <div className="overlay"></div>

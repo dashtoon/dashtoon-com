@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Outfit:wght@400t&Geologica:wght@400;700&display=swap');
 
-.body-mobile {
-
-}
-
 .home-page-web-mobile {
     display: flex;
     flex-direction: column;

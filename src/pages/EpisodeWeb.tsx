@@ -28,6 +28,10 @@ const EpisodeWeb = () => {
 
     const [loading, setLoading] = useState(true);
     useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
         const fetchPanels = async () => {
             try {
                 // Fetch panels by episodeId
@@ -53,7 +57,6 @@ const EpisodeWeb = () => {
             }
         };
         fetchPanels();
-        window.scrollTo(0, 0);
     }, [episodeId, showId])
 
 

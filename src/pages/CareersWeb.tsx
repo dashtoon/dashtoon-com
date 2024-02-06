@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 // import Navbar from './Navbar'; // Import your Navbar component
 import FooterWeb from '../Components/FooterWeb'; // Import your Footer component
 import '../styles/careersWebStyles.css'; // Import your stylesheet
@@ -7,10 +7,13 @@ const CareerPage = () => {
     const openLink = (url : string) => {
         window.open(url, '_blank'); // Open the link in a new tab
     };
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <div className="career-page-web-container">
-            <NavbarWeb/>
+            <NavbarWeb currentPage={'careers'}/>
             <div className="career-page-web">
                 {/* Heading Section */}
                 <div className="heading-section-web">

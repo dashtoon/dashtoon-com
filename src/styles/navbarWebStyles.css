@@ -18,6 +18,7 @@
     top: 0;
     position: sticky;
     transition: ease-in top 0.3s;
+    z-index: 1;
 }
 
 .nav-button-web-home {
@@ -27,7 +28,6 @@
     align-items: center;
     gap: 10px;
     border-radius: 50%;
-    background: rgba(164, 164, 164, 0.19508);
     border: 1px solid transparent;
     cursor: pointer;
 }
@@ -40,6 +40,15 @@
     width: 56px;
     height: 52px;
     border-radius: 50%;
+    background: transparent;
+}
+
+.logo-web-home:hover {
+    background: rgba(164, 164, 164, 0.19508);
+}
+
+.logo-web-home.active {
+    background: rgba(164, 164, 164, 0.19508);
 }
 
 .logo-icon-web-home {
@@ -99,5 +108,13 @@
 .careers-web-home:hover,
 .login-web-home:hover {
     color: #fcfcfc;
+    font-weight: 700;
+}
+
+.company-web-home.active,
+.dash-studio-web-home.active,
+.careers-web-home.active,
+.login-web-home.active {
+    color: #FCFCFC;
     font-weight: 700;
 }

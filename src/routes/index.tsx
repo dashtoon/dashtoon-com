@@ -12,13 +12,16 @@ import CompanyMobile from "../pages/CompanyMobile";
 import HomePageWeb from "../pages/HomePageWeb";
 import HomePageMobile from "../pages/HomePageMobile";
 import InstallApp from "../pages/iosAddsAppInstall";
+import StudioPage from "../pages/DashStudio/DashStudioHome";
+import StudioPageMobile from "../pages/DashStudio/DashStudioMobile";
 
 const DesktopRoutes: React.FC = () => (
     <Routes>
         <Route path='/*' element={<InvalidUrlPage/>}/>
         <Route path='/company' element={<CompanyWeb/>}/>
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
-        <Route path='/home' element={<HomePageWeb/>} />
+        <Route path={'/studio'} element={<StudioPage/>} />
+        <Route path='/' element={<HomePageWeb/>} />
         <Route path='/careers' element={<CareersWeb/>}/>
         <Route path='/show/:showId' element={<ShowWeb/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeWeb/>}/>
@@ -28,9 +31,10 @@ const DesktopRoutes: React.FC = () => (
 const MobileRoutes: React.FC = () => (
     <Routes>
         <Route path='/*' element={<InvalidUrlPage />} />
-        <Route path='/home' element={<HomePageMobile/>} />
+        <Route path='/' element={<HomePageMobile/>} />
         <Route path='/company' element={<CompanyMobile/>}/>
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
+        <Route path={'/studio'} element={<StudioPageMobile/>} />
         <Route path='/careers' element={<CareersMobile/>} />
         <Route path='/show/:showId' element={<ShowMobile/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeMobile/>}/>

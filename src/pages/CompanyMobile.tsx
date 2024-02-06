@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../styles/companyMobileStyles.css';
 import {Person} from "../types/peopleData";
 import FooterMobile from "../Components/FooterMobile";
@@ -15,6 +15,10 @@ const peopleData: Person[] = [
 ];
 
 const CompanyContentMobile = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className="company-content-mobile">
 

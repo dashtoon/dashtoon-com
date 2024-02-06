@@ -1,5 +1,6 @@
 .content-comp {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     justify-content: center;
     align-items: center;
@@ -18,6 +19,13 @@
     left: 0;
 }
 
+/*.cross-icon {*/
+/*    position: absolute;*/
+/*    align-self: flex-end;*/
+/*    top: -40px;*/
+
+/*}*/
+
 .show-web-container {
     display: flex;
     justify-content: center; /* Center the cards horizontally */
@@ -25,7 +33,7 @@
     align-items: stretch; /* Stretches cards to the same height */
     align-content: center;
     gap: 12px; /* Space between cards */
-    padding: 24px; /* Padding around the container */
+    padding: 24px 0; /* Padding around the container */
     max-height: 75vh; /* Set a maximum height that fits within the viewport */
     margin: auto; /* Center the container on the page */
     /* Center horizontally */

@@ -7,9 +7,6 @@ import NavbarWeb from "../Components/NavbarWeb";
 import {ShowWithViewsAndEpisodeCount} from "../types/Show";
 import {getPopularShows} from "../services/showService";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
-import {ReactComponent as PlayStoreIcon} from "../assets/icons/Google_Play-Badge-Logo.wine.svg";
-import {ReactComponent as AppStoreIcon} from "../assets/icons/download-on-the-app-store-apple.svg";
-import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
 import Typography from '@mui/joy/Typography';
 import Card from '@mui/joy/Card';
@@ -19,6 +16,10 @@ import {useNavigate} from "react-router-dom";
 
 const HomePageWeb: React.FC = () => {
     const [shows, setShows] = useState<ShowWithViewsAndEpisodeCount[]>([]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     useEffect(() => {
@@ -40,10 +41,9 @@ const HomePageWeb: React.FC = () => {
         <div className="home-page-web">
             <div className="home-page-web-content">
                 {/* 1. NavBar web */}
-                <div className="navbar-web">
                     {/* Your NavBar content goes here */}
-                    <NavbarWeb></NavbarWeb>
-                </div>
+                    <NavbarWeb currentPage={''}></NavbarWeb>
+
 
                 {/* 2. Heading section */}
                 <div className="heading-section">

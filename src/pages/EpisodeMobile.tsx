@@ -31,7 +31,10 @@ const EpisodeMobile: React.FC = () => {
     const [showInformation, setShowInformation] = useState<Show>();
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
         const fetchPanels = async () => {
             try {
                 await signInAnonymouslyAndGetToken();
