@@ -75,10 +75,10 @@ const InstallApp: React.FC = () => {
 
     return (
         <div className="install-app">
-            {/*{loading && <div className="loading-screen">*/}
-            {/*    <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>*/}
-            {/*</div>}*/}
-            {/* Image Container */}
+            {loading && <div className="loading-screen">
+                <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
+            </div>}
+             Image Container
             <div className="image-container">
                 {showThumbnailUrl && <img src={getCDNImageUrl(showThumbnailUrl, '262', '390')} alt="Show"
                                           style={{borderRadius: '12px', objectFit: 'contain'}} loading={'lazy'}/>}
