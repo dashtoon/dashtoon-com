@@ -51,7 +51,7 @@ const InstallApp: React.FC = () => {
         if (onelinkId) {
             setDeepLinkUrl(`https://dashtoon.onelink.me/ifIy/${onelinkId}`);
         }
-    }, [location.search]);
+    }, []);
 
 
     const handleContinueClick = () => {
@@ -75,9 +75,9 @@ const InstallApp: React.FC = () => {
 
     return (
         <div className="install-app">
-            {loading && <div className="loading-screen">
-                <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
-            </div>}
+            {/*{loading && <div className="loading-screen">*/}
+            {/*    <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>*/}
+            {/*</div>}*/}
             {/* Image Container */}
             <div className="image-container">
                 {showThumbnailUrl && <img src={getCDNImageUrl(showThumbnailUrl, '262', '390')} alt="Show"
