@@ -91,7 +91,7 @@ const InstallApp: React.FC<InstallAppProps> = () => {
             {/* Install Button */}
             <div className={'install box'}></div>
             <button className="install-button" onClick={handleContinueClick}>
-                CONTINUE
+                CONTINUE WATCHING
             </button>
         </div>
     );
