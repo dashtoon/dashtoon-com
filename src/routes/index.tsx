@@ -11,7 +11,7 @@ import CompanyWeb from "../pages/CompanyWeb";
 import CompanyMobile from "../pages/CompanyMobile";
 import HomePageWeb from "../pages/HomePageWeb";
 import HomePageMobile from "../pages/HomePageMobile";
-import InstallApp from "../pages/iosAddsAppInstall";
+import InstallApp from "../pages/IosAdsDeeplink/iosAddsAppInstall";
 import StudioPage from "../pages/DashStudio/DashStudioHome";
 import StudioPageMobile from "../pages/DashStudio/DashStudioMobile";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
