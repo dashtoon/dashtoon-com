@@ -1,0 +1,43 @@
+.privacy-policy-container {
+  width: 80%;
+  margin: 5% auto;
+  text-align: left;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  padding: 10px;
+}
+
+a {
+  color: white;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 40px 0 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 950px) {
+  .privacy-policy-container {
+    width: 100%;
+    margin: 5% auto;
+    text-align: left;
+    padding: 30px;
+    box-sizing: border-box;
+    margin-top: 5vh;
+  }
+}

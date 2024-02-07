@@ -2,8 +2,8 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from 'react-router-dom';
 import '../styles/installAppStyles.css';
-import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
-import {getEpisodesList, getShowByIdReq} from "../services/showService";
+import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {getShowByIdReq} from "../services/showService";
 import {Show} from "../types/Show";
 import {getCDNImageUrl} from "../services/cdnImage";
 
@@ -15,13 +15,10 @@ const InstallApp: React.FC<InstallAppProps> = () => {
     const {showId} = useParams<{ showId: string }>();
 
 
-    // Replace with actual values or dynamic content based on showId
-    const imageUrl = 'your-image-url';
-    const description = 'Your Description';
     const [showInformation, setShowInformation] = useState<Show>();
-    const [loading, setLoading] = useState(true);
     const location = useLocation();
     const [queryParams, setQueryParams] = useState(new URLSearchParams(location.search));
+    const [deepLinkUrl, setDeepLinkUrl] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchShow = async () => {
@@ -31,11 +28,8 @@ const InstallApp: React.FC<InstallAppProps> = () => {
                 const metaData: string[] = ['WIDGET_THUMBNAIL_V2']; // Needed Metadata
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
                 setShowInformation(show[0]);
-                setLoading(false);
-
             } catch (error) {
                 console.error('Error fetching show data:', error);
-                setLoading(false);
             }
         };
 
@@ -46,11 +40,23 @@ const InstallApp: React.FC<InstallAppProps> = () => {
         }
     }, [showId]);
 
-    const [deepLinkUrl, setDeepLinkUrl] = useState(null);
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const onelinkId = queryParams.get('dlink');
+        if (onelinkId) {
+            setDeepLinkUrl(`https://dashtoon.onelink.me/ifIy/${onelinkId}`);
+        }
+    }, [location.search]);
 
-    const installApp = () => {
-        // Add your installation logic here
-        alert('App installation logic goes here!');
+
+    const handleContinueClick = () => {
+        // If deepLinkUrl is set, navigate to that URL in the same tab
+        if (deepLinkUrl) {
+            window.location.href = deepLinkUrl;
+        } else {
+            // Handle the case where deepLinkUrl is not set
+            console.error('Deep link URL is not available.');
+        }
     };
 
     const genres: string | undefined = showInformation?.genre;
@@ -61,40 +67,6 @@ const InstallApp: React.FC<InstallAppProps> = () => {
 
     const showThumbnailUrl = thumbnailMetaData?.value;
 
-    useEffect(() => {
-        // WARNING: For POST requests, body is set to null by browsers.
-        var data = JSON.stringify({
-            "data": {
-                "af_ad": "yellow_bananas",
-                "af_adset": "my_adset",
-                "af_android_url": "https://feedme.ca/buybananas",
-                "af_channel": "my_channel",
-                "af_dp": "afbasicapp://mainactivity",
-                "af_ios_url": "https://feedme.ca/buybananas",
-                "c": "my_campaign",
-                "deep_link_value": "bananas",
-                "deep_link_sub1": 10,
-                "is_retargeting": false,
-                "pid": "my_media_source_SMS"
-            }
-        });
-
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-
-        xhr.addEventListener("readystatechange", function() {
-            if(this.readyState === 4) {
-                console.log(this.responseText);
-            }
-        });
-
-        xhr.open("POST", "https://onelink.appsflyer.com/shortlink/v1/ifIy");
-        xhr.setRequestHeader("accept", "application/json");
-        xhr.setRequestHeader("authorization", "1b3u1l4h00169000034S4iqAAC1s6h3a2t");
-        xhr.setRequestHeader("content-type", "application/json");
-
-        xhr.send(data);
-    }, []);
 
     return (
         <div className="install-app">
@@ -118,8 +90,8 @@ const InstallApp: React.FC<InstallAppProps> = () => {
 
             {/* Install Button */}
             <div className={'install box'}></div>
-            <button className="install-button" onClick={() => window.open(deepLinkUrl!)}>
-                CONTINUE READING
+            <button className="install-button" onClick={handleContinueClick}>
+                CONTINUE
             </button>
         </div>
     );
