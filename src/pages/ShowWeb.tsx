@@ -96,32 +96,33 @@ const ShowWeb: React.FC = () => {
         : showInformation?.description;
 
     return (
-        <div className="show-screen">
+        <div className="show-screen" style={backgroundStyle}>
             <div className="content-comp">
-
-                {/*<div className="cross-icon" onClick={() => {*/}
-                {/*    navigate('/');*/}
-                {/*}}>*/}
-                {/*    <img*/}
-                {/*        src={crossIcon} // Replace with the actual path*/}
-                {/*        alt="Cross Icon"*/}
-                {/*        style={{width: '42px', height: '42px'}}*/}
-                {/*    />*/}
-                {/*</div>*/}
                 <div className="show-web-container">
                     {loading && <div className="loading-screen-web">
                         <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
-                </div>}
-                <div className="show-background" style={backgroundStyle}></div>
-                <div className="overlay"></div>
-                <div className="black-card show-info-web-container">
-                    <ShowInfoWeb showId={showId!} showInformation={showInformation!} episodeInfo={episodesInfo!}/>
+                    </div>}
+                    <div className="cross-icon" style={{cursor: "pointer"}}>
+                        <img
+                            src={crossIcon} // Replace with the actual path
+                            alt="Cross Icon"
+                            style={{width: '42px', height: '42px'}}
+                            onClick={() => {
+                                navigate('/');
+                            }}
+                        />
+                    </div>
+                    <div className={'show-content-container-web'}>
+                        <div className="black-card show-info-web-container">
+                            <ShowInfoWeb showId={showId!} showInformation={showInformation!}
+                                         episodeInfo={episodesInfo!}/>
+                        </div>
+                        <div className="black-card episode-list-web-container">
+                            <EpisodeListWeb showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}
+                                            showInformation={showInformation!}/>
+                        </div>
+                    </div>
                 </div>
-                <div className="black-card episode-list-web-container">
-                    <EpisodeListWeb showId={showId!} numberOfEpisode={episodeCount!} episodeInfo={episodesInfo!}
-                                    showInformation={showInformation!}/>
-                </div>
-            </div>
             </div>
             <FooterWeb></FooterWeb>
         </div>
