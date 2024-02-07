@@ -1,14 +1,9 @@
 .terms-and-conditions-container {
-  width: 80%;
-  margin: 5% auto;
+  background: black;
+  color: #FFFFFF;
   text-align: left;
-  padding: 30px;
+  padding: 30px 10%;
   box-sizing: border-box;
-}
-
-body {
-  color: white;
-  padding: 10px;
 }
 
 a {

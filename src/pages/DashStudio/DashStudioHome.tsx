@@ -14,6 +14,16 @@ import FooterWeb from "../../Components/FooterWeb";
 const WebPage = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
+        switch (window.location.hash) {
+            case '#features':
+                window.scrollTo({
+                    top: document.getElementById('features')!.offsetTop,
+                    behavior: "smooth"
+                });
+                break;
+            default:
+                break;
+        }
     }, [])
     
     return (
@@ -37,7 +47,7 @@ const WebPage = () => {
             </div>
 
             {/* Features Section */}
-            <div className="features-section">
+            <div className="features-section" id={'features'}>
                 <h2 className="features-heading">Features</h2>
                 <div className="features-content">
                     {/* Text Section */}
@@ -168,7 +178,7 @@ const WebPage = () => {
             </div>
         </div>
             <FooterWeb></FooterWeb>
-            </div>
+        </div>
     );
 };
 

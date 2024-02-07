@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import Footer from '../../Components/Footer/Footer';
+import React, {useEffect, useState} from 'react';
+import Footer from '../../Components/FooterWeb';
 import './TermsAndConditions.css';
 
 const TermsAndConditions = () => {

@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import NavbarWeb from '../Components/NavbarWeb'; // Import your Navbar component
 import FooterWeb from '../Components/FooterWeb'; // Import your Footer component
 import '../styles/companyWebStyles.css';
 import {Person} from "../types/peopleData";
 import DashtoonInTheNews from "../Components/DashtoonInTheNews";
+import {useLocation} from "react-router-dom";
 
 const peopleData: Person[] = [
     {id: 1, name: 'Madhur', position: 'Growth', imageSrc: require('../assets/images/people/Madhur.png')},
@@ -16,14 +17,44 @@ const peopleData: Person[] = [
 ];
 
 const CompanyContentWeb = () => {
+    const location = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
+        switch (window.location.hash) {
+            case '#about':
+                window.scrollTo({
+                    top:document.getElementById('about')!.offsetTop,
+                    behavior:"smooth"
+                });
+                break;
+            case '#people':
+                window.scrollTo({
+                    top:document.getElementById('people')!.offsetTop,
+                    behavior:"smooth"
+                });
+                break;
+            case '#awards':
+                window.scrollTo({
+                    top:document.getElementById('awards')!.offsetTop,
+                    behavior:"smooth"
+                });
+                break;
+            case '#inTheNews':
+                window.scrollTo({
+                    top:document.getElementById('inTheNews')!.offsetTop,
+                    behavior:"smooth"
+                });
+                break;
+            default:
+                break;
+        }
+
+    }, [location])
 
     return (
         <div className="company-content-web">
             <NavbarWeb currentPage={'company'}/>
-            <div className="about">
+            <div className="about" id={"about"}>
                 <div className="heading-about-web">
                     Pioneering the Comic Revolution
                 </div>
@@ -34,7 +65,7 @@ const CompanyContentWeb = () => {
                 </p>
             </div>
 
-            <div className="people-web">
+            <div className="people-web" id={'people'}>
                 <h2>Meet the Minds</h2>
                 {/* People container - You can add individual person components here */}
                 <div className="people-web-container">
@@ -49,14 +80,16 @@ const CompanyContentWeb = () => {
                 </div>
             </div>
 
-            <div className="play-store-award">
+            <div className="play-store-award" id={"awards"}>
                 <div className="play-store-info">
                     <p>Dashtoon was awarded</p>
                     <p>“Best for Fun App”</p>
                 </div>
                 <div className="play-store-image"></div>
             </div>
+            <div id={"inTheNews"}>
             <DashtoonInTheNews></DashtoonInTheNews>
+            </div>
             <FooterWeb/>
         </div>
     );

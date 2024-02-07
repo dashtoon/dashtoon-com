@@ -1,11 +1,28 @@
-import React, { useEffect } from 'react';
-import Footer from '../../Components/Footer/Footer';
+import React, {useEffect, useState} from 'react';
+import Footer from '../../Components/FooterWeb';
 import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   }, []);
+
+  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+    const handleResize = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    mediaQuery.addListener(handleResize);
+
+    return () => {
+      mediaQuery.removeListener(handleResize);
+    };
+  }, []);
+
 
   return (
     <>

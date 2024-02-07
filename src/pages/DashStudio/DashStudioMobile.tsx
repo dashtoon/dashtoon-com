@@ -11,11 +11,24 @@ import publishImage from "../../assets/images/publish.png"
 
 import NavbarMobile from "../../Components/NavbarMobile";
 import FooterMobile from "../../Components/FooterMobile";
+import {useLocation} from "react-router-dom";
 
 const StudioPageMobile = () => {
+    const location  = useLocation();
+
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+        window.scrollTo(0, 0);
+        switch (window.location.hash) {
+            case '#features':
+                window.scrollTo({
+                    top: document.getElementById('features')!.offsetTop,
+                    behavior: "smooth"
+                });
+                break;
+            default:
+                break;
+        }
+    }, [location]);
 
     return (
         <div>
@@ -34,7 +47,7 @@ const StudioPageMobile = () => {
                 />
             </div>
 
-            <div className="features-section-mobile">
+            <div className="features-section-mobile" id={'features'} >
                 <h2 className="features-heading-mobile">Features</h2>
                 <div className="features-content-mobile">
                     {/* Text Section */}

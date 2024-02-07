@@ -1,14 +1,9 @@
 .privacy-policy-container {
-  width: 80%;
-  margin: 5% auto;
   text-align: left;
-  padding: 30px;
+  padding: 30px 10%;
   box-sizing: border-box;
-}
-
-body {
-  color: white;
-  padding: 10px;
+  background: black;
+  color: #FFFFFF;
 }
 
 a {

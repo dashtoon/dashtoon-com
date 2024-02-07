@@ -6,7 +6,7 @@ import EpisodeListMobile from './EpisodeListMobile';
 import {getEpisodesList, getShowByIdReq} from '../services/showService';
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {Show} from '../types/Show';
-
+import {FaArrowLeft} from "react-icons/fa";
 import {getCDNImageUrl} from "../services/cdnImage";
 import {trackEvent} from "../Utils/Analytics";
 import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
@@ -117,6 +117,12 @@ const ShowMobile = () => {
                         aria-hidden="true" // Marks element as hidden for screen readers
                     />
                 }
+                <button className={"back-button-show-screen-mobile"} onClick={()=> navigate('/')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M22 10.75H6.7875L13.775 3.7625L12 2L2 12L12 22L13.7625 20.2375L6.7875 13.25H22V10.75Z"
+                              fill="#FCFCFC"/>
+                    </svg>
+                </button>
                 {showThumbnailUrl &&
                     <img
                         src={getCDNImageUrl(showThumbnailUrl, '')}
@@ -127,7 +133,7 @@ const ShowMobile = () => {
             </div>
             <div className="show-details">
                 <h1 className="show-title">{showInformation?.name}</h1>
-                <div className="show-genres">
+                <div className={'show-genres'}>
                     {genres?.split(', ').map(genre => (
                         <span key={genre} className="genre-tag">{genre}</span>
                     ))}

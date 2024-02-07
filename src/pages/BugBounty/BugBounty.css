@@ -1,14 +1,12 @@
 .bug-bounty-container {
-  width: 80%;
-  margin: 5% auto;
+  width: 100%;
   text-align: left;
-  padding: 30px;
   box-sizing: border-box;
-}
+  color: #FFFFFF;
+  background: black;
+  padding: 30px 10%;
+  align-items: center;
 
-body {
-  color: white;
-  padding: 10px;
 }
 
 a {
@@ -23,6 +21,14 @@ h1 {
 h2 {
   font-size: 24px;
   margin: 40px 0 20px;
+}
+
+.bug-bounty-content h2 {
+  counter-increment: section;
+}
+
+.bug-bounty-content h2::before {
+  content: counter(section) '. ';
 }
 
 p {

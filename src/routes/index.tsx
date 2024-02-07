@@ -14,6 +14,9 @@ import HomePageMobile from "../pages/HomePageMobile";
 import InstallApp from "../pages/iosAddsAppInstall";
 import StudioPage from "../pages/DashStudio/DashStudioHome";
 import StudioPageMobile from "../pages/DashStudio/DashStudioMobile";
+import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
+import BugBounty from "../pages/BugBounty/BugBounty";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 
 const DesktopRoutes: React.FC = () => (
     <Routes>
@@ -25,6 +28,9 @@ const DesktopRoutes: React.FC = () => (
         <Route path='/careers' element={<CareersWeb/>}/>
         <Route path='/show/:showId' element={<ShowWeb/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeWeb/>}/>
+        <Route path={'/terms-and-conditions'} element={<TermsAndConditions/>} />
+        <Route path={'/privacy-policy'} element={<PrivacyPolicy/>} />
+        <Route path={'/bug-bounty'} element={<BugBounty/>} />
     </Routes>
 );
 
