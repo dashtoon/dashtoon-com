@@ -116,7 +116,7 @@ const WebPage = () => {
 
                 <div className="features-content">
                     {/* Text Section */}
-
+                    <h2 className="features-heading">FEATURES</h2>
                     {/* Image Section */}
                     <div className="image-section">
                         <img

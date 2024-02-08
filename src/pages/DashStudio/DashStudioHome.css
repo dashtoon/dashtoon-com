@@ -78,6 +78,12 @@
 
 .features-heading {
     /* Styles for the features heading */
+    color: #FFFFFF;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 200%; /* 32px */
 }
 
 .features-content {

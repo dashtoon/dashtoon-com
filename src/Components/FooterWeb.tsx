@@ -52,9 +52,9 @@ const FooterWeb = () => {
                         <div className="category-title-web">Dash Studio</div>
                         <div className="nav-links-web">
                             <span onClick={() => {
-                                navigate('/studio/features')
+                                navigate('/studio/#features')
                             }}>Features</span>
-                            <span onClick={()=> {navigate('/studio/#features')}} >
+                            <span>
                             <Link to={" https://studio.dashtoon.ai/"} className={"navigation-links"}>
                              Sign up
                             </Link>
