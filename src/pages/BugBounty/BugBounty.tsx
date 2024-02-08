@@ -1,31 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import Footer from '../../Components/FooterWeb';
 import './BugBounty.css';
+import NavbarWeb from "../../Components/NavbarWeb";
 
 const BugBounty = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   }, []);
 
-  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-
-    const handleResize = () => {
-      setIsMobile(mediaQuery.matches);
-    };
-
-    mediaQuery.addListener(handleResize);
-
-    return () => {
-      mediaQuery.removeListener(handleResize);
-    };
-  }, []);
-
   return (
     <div>
       <div className='bug-bounty-container'>
+        <div style={{ display: "flex", flexDirection: 'column', alignItems: 'center'}}>
+          <NavbarWeb currentPage={''}></NavbarWeb>
+        </div>
+
         <h1>Bug Bounty</h1>
         <h2>Policy</h2>
         <p>

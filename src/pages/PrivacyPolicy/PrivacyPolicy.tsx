@@ -1,32 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import Footer from '../../Components/FooterWeb';
 import './PrivacyPolicy.css';
+import NavbarWeb from "../../Components/NavbarWeb";
 
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   }, []);
 
-  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-
-    const handleResize = () => {
-      setIsMobile(mediaQuery.matches);
-    };
-
-    mediaQuery.addListener(handleResize);
-
-    return () => {
-      mediaQuery.removeListener(handleResize);
-    };
-  }, []);
-
-
   return (
     <>
       <div className='privacy-policy-container'>
+        <div style={{display: "flex", flexDirection: 'column', alignItems: 'center'}}>
+          <NavbarWeb currentPage={''}></NavbarWeb>
+        </div>
         <h1>Privacy Policy</h1>
         <h2>1. INTRODUCTION</h2>
         <p>
@@ -191,7 +178,7 @@ const PrivacyPolicy = () => {
           right to (i) access, correct, or delete such Personal Information
           subject to us successfully verifying your identity; (ii) object to us
           processing your Personal Information on legitimate grounds; (iii) to
-          withdraw your consent to our use of your information at any time where
+          withdraw your consent to our use of your information at any time where
           we rely on your consent to use or process that information; (iv)
           opting out of receiving any promotional or marketing material by
           clicking on the “Unsubscribe” button or by contacting us at the E-mail
@@ -434,7 +421,7 @@ const PrivacyPolicy = () => {
         <h2>10. CONTACT & POLICY UPDATES</h2>
         <p>
           In case on any queries on this privacy policy, please contact us
-          at the E-mail ID mentioned in Section 18.1 (Legal and Notices).
+          at the E-mail ID mentioned in Section 18.1 (Legal and Notices).
           Dashtoon reserves the right to update or modify any part of this
           policy or make any changes without prior notice to the user. The user
           is advised to check this page periodically to stay abreast of any
@@ -446,7 +433,7 @@ const PrivacyPolicy = () => {
           you submit to us, such as your contact information provided as part of
           account registration. If your Personal Information changes, or if you
           no longer desire to access the Website, you may correct, delete
-          inaccuracies, or amend information by contacting us through at the
+          inaccuracies, or amend information by contacting us through at the
           E-mail ID mentioned in Section 18.2 (Customer Services) and we shall
           endeavor to respond within 72 (seventy two) hours of receipt of
           communication.<br></br>
@@ -723,7 +710,7 @@ const PrivacyPolicy = () => {
           Attorney General of Colorado.
         </p>
       </div>
-      <Footer />
+      <Footer/>
     </>
   );
 };

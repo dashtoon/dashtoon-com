@@ -17,6 +17,9 @@ import StudioPageMobile from "../pages/DashStudio/DashStudioMobile";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 import BugBounty from "../pages/BugBounty/BugBounty";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditionsMobile from "../pages/TermsAndConditions/TermsAndConditionsMobile";
+import PrivacyPolicyMobile from "../pages/PrivacyPolicy/PrivacyPolicyMobile";
+import BugBountyMobile from "../pages/BugBounty/BugBountyMobile";
 
 const DesktopRoutes: React.FC = () => (
     <Routes>
@@ -44,6 +47,9 @@ const MobileRoutes: React.FC = () => (
         <Route path='/careers' element={<CareersMobile/>} />
         <Route path='/show/:showId' element={<ShowMobile/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeMobile/>}/>
+        <Route path={'/terms-and-conditions'} element={<TermsAndConditionsMobile/>} />
+        <Route path={'/privacy-policy'} element={<PrivacyPolicyMobile/>} />
+        <Route path={'/bug-bounty'} element={<BugBountyMobile/>} />
     </Routes>
 );
 

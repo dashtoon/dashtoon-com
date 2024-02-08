@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Footer from '../../Components/FooterWeb';
 import './TermsAndConditions.css';
+import NavbarWeb from "../../Components/NavbarWeb";
 
 const TermsAndConditions = () => {
   useEffect(() => {
@@ -10,6 +11,9 @@ const TermsAndConditions = () => {
   return (
     <>
       <div className='terms-and-conditions-container '>
+        <div style={{display: "flex", flexDirection: 'column', alignItems: 'center'}}>
+          <NavbarWeb currentPage={''}></NavbarWeb>
+        </div>
         <h1>Terms-and-conditions</h1>
         <h2>END USER LICENSE AGREEMENT AND TERMS OF USE</h2>
         <p>
@@ -189,7 +193,7 @@ const TermsAndConditions = () => {
           availability and speed, bandwidth, etc. You agree and acknowledge that
           Dashtoon may monitor or use certain technologies for monitoring of
           activities, as separately explained in Dashtoon’s Privacy Policy
-          accessible at https://www.dashtoon.com/privacy-policy. To facilitate
+          accessible at https://www.dashtoon.com/privacy-policy. To facilitate
           your listening and access, the Services can be packaged by Dashtoon
           through different models such as (a) free of charge which may include
           advertisements or commercials or (b) a pay-per-view model with or
@@ -217,7 +221,7 @@ const TermsAndConditions = () => {
           Any personal data whether provided by you as a part of the payments
           process, or collected automatically when you use the Service will be
           governed by Dashtoon’s Privacy Policy accessible
-          at https://www.dashtoon.com/privacy-policy.<br></br>
+          at https://www.dashtoon.com/privacy-policy.<br></br>
           <br></br>
           You also understand and acknowledge that Dashtoon only facilitates the
           third-party payment gateway for processing of payments. This facility
@@ -777,9 +781,9 @@ const TermsAndConditions = () => {
           Terms and Conditions, all rules and policies related to the Coins
           (including any rules or provisions on any product detail page or any
           help or informational page relating to the Coins), Dashtoon’s Privacy
-          Policy at https://www.dashtoon.com/privacy-policy, and Dashtoon’s
+          Policy at https://www.dashtoon.com/privacy-policy, and Dashtoon’s
           Terms of Use
-          at https://www.dashtoon.com/terms-and-conditions (collectively, the
+          at https://www.dashtoon.com/terms-and-conditions (collectively, the
           "Agreement"). If you receive, purchase, or redeem any Coins, you agree
           to be bound by the Agreement on behalf of yourself and all members of
           your household and others who use the Coins or under your account. If
@@ -930,7 +934,7 @@ const TermsAndConditions = () => {
         <h4>5.4 Contact Information</h4>
         <p>
           For communications concerning this Agreement, please write
-          to legal@dashtoon.com
+          to legal@dashtoon.com
         </p>
         <h4>5.5 Disputes</h4>
         <p>
@@ -982,7 +986,7 @@ const TermsAndConditions = () => {
           <br></br>
         </p>
       </div>
-      <Footer />
+      <Footer/>
     </>
   );
 };

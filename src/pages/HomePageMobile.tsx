@@ -167,7 +167,7 @@ const HomePageWeb: React.FC = () => {
                                  onClick={() => openLink('https://play.google.com/store/apps/details?id=com.dashtoon.app')}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="146" height="50" viewBox="0 0 146 50"
                                      fill="none">
-                                    <g clip-path="url(#clip0_883_4405)">
+                                    <g clipPath="url(#clip0_883_4405)">
                                         <path opacity="0.11"
                                               d="M138.727 0H7.27279C3.25614 0 0 3.24528 0 7.24853V42.7515C0 46.7547 3.25614 50 7.27279 50H138.727C142.744 50 146 46.7547 146 42.7515V7.24853C146 3.24528 142.744 0 138.727 0Z"
                                               fill="white"/>
@@ -192,7 +192,7 @@ const HomePageWeb: React.FC = () => {
                                  onClick={() => openLink('https://apps.apple.com/us/app/dashtoon-comics-manga/id1661508865')}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="146" height="50" viewBox="0 0 146 50"
                                      fill="none">
-                                    <g clip-path="url(#clip0_883_4405)">
+                                    <g clipPath="url(#clip0_883_4405)">
                                         <path opacity="0.11"
                                               d="M138.727 0H7.27279C3.25614 0 0 3.24528 0 7.24853V42.7515C0 46.7547 3.25614 50 7.27279 50H138.727C142.744 50 146 46.7547 146 42.7515V7.24853C146 3.24528 142.744 0 138.727 0Z"
                                               fill="white"/>
