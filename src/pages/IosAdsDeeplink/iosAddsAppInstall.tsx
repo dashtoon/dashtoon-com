@@ -6,7 +6,16 @@ import {signInAnonymouslyAndGetToken} from "../../firebaseConfig";
 import {getShowByIdReq} from "../../services/showService";
 import {Show} from "../../types/Show";
 import {getCDNImageUrl} from "../../services/cdnImage";
+import { ShowAdsIos } from '../../types/ShowAdsIos';
 
+const showAdsRepository: ShowAdsIos[] = [
+    {
+        showId: 'SHOkwXQp4RYAbmsKFc1',
+        showThumbnailUrl: 'https://content.dashtoon.ai/show-thumbnails/SHOkwXQp4RYAbmsKFc1P1Y22P2rS2KP2zsF.png',
+        showGenres: 'Revenge, Romance',
+        showDescription: 'Betrayed by her fiancé and step-sister three years ago, Madison Blake became a powerful, sexy woman to make them all pay. But she also has a secret husband of two years, whose face she has never seen. Is he a billionaire or a gangster? Or both?\n'
+    }
+];
 
 const InstallApp: React.FC = () => {
 
@@ -19,31 +28,51 @@ const InstallApp: React.FC = () => {
     };
 
     const [showInformation, setShowInformation] = useState<Show>();
+    const [genres, setGenres] = useState<string>();
+    const [description, setDescription] = useState<string>();
+    const [showThumbnailUrl , setShowThumbnailUrl] = useState<string>();
+
     const location = useLocation();
     const [deepLinkUrl, setDeepLinkUrl] = useState<string | null>(null);
-    const clippedDescription = showInformation && showInformation.description.length > 90
-        ? `${showInformation.description.slice(0, 70)}...`
-        : showInformation?.description;
+    const clippedDescription = description && description.length > 90
+        ? `${description.slice(0, 70)}...`
+        : description;
 
     useEffect(() => {
-        const fetchShow = async () => {
-            try {
-                await signInAnonymouslyAndGetToken();  // ensure Firebase anonymous auth
-                const metaData: string[] = ['WIDGET_THUMBNAIL_V2']; // Needed Metadata
-                const show = await getShowByIdReq(showId ? showId : '', metaData);
-                setShowInformation(show[0]);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching show data:', error);
-            }
-        };
 
-        if (showId) {
-            fetchShow();
+        const staticAdData = showAdsRepository.find(ad => ad.showId === showId);
+
+        if(staticAdData) {
+            setShowThumbnailUrl(staticAdData.showThumbnailUrl);
+            setGenres(staticAdData.showGenres);
+            setDescription(staticAdData.showDescription);
+            setLoading(false);
         } else {
-            console.error('showId is undefined');
+            const fetchShow = async () => {
+                try {
+                    await signInAnonymouslyAndGetToken();  // ensure Firebase anonymous auth
+                    const metaData: string[] = ['WIDGET_THUMBNAIL_V2']; // Needed Metadata
+                    const show = await getShowByIdReq(showId ? showId : '', metaData);
+                    setShowInformation(show[0]);
+                    setDescription(showInformation?.description);
+                    setGenres(showInformation?.genre);
+                    const thumbnailMetaData = showInformation?.metadata?.find((metadata: {
+                        type: string;
+                    }) => metadata.type === 'WIDGET_THUMBNAIL_V2');
+                    setShowThumbnailUrl(thumbnailMetaData?.value);
+                    setLoading(false);
+                } catch (error) {
+                    console.error('Error fetching show data:', error);
+                }
+            };
+
+            if (showId) {
+                fetchShow();
+            } else {
+                console.error('showId is undefined');
+            }
         }
-    }, [showId]);
+    }, [showId, showInformation]);
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
@@ -63,14 +92,6 @@ const InstallApp: React.FC = () => {
             console.error('Deep link URL is not available.');
         }
     };
-
-    const genres: string | undefined = showInformation?.genre;
-
-    const thumbnailMetaData = showInformation?.metadata?.find((metadata: {
-        type: string;
-    }) => metadata.type === 'WIDGET_THUMBNAIL_V2');
-
-    const showThumbnailUrl = thumbnailMetaData?.value;
 
 
     return (
@@ -93,9 +114,9 @@ const InstallApp: React.FC = () => {
 
             {/* Description */}
             <div className="description-deeplink" style={{marginTop: '20px'}}>
-                {isDescriptionExpanded ? showInformation?.description : clippedDescription}
-                {showInformation && showInformation.description.length > 100 && (
-                    <button className="read-more-button" style={{color: '#D9D9D9', }} onClick={toggleDescription}>
+                {isDescriptionExpanded ? description : clippedDescription}
+                {description && description.length > 100 && (
+                    <button className="read-more-button" style={{fontSize: '12px' }} onClick={toggleDescription}>
                         {isDescriptionExpanded ? '...Read Less' : 'Read More'}
                     </button>
                 )}

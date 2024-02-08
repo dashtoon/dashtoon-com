@@ -54,10 +54,8 @@ const FooterWeb = () => {
                             <span onClick={() => {
                                 navigate('/studio/#features')
                             }}>Features</span>
-                            <span>
-                            <Link to={" https://studio.dashtoon.ai/"} className={"navigation-links"}>
+                            <span onClick={() => (window.open('https://studio.dashtoon.ai/'))}>
                              Sign up
-                            </Link>
                         </span>
                         </div>
                     </div>

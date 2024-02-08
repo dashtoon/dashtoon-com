@@ -10,8 +10,10 @@ import aiNativeImage from "../../assets/images/group-770-1024x724.png";
 import discordImage from "../../assets/images/discordImage.png"
 import publishImage from "../../assets/images/publish.png"
 import FooterWeb from "../../Components/FooterWeb";
+import {useLocation} from "react-router-dom";
 
-const WebPage = () => {
+const StudioPageWeb = () => {
+    const location = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0)
         switch (window.location.hash) {
@@ -24,7 +26,7 @@ const WebPage = () => {
             default:
                 break;
         }
-    }, [])
+    }, [location])
     
     return (
         <div>
@@ -182,4 +184,4 @@ const WebPage = () => {
     );
 };
 
-export default WebPage;
+export default StudioPageWeb;
