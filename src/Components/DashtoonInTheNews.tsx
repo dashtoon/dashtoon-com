@@ -2,7 +2,8 @@ import React from 'react';
 
 import TCIcon from '../assets/icons/image 357.png';
 import ForbesIcon from '../assets/icons/forbes.png';
-import BackButton from "../assets/icons/carbon_arrow-up.png"
+import BackButton from "../assets/icons/carbon_arrow-up.png";
+import '../styles/inTheNewsStyles.css';
 
 const DashtoonInTheNews = () => {
     const openLink = (url : string) => {
@@ -27,7 +28,7 @@ const DashtoonInTheNews = () => {
                     </div>
                 </div>
                 <div>
-                    <button className="goto-button" onClick={() => openLink('https://tcrn.ch/3FG2o9h')}><img src={BackButton}/></button>
+                    <button className="goto-button" onClick={() => openLink('https://tcrn.ch/3FG2o9h')}><img className={'back-arrow'} src={BackButton}/></button>
                 </div>
             </div>
 

@@ -1,0 +1,210 @@
+.in-the-news-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.news-heading {
+    margin-bottom: 80px;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 125%;
+    letter-spacing: -1.2px;
+}
+
+.news-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 20px; /* Adjust as needed */
+    margin-bottom: 40px;
+    /*flex-grow: 1;*/
+    /*width: 100%;*/
+}
+
+.news-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /*flex-grow: 1;*/
+    gap: 40px;
+}
+
+.news-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0px;
+}
+
+.news-title {
+    color: #A1A1A1;
+    /*width: 400px;*/
+    height: 48px;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 200%; /* 48px */
+    text-align: left;
+    justify-self: flex-start;
+    justify-content: flex-start;
+}
+.news-text {
+    color:  #FCFCFC;
+    justify-content: flex-start;
+    align-self: flex-start;
+    text-align: left;
+    height: 48px;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 200%; /* 48px */
+}
+
+.goto-button {
+    /*width: 84px;*/
+    /*height: 84px;*/
+    background: black;
+    width: 84px;
+    height: 84px;
+    border: transparent;
+    /*border-radius: 50%;*/
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+
+
+}
+
+.goto-button:hover {
+    background-color: #1B1B1B;
+}
+
+.back-arrow {
+    width: 32px;
+    height: 32px;
+}
+/* Add more styles as needed */
+
+@media (max-width: 600px) {
+    .in-the-news-container {
+        /* Your mobile styles here */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+
+    .news-heading {
+        /* Your mobile styles here */
+        color: #FFF;
+        text-align: center;
+        font-family: Geologica;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 125%; /* 30px */
+    }
+
+    .news-component {
+        /* Your mobile styles here */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin-top: 24px; /* Adjust as needed */
+        margin-bottom: 40px;
+    }
+
+    .news-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        /*flex-grow: 1;*/
+        gap: 14px;
+    }
+
+    .news-icon {
+        width: 47px;
+        height: 47px;
+    }
+
+
+    .news-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .news-title {
+        color: #A1A1A1;
+        /*width: 400px;*/
+        color: #A1A1A1;
+        font-family: Geologica;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 200%; /* 32px */
+        text-align: left;
+        justify-self: flex-start;
+        justify-content: flex-start;
+    }
+
+    .news-text {
+        color:  #FCFCFC;
+        justify-content: flex-start;
+        align-self: flex-start;
+        text-align: left;
+        color:  #FCFCFC;
+        font-family: Geologica;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 174%; /* 27.84px */
+    }
+
+    .goto-button {
+        /*width: 84px;*/
+        /*height: 84px;*/
+        background: black;
+        width: 44px;
+        height: 44px;
+        border: transparent;
+        /*border-radius: 50%;*/
+        border-radius: 50%;
+        transition: background-color 0.3s ease-in-out;
+
+
+    }
+
+    .goto-button:hover {
+        background-color: #1B1B1B;
+    }
+
+    .back-arrow {
+        width: 16.762px;
+        height: 16.762px;
+    }
+}
+
