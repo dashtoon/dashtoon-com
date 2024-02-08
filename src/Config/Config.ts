@@ -1,5 +1,5 @@
 const hostname = window.location.hostname;
-const isProduction = hostname === 'www.dashtoon.com';
+const isProduction = hostname === "www.dashtoon.com" || hostname === "dashtoon.com";
 const isLocal = hostname === 'localhost';
 
 export const config = {

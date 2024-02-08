@@ -45,6 +45,7 @@ const StudioPageWeb = () => {
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path
                     alt="Dashtoon Studio Image"
+                    loading={'lazy'}
                 />
             </div>
 
