@@ -39,7 +39,7 @@ const StudioPageMobile = () => {
                 <p className="heading-text-studio-mobile">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button-mobile"} onClick={() => (window.open('https://studio.dashtoon.ai/'))}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button-mobile"} onClick={() => (window.open('https://dev-studio.dashtoon.ai/new-dashtoon'))}> Create a Dashtoon</button>
                 <img
                     className="heading-image-mobile"
                     src={studioImage}
