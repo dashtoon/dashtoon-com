@@ -53,7 +53,7 @@ const FooterMobile = () => {
                     <div className="category-title">Dash Studio</div>
                     <div className="nav-links">
                         <span onClick={() => {
-                            navigate('/studio/#features')
+                            navigate('/create/#features')
                         }}>Features</span>
                         <span onClick={() => (window.open('https://studio.dashtoon.ai/'))}>
                              Sign up

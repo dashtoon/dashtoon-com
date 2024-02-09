@@ -34,8 +34,8 @@ const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
                 </button>
 
                 <button
-                    className={`nav-button-web-home dash-studio-web-home ${currentPage === 'studio' ? 'active' : ''}`}
-                    onClick={() => navigateTo('studio')}>Create
+                    className={`nav-button-web-home dash-studio-web-home ${currentPage === 'create' ? 'active' : ''}`}
+                    onClick={() => navigateTo('create')}>Create
                 </button>
 
                 <button

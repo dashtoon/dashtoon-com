@@ -26,7 +26,7 @@ const DesktopRoutes: React.FC = () => (
         <Route path='/*' element={<InvalidUrlPage/>}/>
         <Route path='/company' element={<CompanyWeb/>}/>
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
-        <Route path={'/studio'} element={<StudioPage/>} />
+        <Route path={'/create'} element={<StudioPage/>} />
         <Route path='/' element={<HomePageWeb/>} />
         <Route path='/careers' element={<CareersWeb/>}/>
         <Route path='/show/:showId' element={<ShowWeb/>}/>
@@ -43,7 +43,7 @@ const MobileRoutes: React.FC = () => (
         <Route path='/' element={<HomePageMobile/>} />
         <Route path='/company' element={<CompanyMobile/>}/>
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
-        <Route path={'/studio'} element={<StudioPageMobile/>} />
+        <Route path={'/create'} element={<StudioPageMobile/>} />
         <Route path='/careers' element={<CareersMobile/>} />
         <Route path='/show/:showId' element={<ShowMobile/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeMobile/>}/>

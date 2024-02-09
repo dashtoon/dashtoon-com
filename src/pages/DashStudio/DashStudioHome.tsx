@@ -10,11 +10,12 @@ import aiNativeImage from "../../assets/images/group-770-1024x724.png";
 import discordImage from "../../assets/images/discordImage.png"
 import publishImage from "../../assets/images/publish.png"
 import FooterWeb from "../../Components/FooterWeb";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {isProduction} from "../../Config/Config";
 
 const StudioPageWeb = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo(0, 0)
         switch (window.location.hash) {
@@ -33,7 +34,7 @@ const StudioPageWeb = () => {
         <div>
         <div className="web-page-container">
 
-                <NavbarWeb currentPage={'studio'}></NavbarWeb>
+                <NavbarWeb currentPage={'create'}></NavbarWeb>
 
 
             {/* Heading Section */}
@@ -41,7 +42,7 @@ const StudioPageWeb = () => {
                 <p className="heading-text-studio">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button"} onClick={() => window.open(isProduction ? 'https://studio.dashtoon.ai/new-dashtoon' : 'https://dev-studio.dashtoon.ai/new-dashtoon')}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button"} onClick={() => navigate('/studio/create')}> Create a Dashtoon</button>
                 <img
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path
@@ -148,7 +149,7 @@ const StudioPageWeb = () => {
                         <strong>So, what are you waiting for?</strong>
                     </p>
                     <button className={"comic-btn-container"}
-                            onClick={() => (window.open('https://studio.dashtoon.ai/'))}>
+                            onClick={() => navigate('/studio/home')}>
                         Get Started
                     </button>
                 </div>
