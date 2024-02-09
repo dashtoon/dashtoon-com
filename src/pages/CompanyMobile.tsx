@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/companyMobileStyles.css';
-import {Person} from "../types/peopleData";
+import {Person, peopleData} from "../types/peopleData";
 import FooterMobile from "../Components/FooterMobile";
 import NavbarMobile from "../Components/NavbarMobile";
 import {useLocation} from "react-router-dom";
@@ -9,19 +9,16 @@ import BackButton from "../assets/icons/carbon_arrow-up.png";
 import ForbesIcon from "../assets/icons/forbes.png";
 import DashtoonInTheNews from "../Components/DashtoonInTheNews";
 
-const peopleData: Person[] = [
-    {id: 1, name: 'Madhur', position: 'Growth', imageSrc: require('../assets/images/people/Madhur.png')},
-    {id: 2, name: 'Paritosh', position: 'Content', imageSrc: require('../assets/images/people/Paritosh.png')},
-    {id: 3, name: 'Soumyadeep', position: 'CTO', imageSrc: require('../assets/images/people/Soumyadeep.png')},
-    {id: 4, name: 'Lalith', position: 'COO', imageSrc: require('../assets/images/people/Lalith.png')},
-    {id: 5, name: 'Sanidhya', position: 'CEO', imageSrc: require('../assets/images/people/Sand.png')},
-    {id: 6, name: 'Amogh', position: 'Product-AI', imageSrc: require('../assets/images/people/Amogh.png')},
-    {id: 7, name: 'Rishi', position: 'Product-Apps', imageSrc: require('../assets/images/people/Rishi.png')},
-];
-
 const CompanyContentMobile = () => {
 
     const location = useLocation();
+    const [showFullList, setShowFullList] = useState(false);
+
+    // Function to toggle the full list
+    const toggleFullList = () => {
+        setShowFullList(!showFullList);
+    };
+
     const openLink = (url : string) => {
         window.open(url, '_blank'); // Open the link in a new tab
     };
@@ -74,19 +71,20 @@ const CompanyContentMobile = () => {
                 </p>
             </div>
 
-            <div className="people-mobile" id={"people"}>
+            <div className="people-mobile" id={'people'}>
                 <h2>Meet the Minds</h2>
-                {/* People container - You can add individual person components here */}
-                <div className="people-web-container-mobile">
-                    {/* Map through the peopleData array and create individual person cards */}
-                    {peopleData.map(person => (
-                        <div key={person.id} className="person-card-mobile">
+                <div className={`people-web-container-mobile ${showFullList ? 'expanded' : ''}`}>
+                    {peopleData.slice(0, showFullList ? peopleData.length : 8).map((person, index) => (
+                        <div key={person.id} className={`person-card-mobile ${index >= 8 && !showFullList ? 'hidden' : ''}`}>
                             <img className="person-image-mobile" src={person.imageSrc} alt={person.name}/>
                             <div className="person-name-mobile">{person.name}</div>
                             <div className="person-position-mobile">{person.position}</div>
                         </div>
                     ))}
                 </div>
+                <button onClick={toggleFullList} className="view-more-button-mobile">
+                    {showFullList ? 'View Less' : 'View More'}
+                </button>
             </div>
 
             <div className="play-store-award-mobile">
@@ -97,7 +95,7 @@ const CompanyContentMobile = () => {
                 <div className="play-store-image-mobile"></div>
             </div>
             <div id={'inTheNews'}>
-            <DashtoonInTheNews></DashtoonInTheNews>
+                <DashtoonInTheNews></DashtoonInTheNews>
             </div>
             <FooterMobile/>
         </div>

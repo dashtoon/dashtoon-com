@@ -27,16 +27,25 @@ const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
             </button>
 
             <div className="nav-buttons-web-home">
+
+                <button
+                    className={`nav-button-web-home dash-studio-web-home ${currentPage === '' ? 'active' : ''}`}
+                    onClick={() => navigateTo('')}>Read
+                </button>
+
+                <button
+                    className={`nav-button-web-home dash-studio-web-home ${currentPage === 'studio' ? 'active' : ''}`}
+                    onClick={() => navigateTo('studio')}>Create
+                </button>
+
                 <button
                     className={`nav-button-web-home company-web-home ${currentPage === 'company' ? 'active' : ''}`}
                     onClick={() => navigateTo('company')}
                 >Company
                 </button>
-
-                <button className={`nav-button-web-home dash-studio-web-home ${currentPage === 'studio' ? 'active' : ''}`} onClick={() => navigateTo('studio')}>Dash
-                    Studio
+                <button className={`nav-button-web-home careers-web-home ${currentPage === 'careers' ? 'active' : ''}`}
+                        onClick={() => navigateTo('careers')}>Careers
                 </button>
-                <button className={`nav-button-web-home careers-web-home ${currentPage === 'careers' ? 'active' : ''}`} onClick={() => navigateTo('careers')} >Careers</button>
                 {/*<button className="nav-button-web-home login-web-home">Login</button>*/}
             </div>
         </nav>

@@ -28,11 +28,10 @@ const MobileNavbar = () => {
 
                 {isDropdownVisible && (
                     <div className="dropdown">
-                        <button onClick={() => navigateTo('')}>Home </button>
+                        <button onClick={() => navigateTo('')}>Read</button>
+                        <button onClick={() => navigateTo('studio')}>Create</button>
                         <button onClick={() => navigateTo('company')}>Company</button>
-                        <button onClick={() => navigateTo('studio')}>DashStudio</button>
                         <button onClick={() => navigateTo('careers')}>Careers</button>
-                        <button>Login</button>
                     </div>
                 )}
             </div>

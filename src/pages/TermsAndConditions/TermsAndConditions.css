@@ -1,9 +1,9 @@
 .terms-and-conditions-container {
   background: black;
   color: #FFFFFF;
+  box-sizing: border-box;
   text-align: left;
   padding: 30px 10%;
-  box-sizing: border-box;
 }
 
 a {
@@ -30,7 +30,7 @@ p {
   .terms-and-conditions-container {
     width: 100%;
     text-align: left;
-    padding: 30px;
+    padding: 0px 0px;
     box-sizing: border-box;
   }
 }

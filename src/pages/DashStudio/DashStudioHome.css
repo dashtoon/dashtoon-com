@@ -44,6 +44,7 @@
 
 .create-dashtoon-button {
     display: inline-flex;
+    margin-top: 10px;
     height: 69px;
     padding: 22.5px 36px;
     justify-content: center;
@@ -80,7 +81,7 @@
     /* Styles for the features heading */
     color: #FFFFFF;
     font-family: Geologica;
-    font-size: 24px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 600;
     line-height: 200%; /* 32px */
@@ -301,7 +302,7 @@
 .discord-container-web {
     display: flex;
     flex-direction: row;
-    width: calc(100% - 120px);
+    width: calc(100% - 150px);
     height: 387px;
     flex-shrink: 0;
     border-radius: 23px;

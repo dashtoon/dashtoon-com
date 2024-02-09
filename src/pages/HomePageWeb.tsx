@@ -78,6 +78,15 @@ const HomePageWeb: React.FC = () => {
                                     onClick={() => navigate(`/show/${item.id}`)}
                                     style={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
                                     className="pop-out-card"
+                                    sx={{
+                                        backgroundColor: 'transparent',
+                                        borderColor: 'transparent',
+                                        cursor: 'pointer', // This will change the cursor to a pointer on hover
+                                        '&:hover': {
+                                            // You can add additional styles for hover state here
+                                        },
+                                        // ...other styles
+                                    }}
                                 >
 
                                         <img srcSet={getCDNImageUrl(imageUrl, '227', '358')} src={getCDNImageUrl(imageUrl, '227', '358')} alt={item.creator} style={{borderRadius: '12px', objectFit: 'contain' }} />

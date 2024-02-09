@@ -109,7 +109,29 @@
     line-height: 150%;
 }
 
-
+.view-more-button-mobile {
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 12px;
+    width: 133px;
+    height: 43px;
+    border: 1px solid grey;
+    background: radial-gradient(117.73% 149.5% at 8.37% 0%, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(12.899999618530273px);
+    padding: 5px 18px 7px 19px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #FCFCFC;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 200%; /* 48px */
+}
 
 /* Add more styles as needed */
 .play-store-award-mobile {

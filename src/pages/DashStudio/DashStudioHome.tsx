@@ -120,7 +120,6 @@ const StudioPageWeb = () => {
 
                 <div className="features-content">
                     {/* Text Section */}
-                    <h2 className="features-heading">FEATURES</h2>
                     {/* Image Section */}
                     <div className="image-section">
                         <img
@@ -157,8 +156,6 @@ const StudioPageWeb = () => {
                     <iframe
                         className="youtube-video"
                         src="https://www.youtube.com/embed/3KPMuRVufjM?si=ClmfUtSdYV1c7oLg?rel=0&amp;amp;mute=1&amp;showinfo=0&amp;autoplay=1&amp;loop=0"
-                        width='calc(100% - 150px)'
-                        height="631"
                         allowFullScreen
                     ></iframe>
                 </div>
