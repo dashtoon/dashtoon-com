@@ -11,6 +11,7 @@ import discordImage from "../../assets/images/discordImage.png"
 import publishImage from "../../assets/images/publish.png"
 import FooterWeb from "../../Components/FooterWeb";
 import {useLocation} from "react-router-dom";
+import {isProduction} from "../../Config/Config";
 
 const StudioPageWeb = () => {
     const location = useLocation();
@@ -40,7 +41,7 @@ const StudioPageWeb = () => {
                 <p className="heading-text-studio">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button"} onClick={() => (window.open('https://dev-studio.dashtoon.ai/new-dashtoon'))}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button"} onClick={() => window.open(isProduction ? 'https://studio.dashtoon.ai/new-dashtoon' : 'https://dev-studio.dashtoon.ai/new-dashtoon')}> Create a Dashtoon</button>
                 <img
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path

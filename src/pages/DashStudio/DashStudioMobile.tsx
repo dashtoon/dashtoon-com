@@ -12,6 +12,7 @@ import publishImage from "../../assets/images/publish.png"
 import NavbarMobile from "../../Components/NavbarMobile";
 import FooterMobile from "../../Components/FooterMobile";
 import {useLocation} from "react-router-dom";
+import {isProduction} from "../../Config/Config";
 
 const StudioPageMobile = () => {
     const location  = useLocation();
@@ -39,7 +40,7 @@ const StudioPageMobile = () => {
                 <p className="heading-text-studio-mobile">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button-mobile"} onClick={() => (window.open('https://dev-studio.dashtoon.ai/new-dashtoon'))}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button-mobile"} onClick={() => window.open(isProduction ? 'https://studio.dashtoon.ai/new-dashtoon' : 'https://dev-studio.dashtoon.ai/new-dashtoon')}> Create a Dashtoon</button>
                 <img
                     className="heading-image-mobile"
                     src={studioImage}
