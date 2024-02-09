@@ -65,7 +65,7 @@ const ShowMobile = () => {
             // console.log("entering show screen" + auth.currentUser?.uid);
             trackEvent(
                 {
-                    event: TrackingEvents.showOpened,
+                    event: TrackingEvents.showOpen,
                     properties: {
                         userId: auth.currentUser?.uid,
                         showId: showId,

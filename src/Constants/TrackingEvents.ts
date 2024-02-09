@@ -1,6 +1,6 @@
 export enum TrackingEvents {
-    showOpened = 'showOpened',
-    episodeOpened = 'episodeOpened',
+    showOpen = 'showOpen',
+    episodeOpen = 'episodeOpen',
     backToShow = 'backToShow',
     publishShow = 'publishShow',
     publishEpisode = 'publishEpisode',

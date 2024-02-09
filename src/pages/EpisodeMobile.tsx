@@ -77,7 +77,7 @@ const EpisodeMobile: React.FC = () => {
             // console.log("entering show screen" + auth.currentUser?.uid);
             trackEvent(
                 {
-                    event: TrackingEvents.episodeOpened,
+                    event: TrackingEvents.episodeOpen,
                     properties: {
                         userId: auth.currentUser?.uid,
                         showId: showId,

@@ -63,7 +63,7 @@ const ShowWeb: React.FC = () => {
         if (showInformation) {
             trackEvent(
                 {
-                    event: TrackingEvents.showOpened,
+                    event: TrackingEvents.showOpen,
                     properties: {
                         userId: auth.currentUser?.uid,
                         showId: showId,
