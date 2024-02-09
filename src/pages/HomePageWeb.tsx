@@ -81,11 +81,7 @@ const HomePageWeb: React.FC = () => {
                                     sx={{
                                         backgroundColor: 'transparent',
                                         borderColor: 'transparent',
-                                        cursor: 'pointer', // This will change the cursor to a pointer on hover
-                                        '&:hover': {
-                                            // You can add additional styles for hover state here
-                                        },
-                                        // ...other styles
+                                        cursor: 'pointer',
                                     }}
                                 >
 

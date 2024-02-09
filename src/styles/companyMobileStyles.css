@@ -78,6 +78,7 @@
     flex-direction: column;
     align-items: center;
     align-self: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .person-image-mobile {
@@ -131,6 +132,26 @@
     font-style: normal;
     font-weight: 700;
     line-height: 200%; /* 48px */
+}
+
+.hidden {
+    transform: scale(0.95);
+    visibility: hidden; /* Hide the card, but it still takes up space */
+    position: absolute; /* Take it out of the document flow */
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.people-web-container-mobile.expanded .hidden {
+    transform: scale(1);
+    opacity: 1;
+    /*height: auto; !* Reset height *!*/
+    /*width: auto; !* Reset width *!*/
+    /*margin: initial; !* Reset margin *!*/
+    /*padding: initial; !* Reset padding *!*/
 }
 
 /* Add more styles as needed */
