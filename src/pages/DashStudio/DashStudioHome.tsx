@@ -29,6 +29,10 @@ const StudioPageWeb = () => {
                 break;
         }
     }, [location])
+
+    const handleButtonClick = (path :string) => {
+        window.location.href = path; // This will navigate the browser to '/studio'
+    };
     
     return (
         <div>
@@ -42,7 +46,7 @@ const StudioPageWeb = () => {
                 <p className="heading-text-studio">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button"} onClick={() => navigate('/studio/create')}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button"} onClick={() => handleButtonClick('/studio/create')}> Create a Dashtoon</button>
                 <img
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path
@@ -149,7 +153,7 @@ const StudioPageWeb = () => {
                         <strong>So, what are you waiting for?</strong>
                     </p>
                     <button className={"comic-btn-container"}
-                            onClick={() => navigate('/studio/home')}>
+                            onClick={() => handleButtonClick('/studio/home')}>
                         Get Started
                     </button>
                 </div>

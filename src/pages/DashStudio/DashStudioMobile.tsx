@@ -32,6 +32,10 @@ const StudioPageMobile = () => {
         }
     }, [location]);
 
+    const handleButtonClick = (path :string) => {
+        window.location.href = path; // This will navigate the browser to '/studio'
+    };
+
     return (
         <div>
         <div className="web-page-container-mobile">
@@ -41,7 +45,7 @@ const StudioPageMobile = () => {
                 <p className="heading-text-studio-mobile">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button-mobile"} onClick={() => navigate('/studio/create')}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button-mobile"} onClick={() => handleButtonClick('/studio/create')}> Create a Dashtoon</button>
                 <img
                     className="heading-image-mobile"
                     src={studioImage}
@@ -140,7 +144,7 @@ const StudioPageMobile = () => {
                 <div className="comic-content-mobile">
                     <h1 className="comic-title-mobile">So, what are you waiting for?</h1>
                     <button className={"comic-btn-container-mobile"}
-                            onClick={() => navigate('/studio/home')}>
+                            onClick={() => handleButtonClick('/studio/home')}>
                         Get Started
                     </button>
                 </div>
