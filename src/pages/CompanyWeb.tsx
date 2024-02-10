@@ -66,7 +66,7 @@ const CompanyContentWeb = () => {
                 <h2>Meet the Minds</h2>
                 <div className={`people-web-container ${showFullList ? 'expanded' : ''}`}>
                     {peopleData.map((person, index) => (
-                        <div key={person.id} className={`person-card ${index >= 10 && !showFullList ? 'hidden' : ''}`}>
+                        <div key={person.id} className={`person-card ${index >= 3 && !showFullList ? 'hidden' : ''}`}>
                             <img className="person-image" src={person.imageSrc} alt={person.name}/>
                             <div className="person-name">{person.name}</div>
                             <div className="person-position">{person.position}</div>

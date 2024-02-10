@@ -74,8 +74,8 @@ const CompanyContentMobile = () => {
             <div className="people-mobile" id={'people'}>
                 <h2>Meet the Minds</h2>
                 <div className={`people-web-container-mobile ${showFullList ? 'expanded' : ''}`}>
-                    {peopleData.slice(0, showFullList ? peopleData.length : 8).map((person, index) => (
-                        <div key={person.id} className={`person-card-mobile ${index >= 8 && !showFullList ? 'hidden' : ''}`}>
+                    {peopleData.slice(0, showFullList ? peopleData.length : 3).map((person, index) => (
+                        <div key={person.id} className={`person-card-mobile ${index >= 3 && !showFullList ? 'hidden' : ''}`}>
                             <img className="person-image-mobile" src={person.imageSrc} alt={person.name}/>
                             <div className="person-name-mobile">{person.name}</div>
                             <div className="person-position-mobile">{person.position}</div>
