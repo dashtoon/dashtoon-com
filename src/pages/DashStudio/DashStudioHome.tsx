@@ -153,7 +153,7 @@ const StudioPageWeb = () => {
                         <strong>So, what are you waiting for?</strong>
                     </p>
                     <button className={"comic-btn-container"}
-                            onClick={() => handleButtonClick('/studio/home')}>
+                            onClick={() => handleButtonClick('/studio/new-dashtoon')}>
                         Get Started
                     </button>
                 </div>
