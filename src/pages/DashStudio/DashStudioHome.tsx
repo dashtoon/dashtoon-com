@@ -46,7 +46,7 @@ const StudioPageWeb = () => {
                 <p className="heading-text-studio">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button"} onClick={() => handleButtonClick('/studio/create')}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button"} onClick={() => handleButtonClick('/studio/new-dashtoon')}> Create a Dashtoon</button>
                 <img
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path
