@@ -42,10 +42,16 @@ const StudioPageMobile = () => {
                 <NavbarMobile></NavbarMobile>
 
             <div className="heading-section-studio-mobile">
-                <p className="heading-text-studio-mobile">
+                <h2 className="heading-text-studio-mobile">
+                    Create, Publish, Earn
+                </h2>
+
+                <p className="comic-title-mobile">
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
-                <button className={"create-dashtoon-button-mobile"} onClick={() => handleButtonClick('/studio/create')}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button-mobile"}
+                        onClick={() => handleButtonClick('/studio/create')}> Create a Dashtoon
+                </button>
                 <img
                     className="heading-image-mobile"
                     src={studioImage}
@@ -53,7 +59,7 @@ const StudioPageMobile = () => {
                 />
             </div>
 
-            <div className="features-section-mobile" id={'features'} >
+            <div className="features-section-mobile" id={'features'}>
                 <h2 className="features-heading-mobile">Features</h2>
                 <div className="features-content-mobile">
                     {/* Text Section */}
@@ -142,7 +148,7 @@ const StudioPageMobile = () => {
 
             <div className="comic-section-container-mobile">
                 <div className="comic-content-mobile">
-                    <h1 className="comic-title-mobile">So, what are you waiting for?</h1>
+                    <h1 className="comic-title-mobile">Make your first Dashtoon in minutes!</h1>
                     <button className={"comic-btn-container-mobile"}
                             onClick={() => handleButtonClick('/studio/home')}>
                         Get Started

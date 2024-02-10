@@ -32,6 +32,17 @@
     font-weight: 900;
     line-height: 130%; /* 78px */
     margin-top: 100px;
+    margin-bottom: 0px;
+}
+
+.heading-section-studio p {
+    color: #FCFCFC;
+    text-align: center;
+    font-family: Geologica;
+    width: auto;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 200%;
 }
 
 .heading-image {
@@ -44,7 +55,7 @@
 
 .create-dashtoon-button {
     display: inline-flex;
-    margin-top: 10px;
+    margin-top: 40px;
     height: 69px;
     padding: 22.5px 36px;
     justify-content: center;
@@ -154,7 +165,7 @@
     font-weight: 700;
     line-height: 50.04px;
     margin-top: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .comic-btn-container {
@@ -306,12 +317,8 @@
     height: 387px;
     flex-shrink: 0;
     border-radius: 23px;
-    background: radial-gradient(
-            76.22% 119.14% at -102.2% 55.19%,
-            rgba(255, 255, 255, 0.14) 0%,
-            rgba(28, 28, 28, 0.37) 100%
-    );
-    backdrop-filter: blur(27.7px);
+    background: radial-gradient(117.73% 149.5% at 8.37% 0%, rgba(128, 128, 128, 0.36) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(12.899999618530273px);
     overflow: hidden;
     gap: 40px;
     margin-bottom: 150px;

@@ -43,10 +43,17 @@ const StudioPageWeb = () => {
 
             {/* Heading Section */}
             <div className="heading-section-studio">
-                <p className="heading-text-studio">
-                    Dashtoon Studio makes comic creation feel like a breeze with AI magic!
+
+                <h2 className="heading-text-studio">
+                    Create, Publish, Earn
+                </h2>
+
+                <p className="comic-subtitle">
+                    <strong>Dashtoon Studio makes comic creation feel like a breeze with AI magic!</strong>
                 </p>
-                <button className={"create-dashtoon-button"} onClick={() => handleButtonClick('/studio/new-dashtoon')}> Create a Dashtoon</button>
+                <button className={"create-dashtoon-button"}
+                        onClick={() => handleButtonClick('/studio/new-dashtoon')}> Create a Dashtoon
+                </button>
                 <img
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path
@@ -148,9 +155,9 @@ const StudioPageWeb = () => {
 
             <div className="comic-section-container">
                 <div className="comic-content">
-                    <h1 className="comic-title">Make your first comic in minutes!</h1>
+                    {/*<h1 className="comic-title">Make your first Dashtoon in minutes!</h1>*/}
                     <p className="comic-subtitle">
-                        <strong>So, what are you waiting for?</strong>
+                        <strong>Make your first Dashtoon in minutes!</strong>
                     </p>
                     <button className={"comic-btn-container"}
                             onClick={() => handleButtonClick('/studio/new-dashtoon')}>
