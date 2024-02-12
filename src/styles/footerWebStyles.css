@@ -124,6 +124,7 @@
     align-items: flex-start;
     padding-left: 60px;
     gap: 20px;
+    background: #212121;
 }
 
 .transparentButton {

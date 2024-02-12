@@ -12,10 +12,12 @@ import Typography from '@mui/joy/Typography';
 import Card from '@mui/joy/Card';
 import {getCDNImageUrl} from "../services/cdnImage";
 import {useNavigate} from "react-router-dom";
-
+import Lottie from "lottie-react";
+import LoaderAnimation from '../assets/animations/logoanimation.json';
 
 const HomePageWeb: React.FC = () => {
     const [shows, setShows] = useState<ShowWithViewsAndEpisodeCount[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -27,6 +29,7 @@ const HomePageWeb: React.FC = () => {
             await signInAnonymouslyAndGetToken();
             const response = await getPopularShows(20);
             setShows(response);
+            setIsLoading(false);
         };
 
         fetchData();
@@ -40,6 +43,9 @@ const HomePageWeb: React.FC = () => {
     return (
         <div className="home-page-web">
             <div className="home-page-web-content">
+                {isLoading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'black' }}>
+                    <Lottie animationData={LoaderAnimation} height={80} width={80} />
+                </div>}
                 {/* 1. NavBar web */}
                     {/* Your NavBar content goes here */}
                     <NavbarWeb currentPage={''}></NavbarWeb>
@@ -51,7 +57,7 @@ const HomePageWeb: React.FC = () => {
 
                     <p className="heading-text">Dive into the Ultimate Comic Universe 🚀</p>
                 </div>
-                <div className="popular-shows">
+                <div className={`popular-shows ${!isLoading && 'shows-loaded'}`} >
                 <Box
                         sx={{
                             display: 'flex',

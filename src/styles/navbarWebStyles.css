@@ -17,8 +17,8 @@
     align-self: center;
     top: 0;
     position: sticky;
-    transition: ease-in top 0.3s;
     z-index: 1;
+    transition: transform 0.5s ease-in-out;
 }
 
 .nav-button-web-home {

@@ -108,6 +108,7 @@
     align-items: stretch;
     justify-content: stretch;
     gap: 12px;
+    background: #212121;
 }
 
 .transparentButtonMobile {

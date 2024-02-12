@@ -68,8 +68,10 @@ const CompanyContentWeb = () => {
                     {peopleData.map((person, index) => (
                         <div key={person.id} className={`person-card ${index >= 3 && !showFullList ? 'hidden' : ''}`}>
                             <img className="person-image" src={person.imageSrc} alt={person.name}/>
+                            <div className={'person-details'}>
                             <div className="person-name">{person.name}</div>
                             <div className="person-position">{person.position}</div>
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -77,6 +77,20 @@
     /* Your episode grid styles go here */
     /* Leave it empty for now */
     padding: 80px 20px 20px 20px;
+    transition: height 0.5s ease-in-out;
+}
+
+.pop-out-card {
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.pop-out-card:hover {
+    cursor: pointer;
+}
+
+.popular-shows.shows-loaded .pop-out-card {
+    transform: translateX(0);
 }
 
 /* 4. Review container */
