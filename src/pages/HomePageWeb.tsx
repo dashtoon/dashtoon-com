@@ -47,12 +47,12 @@ const HomePageWeb: React.FC = () => {
 
                 {/* 2. Heading section */}
                 <div className="heading-section">
-                        <p className="dashtoon-heading" >Dashtoon</p>
+                    <p className="dashtoon-heading">Dashtoon</p>
 
                     <p className="heading-text">Dive into the Ultimate Comic Universe 🚀</p>
                 </div>
                 <div className="popular-shows">
-                    <Box
+                <Box
                         sx={{
                             display: 'flex',
                             gap: 1,
