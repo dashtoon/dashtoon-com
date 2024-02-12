@@ -105,9 +105,10 @@
 .legal-Mobile {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    justify-content: stretch;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
+    padding: 23px 3px;
     background: #212121;
 }
 
@@ -116,7 +117,7 @@
     border: transparent;
     color: #FCFCFC;
     font-family: Geologica, sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 26px; /* Adjust padding as needed */

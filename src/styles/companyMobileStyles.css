@@ -77,6 +77,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 136.996px;
+    max-height: 185px;
     align-self: center;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -90,8 +92,10 @@
 }
 
 .person-details-mobile {
-    margin-top: 14px;
+    margin-top: 15px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .person-name-mobile {
@@ -99,7 +103,8 @@
     font-family: Geologica;
     font-size: 14px;
     font-weight: 600;
-    line-height: 150%;
+    line-height: 100%;
+    margin-bottom: 5px;
 }
 
 .person-position-mobile {
@@ -107,7 +112,15 @@
     font-family: Outfit;
     font-size: 14px;
     font-weight: 400;
-    line-height: 150%;
+    line-height: 100%;
+}
+
+.person-name-mobile,
+.person-position-mobile {
+    white-space: normal; /* Overrides any parent setting that could prevent wrapping */
+    word-wrap: break-word; /* Ensures text breaks onto next line if too long for width */
+    max-width: 100%; /* Ensures text does not expand beyond the card */
+    overflow-wrap: break-word; /* Optional, for additional wrapping in unsupported environments */
 }
 
 .view-more-button-mobile {

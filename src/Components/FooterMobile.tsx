@@ -11,7 +11,8 @@ import {Link, useNavigate} from "react-router-dom"; // Import the stylesheet
 const FooterMobile = () => {
     const navigate = useNavigate();
     return (
-        <footer className="group">
+        <footer>
+            <div className={'group'}>
             <div className="logo-section">
                 <div className="logo-wrapper">
                     <DashtoonIcon className="logo-frame" aria-label="Frame"/>
@@ -69,6 +70,7 @@ const FooterMobile = () => {
                               className="explore-opportunities-web">Explore Opportunities</Link>
                     </div>
                 </div>
+            </div>
             </div>
             <div className={"legal-Mobile"}>
                 <button className="transparentButtonMobile" onClick={() => {

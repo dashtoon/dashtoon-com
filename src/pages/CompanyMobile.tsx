@@ -77,8 +77,10 @@ const CompanyContentMobile = () => {
                     {peopleData.slice(0, showFullList ? peopleData.length : 3).map((person, index) => (
                         <div key={person.id} className={`person-card-mobile ${index >= 3 && !showFullList ? 'hidden' : ''}`}>
                             <img className="person-image-mobile" src={person.imageSrc} alt={person.name}/>
+                            <div className={'person-details-mobile'}>
                             <div className="person-name-mobile">{person.name}</div>
                             <div className="person-position-mobile">{person.position}</div>
+                            </div>
                         </div>
                     ))}
                 </div>
