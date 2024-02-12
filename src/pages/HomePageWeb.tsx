@@ -39,12 +39,21 @@ const HomePageWeb: React.FC = () => {
         window.open(url, '_blank'); // Open the link in a new tab
     };
     const navigate = useNavigate();
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: LoaderAnimation,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
 
     return (
         <div className="home-page-web">
             <div className="home-page-web-content">
                 {isLoading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'black' }}>
-                    <Lottie animationData={LoaderAnimation} height={80} width={80} />
+                    <Lottie animationData={LoaderAnimation} style={{ width: '500px', height: '500px' }} />
                 </div>}
                 {/* 1. NavBar web */}
                     {/* Your NavBar content goes here */}

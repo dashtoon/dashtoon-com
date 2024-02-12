@@ -13,6 +13,8 @@ import {TrackingEvents} from "../Constants/TrackingEvents";
 import {TrackingProperties} from "../Constants/TrackingProperties";
 import FooterWeb from "../Components/FooterWeb";
 import {useNavigate} from 'react-router-dom';
+import LoaderAnimation from "../assets/animations/logoanimation.json";
+import Lottie from "lottie-react";
 
 const ShowWeb: React.FC = () => {
 
@@ -100,7 +102,7 @@ const ShowWeb: React.FC = () => {
             <div className="content-comp">
                 <div className="show-web-container">
                     {loading && <div className="loading-screen-web">
-                        <img src="/logo192.png" alt="Loading Logo" className="loading-logo-web"/>
+                        <Lottie animationData={LoaderAnimation} style={{ width: '500px', height: '500px' }} />
                     </div>}
                     <div className="cross-icon" style={{cursor: "pointer"}}>
                         <img

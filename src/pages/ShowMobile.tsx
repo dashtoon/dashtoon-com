@@ -13,6 +13,8 @@ import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import {TrackingEvents} from "../Constants/TrackingEvents";
 import {TrackingProperties} from "../Constants/TrackingProperties";
 import FooterMobile from "../Components/FooterMobile";
+import Lottie from "lottie-react";
+import LoaderAnimation from "../assets/animations/logoanimation.json";
 
 
 const ShowMobile = () => {
@@ -106,7 +108,7 @@ const ShowMobile = () => {
     return (
         <div className="show-container">
             {loading && <div className="loading-screen">
-                <img src="/logo192.png" alt="Loading Logo" className="loading-logo"/>
+                <Lottie animationData={LoaderAnimation} style={{ width: '200px', height: '200px' }} />
             </div>}
             <div className="show-image-container">
                 {showThumbnailUrl &&

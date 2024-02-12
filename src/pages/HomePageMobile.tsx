@@ -15,11 +15,13 @@ import Card from '@mui/joy/Card';
 import {getCDNImageUrl} from "../services/cdnImage";
 import {useNavigate} from "react-router-dom";
 import NavbarMobile from "../Components/NavbarMobile";
+import Lottie from "lottie-react";
+import LoaderAnimation from "../assets/animations/logoanimation.json";
 
 
-const HomePageWeb: React.FC = () => {
+const HomePageMobile: React.FC = () => {
     const [shows, setShows] = useState<ShowWithViewsAndEpisodeCount[]>([]);
-
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -30,6 +32,7 @@ const HomePageWeb: React.FC = () => {
             await signInAnonymouslyAndGetToken();
             const response = await getPopularShows(20);
             setShows(response);
+            setIsLoading(false);
         };
 
         fetchData();
@@ -43,6 +46,9 @@ const HomePageWeb: React.FC = () => {
     return (
         <div className="home-page-web-mobile">
             <div className="home-page-web-content-mobile">
+                {isLoading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'black' }}>
+                    <Lottie animationData={LoaderAnimation} style={{ width: '200px', height: '200px' }} />
+                </div>}
                 {/* 1. NavBar web */}
                     {/* Your NavBar content goes here */}
                     <NavbarMobile/>
@@ -235,4 +241,4 @@ const HomePageWeb: React.FC = () => {
     );
 };
 
-export default HomePageWeb;
+export default HomePageMobile;
