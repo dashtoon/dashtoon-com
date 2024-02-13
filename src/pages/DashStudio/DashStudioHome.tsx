@@ -1,6 +1,6 @@
 // WebPage.js
 
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './DashStudioHome.css';
 import NavbarWeb from "../../Components/NavbarWeb"; // Import your global styles if needed
 import studioImage from "../../assets/images/Group 823createDashtoon.png";
@@ -12,10 +12,14 @@ import publishImage from "../../assets/images/publish.png"
 import FooterWeb from "../../Components/FooterWeb";
 import {useLocation, useNavigate} from "react-router-dom";
 import {isProduction} from "../../Config/Config";
+import LoginModal from "../../Components/LoginModal/LoginModal";
+import {AuthContext} from "../../Provider/AuthProvider";
 
 const StudioPageWeb = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const auth = useContext(AuthContext);
+
     useEffect(() => {
         window.scrollTo(0, 0)
         switch (window.location.hash) {
@@ -31,8 +35,14 @@ const StudioPageWeb = () => {
     }, [location])
 
     const handleButtonClick = (path :string) => {
-        window.location.href = path; // This will navigate the browser to '/studio'
+        if (auth.currentUser && !auth.anonymous) {
+            window.location.href = path;
+        } else {
+            setIsLoginModalVisible(true);
+        }
     };
+
+    const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
     
     return (
         <div>
@@ -54,6 +64,8 @@ const StudioPageWeb = () => {
                 <button className={"create-dashtoon-button"}
                         onClick={() => handleButtonClick('/studio/new-dashtoon')}> Create a Dashtoon
                 </button>
+
+                {isLoginModalVisible && <LoginModal open={true}/>}
                 <img
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path

@@ -1,19 +1,18 @@
 // HomePageWeb.tsx
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import FooterWeb from '../Components/FooterWeb';
 import '../styles/homeWebStyles.css';
 import NavbarWeb from "../Components/NavbarWeb";
 import {ShowWithViewsAndEpisodeCount} from "../types/Show";
 import {getPopularShows} from "../services/showService";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
-import Box from '@mui/joy/Box';
-import Typography from '@mui/joy/Typography';
-import Card from '@mui/joy/Card';
+import { Box, Card, CardMedia, CardContent, CardActionArea, Typography } from '@mui/material';
 import {getCDNImageUrl} from "../services/cdnImage";
 import {useNavigate} from "react-router-dom";
 import Lottie from "lottie-react";
 import LoaderAnimation from '../assets/animations/logoanimation.json';
+import LoginModal from "../Components/LoginModal/LoginModal";
 
 const HomePageWeb: React.FC = () => {
     const [shows, setShows] = useState<ShowWithViewsAndEpisodeCount[]>([]);
@@ -66,82 +65,86 @@ const HomePageWeb: React.FC = () => {
 
                     <p className="heading-text">Dive into the Ultimate Comic Universe 🚀</p>
                 </div>
-                <div className={`popular-shows ${!isLoading && 'shows-loaded'}`} >
-                <Box
-                        sx={{
-                            display: 'flex',
-                            gap: 1,
-                            py: 1,
-                            overflow: 'auto',
-                            width: 'calc(100vw - 250px)',
-                            scrollSnapType: 'x mandatory',
-                            '& > *': {
-                                scrollSnapAlign: 'center',
-                            },
-                            '::-webkit-scrollbar': { display: 'none' },
-                        }}
-                    >
-                        {shows.map((item) => {
 
-                            const imageUrl = item.metadata.find(s => s.type === 'WIDGET_THUMBNAIL_V2')?.value;
-                            return imageUrl && (
-                                <Card
-                                    orientation="vertical"
-                                    size="sm"
-                                    key={item.id}
-                                    variant="outlined"
-                                    onClick={() => navigate(`/show/${item.id}`)}
-                                    style={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
-                                    className="pop-out-card"
-                                    sx={{
-                                        backgroundColor: 'transparent',
-                                        borderColor: 'transparent',
-                                        cursor: 'pointer',
-                                    }}
-                                >
-
-                                        <img srcSet={getCDNImageUrl(imageUrl, '227', '358')} src={getCDNImageUrl(imageUrl, '227', '358')} alt={item.creator} style={{borderRadius: '12px', objectFit: 'contain' }} />
-
-                                    <Box sx={{ whiteSpace: 'nowrap', mx: 1 }}>
-                                        <Typography
-                                            level="title-md"
-                                            sx={{
-                                                color: 'var(--Grey-8, #C9C9C9)',
-                                                fontFamily: 'Geologica',
-                                                fontSize: 20,
-                                                fontStyle: 'normal',
-                                                fontWeight: 400,
-                                                lineHeight: '30px',
-                                                align: "left",
-                                            }}
-
-                                        >
-                                            {item.genre}
-                                        </Typography>
-                                        <Typography
-                                            level="body-sm"
-                                            sx={{
-                                                color: 'var(--Grey-4, #999)',
-                                                fontFamily: 'Outfit',
-                                                fontSize: 20,
-                                                fontStyle: 'normal',
-                                                fontWeight: 400,
-                                                lineHeight: '30px',
-                                                align: "left",
-                                            }}
-                                        >
-                                            {item.creator}
-                                        </Typography>
-                                    </Box>
-                                </Card>
-                            );
-                        })}
+                <div className={`popular-shows ${!isLoading && 'shows-loaded'}`}>
+                        <Box
+                            sx={{
+                                padding: '80px 20px 20px 20px', transition: 'height 0.5s ease-in-out',
+                                display: 'flex',
+                                gap: 2, // Adjust the gap between items
+                                py: 1,
+                                overflowX: 'auto', // Enable horizontal scrolling
+                                scrollSnapType: 'x mandatory',
+                                '&::-webkit-scrollbar': { display: 'none' },
+                                width: 'calc(100vw - 250px)',
+                            }}
+                        >
+                            {shows.map((item) => {
+                                const imageUrl = item.metadata.find(s => s.type === 'WIDGET_THUMBNAIL_V2')?.value;
+                                return imageUrl && (
+                                    <Card
+                                        key={item.id}
+                                        sx={{
+                                            // Removed fixed width and height to allow content-based sizing// use your desired width
+                                            flexShrink: 0,
+                                            backgroundColor: 'transparent',
+                                            borderColor: 'transparent',
+                                            cursor: 'pointer',
+                                        }}
+                                        onClick={() => navigate(`/show/${item.id}`)}
+                                    >
+                                        <CardActionArea sx={{ borderRadius: '12px' }}>
+                                            <CardMedia
+                                                component="img"
+                                                image={getCDNImageUrl(imageUrl, '227', '358')}
+                                                alt={item.creator}
+                                                sx={{
+                                                    borderRadius: '12px',
+                                                    objectFit: 'contain',
+                                                    transition: 'transform 0.3s ease-in-out',
+                                                    '&:hover': {
+                                                        transform: 'scale(1.03)',
+                                                    },
+                                                }}
+                                            />
+                                            <Box sx={{ whiteSpace: 'nowrap', mx: 1 , marginTop: 1}}>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    sx={{
+                                                        color: '#C9C9C9',
+                                                        fontFamily: 'Geologica',
+                                                        fontSize: '20px',
+                                                        fontWeight: 400,
+                                                        lineHeight: '30px',
+                                                        textAlign: 'center',
+                                                    }}
+                                                >
+                                                    {item.genre}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{
+                                                        color: '#999',
+                                                        fontFamily: 'Outfit',
+                                                        fontSize: '20px',
+                                                        fontWeight: 400,
+                                                        lineHeight: '30px',
+                                                        textAlign: 'center',
+                                                    }}
+                                                >
+                                                    {item.creator}
+                                                </Typography>
+                                            </Box>
+                                        </CardActionArea>
+                                    </Card>
+                                );
+                            })}
                     </Box>
                 </div>
 
                 <div className="review-container">
                     {/* a. Heading: What readers say */}
-                        <h3 className="readers-say-heading" >What readers say</h3>
+                    <h3 className="readers-say-heading">What readers say</h3>
 
                     {/* b. Review container below the heading */}
                     <div className="review-content-web">
@@ -176,13 +179,14 @@ const HomePageWeb: React.FC = () => {
 
                 {/* 5. Get App component */}
                 <div className={"app-download-prompt"}>
-                <div className="get-app">
-                    <div className="get-app-container">
-                        <h3 className="get-app-heading">Get Dashtoon App</h3>
-                        <p className="download-text">Download App From</p>
-                        <div className="install-icons">
-                            <div className={"icon-card"} onClick={() => openLink('https://play.google.com/store/apps/details?id=com.dashtoon.app')}>
-                                <svg className={'app-icons'} xmlns="http://www.w3.org/2000/svg" width="40" height="42"
+                    <div className="get-app">
+                        <div className="get-app-container">
+                            <h3 className="get-app-heading">Get Dashtoon App</h3>
+                            <p className="download-text">Download App From</p>
+                            <div className="install-icons">
+                                <div className={"icon-card"}
+                                     onClick={() => openLink('https://play.google.com/store/apps/details?id=com.dashtoon.app')}>
+                                    <svg className={'app-icons'} xmlns="http://www.w3.org/2000/svg" width="40" height="42"
                                      viewBox="0 0 40 42"
                                      fill="none">
                                     <path

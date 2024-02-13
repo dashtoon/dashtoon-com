@@ -2,11 +2,13 @@ import React, {useEffect, useState} from 'react';
 import Footer from '../../Components/FooterWeb';
 import './TermsAndConditions.css';
 import NavbarWeb from "../../Components/NavbarWeb";
-import Tabs from '@mui/joy/Tabs';
-import TabList from '@mui/joy/TabList';
-import Tab, {tabClasses} from '@mui/joy/Tab';
-import {TabPanel} from "@mui/joy";
-import Box from "@mui/joy/Box";
+import { Tabs, Tab, Box, Typography, Paper } from '@mui/material';
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: any;
+  value: any;
+}
 
 const TermsAndConditions = () => {
   const [tabIndex, setTabIndex] = useState<string | number | null>(0);
@@ -28,61 +30,39 @@ const TermsAndConditions = () => {
 
   }, []);
 
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabIndex(newValue);
+  };
+
 
   return (
-      <Box
-          sx={{
-            flexGrow: 1,
-            backgroundColor : 'black',
-            alignItems: 'center',
-
-          }}
-      >
-        <div style={{display: 'flex',  alignItems: 'center', justifyContent: 'center'}}>
+      <Box sx={{ flexGrow: 1, backgroundColor: 'black', pl: 2, pr: 2 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '40px' }}>
           <NavbarWeb currentPage={'Terms'} />
         </div>
-      <Tabs  value={tabIndex} size="lg" aria-label="Basic tabs"  onChange={(e, newValue) => setTabIndex(newValue)} sx={{
-        backgroundColor: 'black',
-        justifyContent: 'flex-start',
-        minWidth: '0', // Reset minWidth
-        width: 'auto',
-        '.MuiTab-root': { // Styles for all tabs
-          color: 'white', // Text color for tabs
-        },
-        '.Mui-selected': { // Styles for selected tab
-          backgroundColor: 'black',// Text color for selected tab
-        },
-        '.MuiTabs-flexContainer': {
-          justifyContent: 'flex-start',
-        },
-        padding: '12px 24px',
-
-      }}>
-        <TabList sx={{
-          justifyContent: 'flex-start',
-          margin: '0 0',
-              [`&& .${tabClasses.root}`]: {
-          flex: 'initial',
-          bgcolor: 'transparent',
-          '&:hover': {
-          bgcolor: 'transparent',
-            color: 'primary.plainColor'
-        },
-          [`&.${tabClasses.selected}`]: {
-          color: 'primary.plainColor',
-          '&::after': {
-          height: 2,
-          borderTopLeftRadius: 3,
-          borderTopRightRadius: 3,
-          bgcolor: 'primary.500',
-        },
-        },
-        }
-        }}>
-          <Tab>Dashtoon Reader</Tab>
-          <Tab>Dashtoon Studio</Tab>
-        </TabList>
-        <TabPanel value={0}>
+        <Tabs value={tabIndex} onChange={handleChange}
+              sx={{
+                '.MuiTabs-indicator': {
+                  backgroundColor: '#3f51b5', // Indicator color
+                },
+                '.MuiTab-root': { // Styles for all tabs
+                  color: 'white', // Default text color
+                  fontSize: '1rem', // Increased font size
+                  marginLeft: '16px',
+                  '&:hover': { // Styles for hover state
+                    color: '#3f51b5', // Text color on hover
+                    opacity: 1,
+                  },
+                  '&.Mui-selected': { // Styles for selected tab
+                    color: '#3f51b5', // Text color for selected tab
+                  },
+                },
+                marginBottom: '10px', // Space below the tabs
+              }}>
+          <Tab label="Dashtoon Reader" />
+          <Tab label="Dashtoon Studio" />
+        </Tabs>
+        <TabPanel value={tabIndex} index={0}>
           <div className='terms-and-conditions-container '>
             <h1>Terms-and-conditions</h1>
             <h2>END USER LICENSE AGREEMENT AND TERMS OF USE</h2>
@@ -1057,7 +1037,7 @@ const TermsAndConditions = () => {
             </p>
           </div>
         </TabPanel>
-        <TabPanel value={1}>
+        <TabPanel value={tabIndex} index={1}>
           <div className='terms-and-conditions-container '>
             <h1>Terms-and-conditions</h1>
             <h2>END USER LICENSE AGREEMENT AND TERMS OF USE</h2>
@@ -1894,10 +1874,29 @@ const TermsAndConditions = () => {
             </p>
           </div>
         </TabPanel>
-      </Tabs>
       <Footer/>
     </Box>
   );
 };
+
+function TabPanel(props : TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+      <div
+          role="tabpanel"
+          hidden={value !== index}
+          id={`simple-tabpanel-${index}`}
+          aria-labelledby={`simple-tab-${index}`}
+          {...other}
+      >
+        {value === index && (
+            <Box sx={{ p: 3 }}>
+              <Typography>{children}</Typography>
+            </Box>
+        )}
+      </div>
+  );
+}
 
 export default TermsAndConditions;

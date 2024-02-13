@@ -6,17 +6,13 @@ import NavbarWeb from "../Components/NavbarWeb";
 import {ShowWithViewsAndEpisodeCount} from "../types/Show";
 import {getPopularShows} from "../services/showService";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
-import {ReactComponent as PlayStoreIcon} from "../assets/icons/Google_Play-Badge-Logo.wine.svg";
-import {ReactComponent as AppStoreIcon} from "../assets/icons/download-on-the-app-store-apple.svg";
-import AspectRatio from '@mui/joy/AspectRatio';
-import Box from '@mui/joy/Box';
-import Typography from '@mui/joy/Typography';
-import Card from '@mui/joy/Card';
+import { Box, Card, CardMedia, CardContent, CardActionArea, Typography } from '@mui/material';
 import {getCDNImageUrl} from "../services/cdnImage";
 import {useNavigate} from "react-router-dom";
 import NavbarMobile from "../Components/NavbarMobile";
 import Lottie from "lottie-react";
 import LoaderAnimation from "../assets/animations/logoanimation.json";
+
 
 
 const HomePageMobile: React.FC = () => {
@@ -63,65 +59,73 @@ const HomePageMobile: React.FC = () => {
                 <div className="popular-shows-mobile">
                     <Box
                         sx={{
+                            padding: '80px 20px 20px 20px', transition: 'height 0.5s ease-in-out',
                             display: 'flex',
-                            gap: 1,
+                            gap: 2, // Adjust the gap between items
                             py: 1,
-                            overflow: 'auto',
-                            width: 'calc(100vw - 32px)',
+                            overflowX: 'auto', // Enable horizontal scrolling
                             scrollSnapType: 'x mandatory',
-                            '& > *': {
-                                scrollSnapAlign: 'center',
-                            },
-                            '::-webkit-scrollbar': { display: 'none' },
+                            '&::-webkit-scrollbar': { display: 'none' },
+                            width: 'calc(100vw - 32px)',
                         }}
                     >
                         {shows.map((item) => {
-
                             const imageUrl = item.metadata.find(s => s.type === 'WIDGET_THUMBNAIL_V2')?.value;
                             return imageUrl && (
                                 <Card
-                                    orientation="vertical"
-                                    size="sm"
                                     key={item.id}
-                                    variant="outlined"
+                                    sx={{
+                                        // Removed fixed width and height to allow content-based sizing// use your desired width
+                                        flexShrink: 0,
+                                        backgroundColor: 'transparent',
+                                        borderColor: 'transparent',
+                                        cursor: 'pointer',
+                                    }}
                                     onClick={() => navigate(`/show/${item.id}`)}
-                                    style={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
-                                    className="pop-out-card-mobile"
                                 >
-
-                                        <img srcSet={getCDNImageUrl(imageUrl, '179', '282')} src={getCDNImageUrl(imageUrl, '179', '282')} alt={item.creator} style={{borderRadius: '12px', objectFit: 'contain' }} />
-
-                                    <Box sx={{ whiteSpace: 'nowrap', mx: 1 }}>
-                                        <Typography
-                                            level="title-md"
+                                    <CardActionArea sx={{ borderRadius: '12px' }}>
+                                        <CardMedia
+                                            component="img"
+                                            image={getCDNImageUrl(imageUrl, '179', '282')}
+                                            alt={item.creator}
                                             sx={{
-                                                color: 'var(--Grey-8, #C9C9C9)',
-                                                fontFamily: 'Geologica',
-                                                fontSize: 14,
-                                                fontStyle: 'normal',
-                                                fontWeight: 400,
-                                                lineHeight: '30px',
-                                                align: "left",
+                                                borderRadius: '12px',
+                                                objectFit: 'contain',
+                                                transition: 'transform 0.3s ease-in-out',
+                                                '&:hover': {
+                                                    transform: 'scale(1.03)',
+                                                },
                                             }}
-
-                                        >
-                                            {item.genre}
-                                        </Typography>
-                                        <Typography
-                                            level="body-sm"
-                                            sx={{
-                                                color: 'var(--Grey-4, #999)',
-                                                fontFamily: 'Outfit',
-                                                fontSize: 14,
-                                                fontStyle: 'normal',
-                                                fontWeight: 400,
-                                                lineHeight: '30px',
-                                                align: "left",
-                                            }}
-                                        >
-                                            {item.creator}
-                                        </Typography>
-                                    </Box>
+                                        />
+                                        <Box sx={{ whiteSpace: 'nowrap', mx: 1 , marginTop: 1}}>
+                                            <Typography
+                                                variant="subtitle1"
+                                                sx={{
+                                                    color: '#C9C9C9',
+                                                    fontFamily: 'Geologica',
+                                                    fontSize: '14px',
+                                                    fontWeight: 400,
+                                                    lineHeight: '30px',
+                                                    textAlign: 'center',
+                                                }}
+                                            >
+                                                {item.genre}
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    color: '#999',
+                                                    fontFamily: 'Outfit',
+                                                    fontSize: '14px',
+                                                    fontWeight: 400,
+                                                    lineHeight: '30px',
+                                                    textAlign: 'center',
+                                                }}
+                                            >
+                                                {item.creator}
+                                            </Typography>
+                                        </Box>
+                                    </CardActionArea>
                                 </Card>
                             );
                         })}
@@ -198,7 +202,7 @@ const HomePageMobile: React.FC = () => {
                                  onClick={() => openLink('https://apps.apple.com/us/app/dashtoon-comics-manga/id1661508865')}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="144" height="50" viewBox="0 0 144 50"
                                      fill="none">
-                                    <g clip-path="url(#clip0_426_46559)">
+                                    <g clipPath="url(#clip0_426_46559)">
                                         <path opacity="0.11"
                                               d="M136.827 0H7.17317C3.21154 0 0 3.2042 0 7.15677V42.3442C0 46.2968 3.21154 49.5009 7.17317 49.5009H136.827C140.788 49.5009 144 46.2968 144 42.3442V7.15677C144 3.2042 140.788 0 136.827 0Z"
                                               fill="white"/>

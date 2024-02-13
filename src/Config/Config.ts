@@ -1,4 +1,4 @@
-const hostname = window.location.hostname;
+export const hostname = window.location.hostname;
 export const isProduction = hostname === "www.dashtoon.com" || hostname === "dashtoon.com" || hostname === "web.dashtoon.com";
 const isLocal = hostname === 'localhost';
 
