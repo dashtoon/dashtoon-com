@@ -25,7 +25,6 @@ const HomePageWeb: React.FC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            await signInAnonymouslyAndGetToken();
             const response = await getPopularShows(20);
             setShows(response);
             setIsLoading(false);

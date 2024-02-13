@@ -5,6 +5,7 @@ import useScrollVisibility from "../Hooks/useScroll";
 import {useNavigate} from "react-router-dom";
 import LoginModal from "./LoginModal/LoginModal";
 import {AuthContext} from "../Provider/AuthProvider";
+import {auth} from '../firebaseConfig';
 
 
 interface NavbarWebProps {
@@ -13,7 +14,6 @@ interface NavbarWebProps {
 
 const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
 
-    const auth = useContext(AuthContext);
 
     const isVisible = useScrollVisibility();
     const navigate = useNavigate();
@@ -27,10 +27,12 @@ const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
 
     // Step 3: Function to show the modal
     const handleLoginClick = () => {
-        console.log('hiii');
         setShowModal(true);
     };
 
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
     return (
         <nav className="navbar-web-home" style={{top: `${isVisible ? '0' : '-100'}px`}}>
@@ -59,16 +61,16 @@ const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
                         onClick={() => navigateTo('careers')}>Careers
                 </button>
 
-                {auth.currentUser ? (
-                    <button className="nav-button-web-home logout-web-home">
-                        {auth.currentUser.displayName || 'No Name'} {/* Fallback in case there is no displayName */}
+                {auth.currentUser &&  !auth.currentUser?.isAnonymous ? (
+                    <button className="nav-button-web-home login-web-home">
+                        {auth.currentUser.displayName || auth.currentUser.email} {/* Fallback in case there is no displayName */}
                     </button>
                 ) : (
                     <>
                         <button className="nav-button-web-home login-web-home" onClick={handleLoginClick}>
                             Login
                         </button>
-                        {showModal && <LoginModal open={true} />}
+                        {showModal && <LoginModal open={true} onClose={handleCloseModal} />}
                     </>
                 )}
             </div>

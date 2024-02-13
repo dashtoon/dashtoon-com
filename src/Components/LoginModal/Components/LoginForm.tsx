@@ -39,7 +39,7 @@ const LoginForm = ({ setMode, closeModal }: LoginFormProps) => {
   const theme = useTheme();
 
   const actionCodeSettings = {
-    url: isProduction ? hostname : 'https://dev-web.dashtoon.com',
+    url: hostname,
     handleCodeInApp: true,
   };
 

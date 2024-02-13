@@ -9,28 +9,34 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 interface LoginModalProps {
     open: boolean;
+    onClose?: () => void;
 }
 
-const LoginModal = ({ open }: LoginModalProps) => {
+const LoginModal = ({ open, onClose }: LoginModalProps) => {
     const auth = useContext(AuthContext);
     const [isOpened, setIsOpened] = React.useState(open);
+
+    useEffect(() => {
+        setIsOpened(open);
+    }, [open]);
+
     const handleOpen = () => setIsOpened(true);
-    const handleClose = () => setIsOpened(false);
+
+    const handleClose = () => {
+        setIsOpened(false);
+        if (typeof onClose === 'function') {
+            onClose(); // This will call handleCloseModal in NavbarWeb and set showModal to false
+        }
+    };
+
     const theme = useTheme();
     const [mode, setMode] = useState<'login' | 'signup'>('login');
     const { isSmallScreen } = usePhoneLayout();
 
-
-    // useEffect(() => {
-    //     if (auth.email && auth.currentUser && !auth.anonymous) {
-    //         handleClose();
-    //     }
-    // }, [auth.currentUser]);
-
     return (
         <Modal
             open={isOpened}
-            onClose={() => handleClose()}
+            onClose={handleClose}
             sx={{
                 display: 'flex',
                 flex: 1,

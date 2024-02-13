@@ -5,6 +5,7 @@ import '../styles/companyWebStyles.css';
 import {Person, peopleData} from "../types/peopleData";
 import DashtoonInTheNews from "../Components/DashtoonInTheNews";
 import {useLocation} from "react-router-dom";
+import {auth} from "../firebaseConfig";
 
 
 const CompanyContentWeb = () => {
@@ -15,6 +16,8 @@ const CompanyContentWeb = () => {
     const toggleFullList = () => {
         setShowFullList(!showFullList);
     };
+
+    console.log(auth.currentUser);
     useEffect(() => {
         window.scrollTo(0, 0)
         switch (window.location.hash) {

@@ -13,12 +13,11 @@ import FooterWeb from "../../Components/FooterWeb";
 import {useLocation, useNavigate} from "react-router-dom";
 import {isProduction} from "../../Config/Config";
 import LoginModal from "../../Components/LoginModal/LoginModal";
-import {AuthContext} from "../../Provider/AuthProvider";
+import {auth} from "../../firebaseConfig";
 
 const StudioPageWeb = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const auth = useContext(AuthContext);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -35,7 +34,7 @@ const StudioPageWeb = () => {
     }, [location])
 
     const handleButtonClick = (path :string) => {
-        if (auth.currentUser && !auth.anonymous) {
+        if (auth.currentUser && !auth.currentUser.isAnonymous) {
             window.location.href = path;
         } else {
             setIsLoginModalVisible(true);
