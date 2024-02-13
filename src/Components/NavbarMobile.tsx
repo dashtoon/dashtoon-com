@@ -20,6 +20,7 @@ const MobileNavbar = () => {
     };
 
     const handleCloseModal = () => {
+        console.log("close");
         setShowModal(false);
     };
 
@@ -51,6 +52,7 @@ const MobileNavbar = () => {
             <div className="menu-button" onClick={toggleDropdown}>
                 <div className="menu-icon"><MenuButton/></div>
                 <span>Menu</span>
+                {showModal && <LoginModal open={true} onClose={handleCloseModal} />}
 
                 {isDropdownVisible && (
                     <div className="dropdown">
@@ -67,7 +69,6 @@ const MobileNavbar = () => {
                                 <button onClick={handleLoginClick}>
                                     Login
                                 </button>
-                                {showModal && <LoginModal open={true} onClose={handleCloseModal} />}
                             </>
                         )}
                     </div>
