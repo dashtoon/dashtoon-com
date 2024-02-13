@@ -20,6 +20,7 @@ import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditionsMobile from "../pages/TermsAndConditions/TermsAndConditionsMobile";
 import PrivacyPolicyMobile from "../pages/PrivacyPolicy/PrivacyPolicyMobile";
 import BugBountyMobile from "../pages/BugBounty/BugBountyMobile";
+import VerifyEmail from "../pages/Auth/Verify/VerifyEmail";
 
 const DesktopRoutes: React.FC = () => (
     <Routes>
@@ -34,6 +35,7 @@ const DesktopRoutes: React.FC = () => (
         <Route path={'/terms-and-conditions'} element={<TermsAndConditions/>} />
         <Route path={'/privacy-policy'} element={<PrivacyPolicy/>} />
         <Route path={'/bug-bounty'} element={<BugBounty/>} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
     </Routes>
 );
 

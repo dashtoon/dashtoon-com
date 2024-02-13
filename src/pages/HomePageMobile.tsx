@@ -25,7 +25,6 @@ const HomePageMobile: React.FC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            await signInAnonymouslyAndGetToken();
             const response = await getPopularShows(20);
             setShows(response);
             setIsLoading(false);
@@ -59,7 +58,7 @@ const HomePageMobile: React.FC = () => {
                 <div className="popular-shows-mobile">
                     <Box
                         sx={{
-                            padding: '80px 20px 20px 20px', transition: 'height 0.5s ease-in-out',
+                            padding: '80px 0 20px', transition: 'height 0.5s ease-in-out',
                             display: 'flex',
                             gap: 2, // Adjust the gap between items
                             py: 1,

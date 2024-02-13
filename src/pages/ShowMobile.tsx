@@ -38,7 +38,9 @@ const ShowMobile = () => {
     useEffect(() => {
         const fetchShow = async () => {
             try {
-                await signInAnonymouslyAndGetToken();  // ensure Firebase anonymous auth
+                if(!auth.currentUser) {
+                    await signInAnonymouslyAndGetToken();
+                }
 
                 const metaData: string[] = ['BANNER_THUMBNAIL_V2']; // Needed Metadata
                 const show = await getShowByIdReq(showId ? showId : '', metaData);

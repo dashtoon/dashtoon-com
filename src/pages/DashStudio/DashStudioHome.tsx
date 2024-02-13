@@ -18,6 +18,7 @@ import {auth} from "../../firebaseConfig";
 const StudioPageWeb = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -37,11 +38,19 @@ const StudioPageWeb = () => {
         if (auth.currentUser && !auth.currentUser.isAnonymous) {
             window.location.href = path;
         } else {
-            setIsLoginModalVisible(true);
+            setShowModal(true);
         }
     };
 
-    const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
+    const handleCloseModal = () => {
+        if (auth.currentUser && !auth.currentUser.isAnonymous) {
+            window.location.href = '/studio/new-dashtoon';
+            setShowModal(false);
+        } else {
+            setShowModal(false);
+        }
+    };
+
     
     return (
         <div>
@@ -64,7 +73,7 @@ const StudioPageWeb = () => {
                         onClick={() => handleButtonClick('/studio/new-dashtoon')}> Create a Dashtoon
                 </button>
 
-                {isLoginModalVisible && <LoginModal open={true}/>}
+                {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
                 <img
                     className="heading-image"
                     src={studioImage} // Replace with your actual image path

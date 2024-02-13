@@ -5,8 +5,11 @@ import useScrollVisibility from "../Hooks/useScroll";
 import {useNavigate} from "react-router-dom";
 import LoginModal from "./LoginModal/LoginModal";
 import {AuthContext} from "../Provider/AuthProvider";
-import {auth} from '../firebaseConfig';
-
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import {resetTracking} from "../Utils/Analytics";
+import {auth} from "../firebaseConfig";
 
 interface NavbarWebProps {
     currentPage: string;
@@ -14,7 +17,9 @@ interface NavbarWebProps {
 
 const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
 
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
+    const authCurrent = useContext(AuthContext);
     const isVisible = useScrollVisibility();
     const navigate = useNavigate();
 
@@ -32,6 +37,25 @@ const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
 
     const handleCloseModal = () => {
         setShowModal(false);
+    };
+
+    const handleUserMenuToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(anchorEl ? null : event.currentTarget);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorEl(null);
+    };
+
+    const handleLogout = () => {
+        auth.signOut().then(() => {
+            auth.updateCurrentUser(null);
+            resetTracking();
+            handleCloseUserMenu();
+
+            // Refresh the page
+            window.location.reload();
+        });
     };
 
     return (
@@ -61,10 +85,36 @@ const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
                         onClick={() => navigateTo('careers')}>Careers
                 </button>
 
-                {auth.currentUser &&  !auth.currentUser?.isAnonymous ? (
-                    <button className="nav-button-web-home login-web-home">
-                        {auth.currentUser.displayName || auth.currentUser.email} {/* Fallback in case there is no displayName */}
-                    </button>
+                {authCurrent.currentUser &&  !authCurrent.currentUser?.isAnonymous ? (<>
+                        <button className="nav-button-web-home login-web-home" onClick={handleUserMenuToggle}>
+                            {authCurrent.currentUser.displayName || authCurrent.currentUser.email} <ArrowDropDownIcon />
+                        </button>
+                    <Menu
+                        anchorEl={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={handleCloseUserMenu}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center'
+                        }}
+                        sx={{
+                            '& .MuiPaper-root': {
+                                marginTop: '15px',
+                                borderRadius: '20px',
+                                padding: '2px 2px',
+                            },
+
+                        }}
+                    >
+                        <MenuItem onClick={() => handleLogout()} sx={{':hover': {
+                                backgroundColor: 'transparent',
+                            }, }} >Logout</MenuItem>
+                    </Menu>
+                        </>
                 ) : (
                     <>
                         <button className="nav-button-web-home login-web-home" onClick={handleLoginClick}>

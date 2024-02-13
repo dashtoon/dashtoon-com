@@ -1,6 +1,6 @@
 // WebPage.js
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './DashStudioMobileStyles.css'; // Assuming you have a separate mobile stylesheet
 import NavbarWeb from "../../Components/NavbarWeb";
 import studioImage from "../../assets/images/Group 823createDashtoon.png";
@@ -13,10 +13,13 @@ import NavbarMobile from "../../Components/NavbarMobile";
 import FooterMobile from "../../Components/FooterMobile";
 import {useLocation, useNavigate} from "react-router-dom";
 import {isProduction} from "../../Config/Config";
+import {auth} from "../../firebaseConfig";
+import LoginModal from "../../Components/LoginModal/LoginModal";
 
 const StudioPageMobile = () => {
     const location  = useLocation();
     const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -33,7 +36,20 @@ const StudioPageMobile = () => {
     }, [location]);
 
     const handleButtonClick = (path :string) => {
-        window.location.href = path; // This will navigate the browser to '/studio'
+        if (auth.currentUser && !auth.currentUser.isAnonymous) {
+            window.location.href = path;
+        } else {
+            setShowModal(true);
+        }
+    };
+
+    const handleCloseModal = () => {
+        if (auth.currentUser && !auth.currentUser.isAnonymous) {
+            window.location.href = '/studio/new-dashtoon';
+            setShowModal(false);
+        } else {
+            setShowModal(false);
+        }
     };
 
     return (
@@ -52,6 +68,7 @@ const StudioPageMobile = () => {
                 <button className={"create-dashtoon-button-mobile"}
                         onClick={() => handleButtonClick('/studio/create')}> Create a Dashtoon
                 </button>
+                {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
                 <img
                     className="heading-image-mobile"
                     src={studioImage}

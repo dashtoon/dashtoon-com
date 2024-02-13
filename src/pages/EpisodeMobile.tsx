@@ -37,7 +37,9 @@ const EpisodeMobile: React.FC = () => {
     useEffect(() => {
         const fetchPanels = async () => {
             try {
-                await signInAnonymouslyAndGetToken();
+                if(!auth.currentUser) {
+                    await signInAnonymouslyAndGetToken();
+                }
 
                 const metaData: string[] = ['DETAIL_PAGE_THUMBNAIL_V2'];
                 // const show = await getShowByIdReq('SHOJjHch75Ecbqc6e8V', metaData);

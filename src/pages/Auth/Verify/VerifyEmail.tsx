@@ -34,7 +34,7 @@ const VerifyEmail = () => {
     }
   };
   return (
-    <div style={{ textAlign: 'center', marginTop: '20%' }}>
+    <div style={{ textAlign: 'center', background: 'black', color: 'white', height: '100vh', padding: '60px'}} >
       <h2>{t('Email Verification Required')}</h2>
       <p>
         {t(
@@ -43,11 +43,8 @@ const VerifyEmail = () => {
       </p>
       <p>{t("Once you've verified your email, you can access the main app.")}</p>
       <p
-        onClick={() => {
-          <LoginModal open={true}></LoginModal>
-        }}
       >
-        <Link to="/">{t('Back to Login')}</Link>
+        <Link to="/">{t('Back to Home')}</Link>
       </p>
     </div>
   );

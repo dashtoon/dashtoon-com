@@ -35,8 +35,6 @@ const ShowWeb: React.FC = () => {
             try {
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
-                } else {
-                    console.log(auth.currentUser);
                 }
                 const metaData: string[] = ['BANNER_THUMBNAIL_V2']; // Specify the metadata you need
                 const show = await getShowByIdReq(showId ? showId : '', metaData);

@@ -35,7 +35,9 @@ const EpisodeWeb = () => {
         const fetchPanels = async () => {
             try {
                 // Fetch panels by episodeId
-                await signInAnonymouslyAndGetToken();
+                if(!auth.currentUser) {
+                    await signInAnonymouslyAndGetToken();
+                }
 
                 const metaData: string[] = ['DETAIL_PAGE_THUMBNAIL_V2']; // Specify the metadata you need
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
