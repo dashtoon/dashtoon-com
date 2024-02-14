@@ -81,7 +81,9 @@ const EpisodeListMobile: React.FC<EpisodeListMobileProps> = ({
                 {sortedEpisodes.map((episode, index) => (
                     <div key={index} className="episode-item" onClick={() => goToEpisode(episode.id)}>
                         <div className="episode-thumbnail">
-                            <img src={getCDNImageUrl(episode.thumbNailUrl, '')} alt={`Thumbnail for ${episode.name}`}/>
+                            {episode.thumbNailUrl && <img src={getCDNImageUrl(episode.thumbNailUrl, '')}
+                                                          alt={`Thumbnail for ${episode.name}`}/>}
+
                         </div>
                         <div className="episode-info">
                             <h3 className="episode-title">{episode.name}</h3>

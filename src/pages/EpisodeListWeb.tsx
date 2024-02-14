@@ -78,10 +78,12 @@ const EpisodeListWeb: React.FC<EpisodeListProps> = ({showId, numberOfEpisode, ep
                 {sortedEpisodes.map((episode, index) => (
                     <div key={index} className="episode-item-web" onClick={() => goToEpisode(episode.id)}>
                         <div className="episode-thumbnail-web">
-                            <img src={getCDNImageUrl(episode.thumbNailUrl, '88', '88')} alt={`Thumbnail for ${episode.name}`}/>
+                            {episode.thumbNailUrl && <img src={getCDNImageUrl(episode.thumbNailUrl, '88', '88')}
+                                                          alt={`Thumbnail for ${episode.name}`}/>
+                            }
                         </div>
-                        <div className="episode-info-web">
-                            <h3 className="episode-title-web">{episode.name}</h3>
+                            <div className="episode-info-web">
+                                <h3 className="episode-title-web">{episode.name}</h3>
                             <p className="episode-date-web">{formatDate(episode.createdAt)}</p>
                             <div className="episode-free-tag-web">Free</div>
                         </div>
