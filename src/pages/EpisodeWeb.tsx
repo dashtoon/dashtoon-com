@@ -35,6 +35,7 @@ const EpisodeWeb = () => {
         const fetchPanels = async () => {
             try {
                 // Fetch panels by episodeId
+                await auth.authStateReady();
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
                 }

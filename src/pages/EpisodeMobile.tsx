@@ -37,6 +37,7 @@ const EpisodeMobile: React.FC = () => {
     useEffect(() => {
         const fetchPanels = async () => {
             try {
+                await auth.authStateReady();
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
                 }

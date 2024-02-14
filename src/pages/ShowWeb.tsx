@@ -6,7 +6,7 @@ import {useParams} from "react-router-dom";
 import {Episode, EpisodeResponse} from "../types/episodeData";
 import {Show} from "../types/Show";
 import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
-import {AuthContext} from "../Provider/AuthProvider";
+import {auth} from "../firebaseConfig";
 import {getEpisodesList, getShowByIdReq} from "../services/showService";
 import {trackEvent} from "../Utils/Analytics";
 import crossIcon from "../assets/icons/crossIcon.png";
@@ -21,7 +21,6 @@ const ShowWeb: React.FC = () => {
 
     const navigate = useNavigate();
     let {showId} = useParams<{ showId?: string }>();
-    const auth = useContext(AuthContext);
 
     const [episodesInfo, setEpisodesInfo] = useState<EpisodeResponse[]>();
     const [showInformation, setShowInformation] = useState<Show>();
@@ -35,6 +34,8 @@ const ShowWeb: React.FC = () => {
     useEffect(() => {
         const fetchShow = async () => {
             try {
+                await auth.authStateReady();
+
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
                 }

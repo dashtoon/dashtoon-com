@@ -38,6 +38,7 @@ const ShowMobile = () => {
     useEffect(() => {
         const fetchShow = async () => {
             try {
+                await auth.authStateReady();
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
                 }
