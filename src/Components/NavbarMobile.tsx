@@ -7,6 +7,7 @@ import LoginModal from "./LoginModal/LoginModal";
 import {AuthContext} from "../Provider/AuthProvider";
 import {resetTracking} from "../Utils/Analytics";
 import {auth} from "../firebaseConfig";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const MobileNavbar = () => {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -50,8 +51,18 @@ const MobileNavbar = () => {
             </div>
 
             <div className="menu-button" onClick={toggleDropdown}>
-                <div className="menu-icon"><MenuButton/></div>
-                <span>Menu</span>
+
+                {authCurrent.currentUser &&  !authCurrent.currentUser?.isAnonymous ? (
+                    <>
+                        {authCurrent.currentUser.displayName || authCurrent.currentUser.email} <ArrowDropDownIcon />
+                    </>
+                    ) : (
+                    <>
+                        <div className="menu-icon"><MenuButton/></div>
+                        <span>Menu</span>
+                    </>
+                )}
+
                 {showModal && <LoginModal open={true} onClose={handleCloseModal} />}
 
                 {isDropdownVisible && (
