@@ -35,7 +35,6 @@ const ShowWeb: React.FC = () => {
         const fetchShow = async () => {
             try {
                 await auth.authStateReady();
-
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
                 }

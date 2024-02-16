@@ -33,6 +33,23 @@ const HomePageWeb: React.FC = () => {
         fetchData();
     }, []);
 
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    // Scroll handler functions
+    const scrollLeft = () => {
+        scrollContainerRef.current?.scrollBy({
+            left: -1000, // Or the width of a single item
+            behavior: 'smooth',
+        });
+    };
+
+    const scrollRight = () => {
+        scrollContainerRef.current?.scrollBy({
+            left: 1000, // Or the width of a single item
+            behavior: 'smooth',
+        });
+    };
+
     const openLink = (url : string) => {
         window.open(url, '_blank'); // Open the link in a new tab
     };
@@ -61,84 +78,100 @@ const HomePageWeb: React.FC = () => {
                 {/* 2. Heading section */}
                 <div className="heading-section">
                     <p className="dashtoon-heading">Dashtoon</p>
-
                     <p className="heading-text">Dive into the Ultimate Comic Universe 🚀</p>
                 </div>
 
                 <div className={`popular-shows ${!isLoading && 'shows-loaded'}`}>
-                        <Box
-                            sx={{
-                                padding: '80px 20px 20px 20px', transition: 'height 0.5s ease-in-out',
-                                display: 'flex',
-                                gap: 2, // Adjust the gap between items
-                                py: 1,
-                                overflowX: 'auto', // Enable horizontal scrolling
-                                scrollSnapType: 'x mandatory',
-                                '&::-webkit-scrollbar': { display: 'none' },
-                                width: 'calc(100vw - 250px)',
-                            }}
-                        >
-                            {shows.map((item) => {
-                                const imageUrl = item.metadata.find(s => s.type === 'WIDGET_THUMBNAIL_V2')?.value;
-                                return imageUrl && (
-                                    <Card
-                                        key={item.id}
-                                        sx={{
-                                            // Removed fixed width and height to allow content-based sizing// use your desired width
-                                            flexShrink: 0,
-                                            backgroundColor: 'transparent',
-                                            borderColor: 'transparent',
-                                            cursor: 'pointer',
-                                        }}
-                                        onClick={() => navigate(`/show/${item.id}`)}
-                                    >
-                                        <CardActionArea sx={{ borderRadius: '12px' }}>
-                                            <CardMedia
-                                                component="img"
-                                                image={getCDNImageUrl(imageUrl, '227', '358')}
-                                                alt={item.creator}
+
+                    <div className={"arrow-left-button"} onClick={scrollLeft}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                             fill="none">
+                            <path
+                                d="M15.3396 17L22.3521 24.0125L20.349 26.0157L11.3333 17L20.349 7.98432L22.3521 9.98749L15.3396 17Z"
+                                fill="white"/>
+                        </svg>
+                    </div>
+                    <Box ref={scrollContainerRef}
+                         sx={{
+                             padding: '80px 0 20px', transition: 'height 0.5s ease-in-out',
+                             display: 'flex',
+                             gap: 2, // Adjust the gap between items
+                             py: 1,
+                             overflowX: 'auto', // Enable horizontal scrolling
+                            scrollSnapType: 'x mandatory',
+                            '&::-webkit-scrollbar': {display: 'none'},
+                            width: 'calc(100vw - 250px)',
+                        }}
+                    >
+                        {shows.map((item) => {
+                            const imageUrl = item.metadata.find(s => s.type === 'WIDGET_THUMBNAIL_V2')?.value;
+                            return imageUrl && (
+                                <Card
+                                    key={item.id}
+                                    sx={{
+                                        // Removed fixed width and height to allow content-based sizing// use your desired width
+                                        flexShrink: 0,
+                                        backgroundColor: 'transparent',
+                                        borderColor: 'transparent',
+                                        cursor: 'pointer',
+                                    }}
+                                    onClick={() => navigate(`/show/${item.id}`)}
+                                >
+                                    <CardActionArea sx={{borderRadius: '12px'}}>
+                                        <CardMedia
+                                            component="img"
+                                            image={getCDNImageUrl(imageUrl, '227', '358')}
+                                            alt={item.creator}
+                                            sx={{
+                                                borderRadius: '12px',
+                                                objectFit: 'contain',
+                                                transition: 'transform 0.3s ease-in-out',
+                                                '&:hover': {
+                                                    transform: 'scale(1.03)',
+                                                },
+                                            }}
+                                        />
+                                        <Box sx={{whiteSpace: 'nowrap', mx: 1, marginTop: 1}}>
+                                            <Typography
+                                                variant="subtitle1"
                                                 sx={{
-                                                    borderRadius: '12px',
-                                                    objectFit: 'contain',
-                                                    transition: 'transform 0.3s ease-in-out',
-                                                    '&:hover': {
-                                                        transform: 'scale(1.03)',
-                                                    },
+                                                    color: '#C9C9C9',
+                                                    fontFamily: 'Geologica',
+                                                    fontSize: '20px',
+                                                    fontWeight: 400,
+                                                    lineHeight: '30px',
+                                                    textAlign: 'center',
                                                 }}
-                                            />
-                                            <Box sx={{ whiteSpace: 'nowrap', mx: 1 , marginTop: 1}}>
-                                                <Typography
-                                                    variant="subtitle1"
-                                                    sx={{
-                                                        color: '#C9C9C9',
-                                                        fontFamily: 'Geologica',
-                                                        fontSize: '20px',
-                                                        fontWeight: 400,
-                                                        lineHeight: '30px',
-                                                        textAlign: 'center',
-                                                    }}
-                                                >
-                                                    {item.genre}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    sx={{
-                                                        color: '#999',
-                                                        fontFamily: 'Outfit',
-                                                        fontSize: '20px',
-                                                        fontWeight: 400,
-                                                        lineHeight: '30px',
-                                                        textAlign: 'center',
-                                                    }}
-                                                >
-                                                    {item.creator}
-                                                </Typography>
-                                            </Box>
-                                        </CardActionArea>
-                                    </Card>
-                                );
-                            })}
+                                            >
+                                                {item.genre}
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    color: '#999',
+                                                    fontFamily: 'Outfit',
+                                                    fontSize: '20px',
+                                                    fontWeight: 400,
+                                                    lineHeight: '30px',
+                                                    textAlign: 'center',
+                                                }}
+                                            >
+                                                {item.creator}
+                                            </Typography>
+                                        </Box>
+                                    </CardActionArea>
+                                </Card>
+                            );
+                        })}
                     </Box>
+
+                    <div className={"arrow-right-button"} onClick={scrollRight}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+                            <path
+                                d="M18.6604 17L11.6479 24.0125L13.651 26.0157L22.6667 17L13.651 7.98432L11.6479 9.98749L18.6604 17Z"
+                                fill="white"/>
+                        </svg>
+                    </div>
                 </div>
 
                 <div className="review-container">

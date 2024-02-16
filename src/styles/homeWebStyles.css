@@ -43,6 +43,8 @@
 /* Ellipse Decorative Element for Bottom Right */
 
 /* a. Text box with Heading: Dashtoon */
+
+
 .dashtoon-heading {
     text-align: center;
     flex-shrink: 1;
@@ -54,9 +56,9 @@
     margin-top: 60px;
     margin-bottom: 0;
     background: linear-gradient(90deg, #07E0ED 4.54%, #DF1B59 79.54%);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    z-index: 3;
 }
 
 /* b. Text below the heading */
@@ -77,6 +79,39 @@
     /* Your episode grid styles go here */
     /* Leave it empty for now */
     transition: height 0.5s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.arrow-left-button {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    background: radial-gradient(117.73% 149.5% at 8.37% 0%, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(12.899999618530273px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    margin-right: -27px;
+}
+
+.arrow-right-button {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    background: radial-gradient(117.73% 149.5% at 8.37% 0%, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(12.899999618530273px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    margin-left: -27px;
 }
 
 .pop-out-card {
