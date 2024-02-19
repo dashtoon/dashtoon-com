@@ -3,17 +3,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './DashStudioHome.css';
 import NavbarWeb from "../../Components/NavbarWeb"; // Import your global styles if needed
-import studioImage from "../../assets/images/Group 823createDashtoon.png";
-import consistentImage from "../../assets/images/group-764-1036x747.png";
-import soManyStylesImage from "../../assets/images/group-763-1256x829.png";
-import aiNativeImage from "../../assets/images/group-770-1024x724.png";
 import discordImage from "../../assets/images/discordImage.png"
-import publishImage from "../../assets/images/publish.png"
 import FooterWeb from "../../Components/FooterWeb";
 import {useLocation, useNavigate} from "react-router-dom";
 import {isProduction} from "../../Config/Config";
 import LoginModal from "../../Components/LoginModal/LoginModal";
 import {auth} from "../../firebaseConfig";
+import {getCDNImageUrl} from "../../services/cdnImage";
 
 const StudioPageWeb = () => {
     const location = useLocation();
@@ -76,7 +72,7 @@ const StudioPageWeb = () => {
                 {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
                 <img
                     className="heading-image"
-                    src={studioImage} // Replace with your actual image path
+                    src={getCDNImageUrl('https://content.dashtoon.ai/assets/Group%20823createDashtoon.png', '', '')} // Replace with your actual image path
                     alt="Dashtoon Studio Image"
                     loading={'lazy'}
                 />
@@ -97,7 +93,7 @@ const StudioPageWeb = () => {
                     {/* Image Section */}
                     <div className="image-section">
                         <img
-                            src={consistentImage}// Replace with your actual image path
+                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-764-1036x747.png', '487', '351')}// Replace with your actual image path
                             alt="Feature Image"
                             style={{
                                 width: "487px",
@@ -112,7 +108,7 @@ const StudioPageWeb = () => {
                     {/* Image Section */}
                     <div className="image-section">
                         <img
-                            src={soManyStylesImage} // Replace with your actual image path
+                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-763-1256x829.png', '577', '380')} // Replace with your actual image path
                             alt="Feature Image"
                             style={{
                                 width: "577px",
@@ -140,7 +136,7 @@ const StudioPageWeb = () => {
                     {/* Image Section */}
                     <div className="image-section">
                         <img
-                            src={aiNativeImage} // Replace with your actual image path
+                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-770-1024x724.png', '406', '287')} // Replace with your actual image path
                             alt="Feature Image"
                             style={{
                                 width: "406px",
@@ -155,7 +151,7 @@ const StudioPageWeb = () => {
                     {/* Image Section */}
                     <div className="image-section">
                         <img
-                            src={publishImage} // Replace with your actual image path
+                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/publish.png', '602', '408')}
                             alt="Feature Image"
                             style={{
                                 width: "602px",
