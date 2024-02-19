@@ -72,7 +72,7 @@ const StudioPageWeb = () => {
                 {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
                 <img
                     className="heading-image"
-                    src={getCDNImageUrl('https://content.dashtoon.ai/assets/Group%20823createDashtoon.png', '', '')} // Replace with your actual image path
+                    src={getCDNImageUrl('https://content.dashtoon.ai/assets/Group%20823createDashtoon.png', '1920')} // Replace with your actual image path
                     alt="Dashtoon Studio Image"
                     loading={'lazy'}
                 />
