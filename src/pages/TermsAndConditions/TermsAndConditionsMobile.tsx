@@ -4,6 +4,9 @@ import NavbarWeb from "../../Components/NavbarWeb";
 import { Tabs, Tab, Box, Typography, Paper } from '@mui/material';
 import FooterMobile from "../../Components/FooterMobile";
 import NavbarMobile from "../../Components/NavbarMobile";
+import {auth, signInAnonymouslyAndGetToken} from "../../firebaseConfig";
+import {trackEvent} from "../../Utils/Analytics";
+import {TrackingEvents} from "../../Constants/TrackingEvents";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -29,6 +32,25 @@ const TermsAndConditions = () => {
         // Set the tab index based on the URL fragment
         setTabIndex(getTabIndexFromUrl());
 
+    }, []);
+
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
+
+            trackEvent(
+                {
+                    event: TrackingEvents.termsAndConditionsOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
     }, []);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {

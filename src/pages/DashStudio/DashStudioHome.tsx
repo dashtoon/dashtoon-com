@@ -1,23 +1,29 @@
-// WebPage.js
-
 import React, {useContext, useEffect, useState} from 'react';
 import './DashStudioHome.css';
-import NavbarWeb from "../../Components/NavbarWeb"; // Import your global styles if needed
+import NavbarWeb from "../../Components/NavbarWeb";
 import discordImage from "../../assets/images/discordImage.png"
 import FooterWeb from "../../Components/FooterWeb";
 import {useLocation, useNavigate} from "react-router-dom";
-import {isProduction} from "../../Config/Config";
 import LoginModal from "../../Components/LoginModal/LoginModal";
-import {auth} from "../../firebaseConfig";
+import {auth, signInAnonymouslyAndGetToken} from "../../firebaseConfig";
 import {getCDNImageUrl} from "../../services/cdnImage";
+import {trackEvent} from "../../Utils/Analytics";
+import {TrackingEvents} from "../../Constants/TrackingEvents";
+import {getMyShows} from "../../services/showService";
+import {Show} from "../../types/Show";
+import {AuthContext} from "../../Provider/AuthProvider";
+import Lottie from "lottie-react";
+import LoaderAnimation from "../../assets/animations/logoanimation.json";
 
 const StudioPageWeb = () => {
     const location = useLocation();
-    const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
+    const [hasShows, setHasShows] = useState(false);
+    const [buttonText, setButtonText] = useState("Create a Dashtoon");
+    const authCurrent = useContext(AuthContext);
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
         switch (window.location.hash) {
             case '#features':
                 window.scrollTo({
@@ -28,11 +34,60 @@ const StudioPageWeb = () => {
             default:
                 break;
         }
-    }, [location])
+    }, [location]);
 
-    const handleButtonClick = (path :string) => {
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+                setHasShows(false);
+                setButtonText("Create a Dashtoon");
+            }
+            if(auth.currentUser && !auth.currentUser?.isAnonymous) {
+                const shows = await getMyShows(auth.currentUser?.uid);
+                if (shows && shows.length > 0) {
+                    setHasShows(true);
+                    setButtonText("Go to Studio");
+                }
+            }
+            trackEvent(
+                {
+                    event: TrackingEvents.createScreenOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
+    }, [authCurrent]);
+
+
+
+    const handleButtonClick = (path :string, buttonName: string) => {
+        trackEvent(
+            {
+                event: TrackingEvents.buttonClickedStudioPage,
+                properties: {
+                    name : buttonName,
+                },
+            },
+            'CONSUMER'
+        );
+
         if (auth.currentUser && !auth.currentUser.isAnonymous) {
-            window.location.href = path;
+            trackEvent(
+                {
+                    event: TrackingEvents.redirectUserToStudio,
+                    properties: {
+                        name : buttonName,
+                    },
+                },
+                'CONSUMER'
+            );
+            const redirectPath = hasShows ? '/studio' : path;
+            window.location.href = redirectPath;
         } else {
             setShowModal(true);
         }
@@ -50,6 +105,9 @@ const StudioPageWeb = () => {
     
     return (
         <div>
+            {/*{isLoading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'black' }}>*/}
+            {/*    <Lottie animationData={LoaderAnimation} style={{ width: '500px', height: '500px' }} />*/}
+            {/*</div>}*/}
         <div className="web-page-container">
 
                 <NavbarWeb currentPage={'create'}></NavbarWeb>
@@ -66,7 +124,7 @@ const StudioPageWeb = () => {
                     <strong>Dashtoon Studio makes comic creation feel like a breeze with AI magic!</strong>
                 </p>
                 <button className={"create-dashtoon-button"}
-                        onClick={() => handleButtonClick('/studio/new-dashtoon')}> Create a Dashtoon
+                        onClick={() => handleButtonClick('/studio/new-dashtoon', 'createButton')}> {buttonText}
                 </button>
 
                 {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
@@ -175,7 +233,7 @@ const StudioPageWeb = () => {
                         <strong>Make your first Dashtoon in minutes!</strong>
                     </p>
                     <button className={"comic-btn-container"}
-                            onClick={() => handleButtonClick('/studio/new-dashtoon')}>
+                            onClick={() => handleButtonClick('/studio/new-dashtoon', 'getStarted')}>
                         Get Started
                     </button>
                 </div>
@@ -201,7 +259,9 @@ const StudioPageWeb = () => {
                         Dashtoon Studio is currently in closed Beta. We are providing access
                         on a monthly basis!
                     </div>
-                    <button className={"joinButton"} onClick={()=> {window.open('https://discord.com/invite/DwBuquQABM')}}>Join Discord</button>
+                    <button className={"joinButton"} onClick={()=> {
+
+                        window.open('https://discord.com/invite/DwBuquQABM');}}>Join Discord</button>
                 </div>
             </div>
         </div>

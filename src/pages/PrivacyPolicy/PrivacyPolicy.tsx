@@ -2,10 +2,32 @@ import React, {useEffect, useState} from 'react';
 import Footer from '../../Components/FooterWeb';
 import './PrivacyPolicy.css';
 import NavbarWeb from "../../Components/NavbarWeb";
+import {auth, signInAnonymouslyAndGetToken} from "../../firebaseConfig";
+import {trackEvent} from "../../Utils/Analytics";
+import {TrackingEvents} from "../../Constants/TrackingEvents";
 
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []);
+
+  useEffect(() => {
+    const checkAuthAndTrackEvent = async () => {
+      await auth.authStateReady();
+      if (!auth.currentUser) {
+        await signInAnonymouslyAndGetToken();
+      }
+
+      trackEvent(
+          {
+            event: TrackingEvents.privacyPolicyOpened,
+            properties: {},
+          },
+          'CONSUMER'
+      );
+    };
+
+    checkAuthAndTrackEvent();
   }, []);
 
   return (

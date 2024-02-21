@@ -5,19 +5,23 @@ import '../styles/homePageMobileStyles.css';
 import NavbarWeb from "../Components/NavbarWeb";
 import {ShowWithViewsAndEpisodeCount} from "../types/Show";
 import {getPopularShows} from "../services/showService";
-import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import { Box, Card, CardMedia, CardContent, CardActionArea, Typography } from '@mui/material';
 import {getCDNImageUrl} from "../services/cdnImage";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import NavbarMobile from "../Components/NavbarMobile";
 import Lottie from "lottie-react";
 import LoaderAnimation from "../assets/animations/logoanimation.json";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {TrackingProperties} from "../Constants/TrackingProperties";
 
 
 
 const HomePageMobile: React.FC = () => {
     const [shows, setShows] = useState<ShowWithViewsAndEpisodeCount[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -25,13 +29,27 @@ const HomePageMobile: React.FC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            await auth.authStateReady();
+            if(!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
             const response = await getPopularShows(20);
             setShows(response);
+            trackEvent(
+                {
+                    event: TrackingEvents.homeScreenOpened,
+                    properties: {
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
             setIsLoading(false);
+
         };
 
         fetchData();
     }, []);
+
 
     const openLink = (url : string) => {
         window.open(url, '_blank'); // Open the link in a new tab

@@ -125,13 +125,7 @@ class HttpClient {
         return response;
 
     }
-    // private static async getAuthorizationHeader(): Promise<string> {
-    //     if (!auth.currentUser) {
-    //         throw new Error('No user currently signed in');
-    //     }
-    //     const idToken = await auth.currentUser.getIdToken();
-    //     return `Bearer ${idToken}`;
-    // }
+
 
 }
 

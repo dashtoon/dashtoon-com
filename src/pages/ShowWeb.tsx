@@ -38,6 +38,8 @@ const ShowWeb: React.FC = () => {
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
                 }
+                console.log("UserSHowScreen" + auth.currentUser?.uid);
+
                 const metaData: string[] = ['BANNER_THUMBNAIL_V2']; // Specify the metadata you need
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
                 setShowInformation(show[0]);
@@ -63,14 +65,12 @@ const ShowWeb: React.FC = () => {
         }
     }, [showId]);
 
-
     useEffect(() => {
-        if (showInformation) {
+        if (showInformation && showId) {
             trackEvent(
                 {
                     event: TrackingEvents.showOpen,
                     properties: {
-                        userId: auth.currentUser?.uid,
                         showId: showId,
                         showName: showInformation?.name,
                     } as TrackingProperties,
@@ -79,6 +79,7 @@ const ShowWeb: React.FC = () => {
             );
         }
     }, [showInformation, showId]);
+
 
     const episodeCountMetaData = showInformation?.metadata?.find((metadata: {
         type: string;

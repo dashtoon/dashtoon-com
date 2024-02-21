@@ -3,13 +3,40 @@ import React, {useEffect} from 'react';
 import FooterWeb from '../Components/FooterWeb'; // Import your Footer component
 import '../styles/careersWebStyles.css'; // Import your stylesheet
 import NavbarWeb from "../Components/NavbarWeb";
+import {useLocation} from "react-router-dom";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 const CareerPage = () => {
+
+    const location = useLocation();
+
     const openLink = (url : string) => {
         window.open(url, '_blank'); // Open the link in a new tab
     };
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
+
+            trackEvent(
+                {
+                    event: TrackingEvents.careerScreenOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
+    }, []);
 
     return (
         <div className="career-page-web-container">

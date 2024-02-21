@@ -1,24 +1,22 @@
 import HttpClient from './httpClient';
-import {ShowCategory} from "../types/Show";
+import {ShowCategory, ShowMetaDataType} from "../types/Show";
 // import { ShowDetailsRequest, Show } from './types';
 
 const readerApiPrefix = '/reader';
 const showApiPrefix = '/show';
 const episodeApiPrefix = '/episode';
 const panelApiPrefix = '/panel';
+const studioApiPrefix = '/studio'
+
 
 export const getShowByIdReq = async (showId: string, includeMetaData: string[]): Promise<any> => {
   try {
-    // Create the body object according to what the API expects
-    // e.g. if it accepts an array of strings under a metadata property
     const body = {
       metadata: includeMetaData,
     };
 
     const path = `/api/v2${readerApiPrefix}${showApiPrefix}/${showId}`;
-    // If the response is an array, and you expect to get the first show
-    // adjust as per the actual response structure
-    // Assuming that the response returns a single Show object
+
     return await HttpClient.post(path, body);
   } catch (error) {
     console.error(`Unable to get show by id: ${showId}`, error);
@@ -37,6 +35,27 @@ export const getEpisodesList = async (showId : string) =>{
   }
 }
 
+export const getMyShows = async (
+    userId: string,
+    offset: number = 0,
+    count: number = 1,
+    includeEpisodes: boolean = true,
+    includeMetadata: ShowMetaDataType[] = [ShowMetaDataType.BANNER_THUMBNAIL_V2, ShowMetaDataType.STYLE_NAME],
+) => {
+  try {
+    const metadataString = includeMetadata.join(',');
+    const path = `${studioApiPrefix}${showApiPrefix}/myShows?offset=${offset}&count=${count}&includeEpisodes=${includeEpisodes}&includeMetadata=${metadataString}`;
+
+    return await HttpClient.get(path, {
+      'x-tenant': 'studio',
+    });
+
+  } catch (error) {
+    console.error(`Unable to get shows for user id: ${userId}`, error);
+    throw error;
+  }
+};
+
 export const getPanelsByEpisodeId = async (episodeId : string) =>{
   try{
     const path = `/api/v2${readerApiPrefix}${panelApiPrefix}/episode/${episodeId}`;
@@ -44,7 +63,7 @@ export const getPanelsByEpisodeId = async (episodeId : string) =>{
 
   } catch (error) {
     console.error(`Unable to get panels by episodeid: ${episodeId}`, error);
-    throw error; // Re-throw the error to handle it in the calling component
+    throw error;
   }
 }
 

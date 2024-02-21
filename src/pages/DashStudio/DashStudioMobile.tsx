@@ -13,8 +13,10 @@ import NavbarMobile from "../../Components/NavbarMobile";
 import FooterMobile from "../../Components/FooterMobile";
 import {useLocation, useNavigate} from "react-router-dom";
 import {isProduction} from "../../Config/Config";
-import {auth} from "../../firebaseConfig";
+import {auth, signInAnonymouslyAndGetToken} from "../../firebaseConfig";
 import LoginModal from "../../Components/LoginModal/LoginModal";
+import {trackEvent} from "../../Utils/Analytics";
+import {TrackingEvents} from "../../Constants/TrackingEvents";
 
 const StudioPageMobile = () => {
     const location  = useLocation();
@@ -35,8 +37,47 @@ const StudioPageMobile = () => {
         }
     }, [location]);
 
-    const handleButtonClick = (path :string) => {
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
+
+            trackEvent(
+                {
+                    event: TrackingEvents.createScreenOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
+    }, []);
+
+    const handleButtonClick = (path :string, buttonName: string) => {
+        trackEvent(
+            {
+                event: TrackingEvents.buttonClickedStudioPage,
+                properties: {
+                    name : buttonName,
+                },
+            },
+            'CONSUMER'
+        );
+
         if (auth.currentUser && !auth.currentUser.isAnonymous) {
+            trackEvent(
+                {
+                    event: TrackingEvents.redirectUserToStudio,
+                    properties: {
+                        from : buttonName,
+                        alreadyLoggedIn : 'TRUE',
+                    },
+                },
+                'CONSUMER'
+            );
             window.location.href = path;
         } else {
             setShowModal(true);
@@ -45,6 +86,15 @@ const StudioPageMobile = () => {
 
     const handleCloseModal = () => {
         if (auth.currentUser && !auth.currentUser.isAnonymous) {
+            trackEvent(
+                {
+                    event: TrackingEvents.redirectUserToStudio,
+                    properties: {
+                        alreadyLoggedIn : 'FALSE',
+                    },
+                },
+                'CONSUMER'
+            );
             window.location.href = '/studio/new-dashtoon';
             setShowModal(false);
         } else {
@@ -66,7 +116,7 @@ const StudioPageMobile = () => {
                     Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                 </p>
                 <button className={"create-dashtoon-button-mobile"}
-                        onClick={() => handleButtonClick('/studio/create')}> Create a Dashtoon
+                        onClick={() => handleButtonClick('/studio/create', 'createButton')}> Create a Dashtoon
                 </button>
                 {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
                 <img
@@ -167,7 +217,7 @@ const StudioPageMobile = () => {
                 <div className="comic-content-mobile">
                     <h1 className="comic-title-mobile">Make your first Dashtoon in minutes!</h1>
                     <button className={"comic-btn-container-mobile"}
-                            onClick={() => handleButtonClick('/studio/home')}>
+                            onClick={() => handleButtonClick('/studio/home', 'getStarted')}>
                         Get Started
                     </button>
                 </div>

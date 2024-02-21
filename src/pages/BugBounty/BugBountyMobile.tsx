@@ -3,10 +3,32 @@ import Footer from '../../Components/FooterWeb';
 import './BugBounty.css';
 import FooterMobile from "../../Components/FooterMobile";
 import NavbarMobile from "../../Components/NavbarMobile";
+import {auth, signInAnonymouslyAndGetToken} from "../../firebaseConfig";
+import {trackEvent} from "../../Utils/Analytics";
+import {TrackingEvents} from "../../Constants/TrackingEvents";
 
 const BugBountyMobile = () => {
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll to the top of the page
+    }, []);
+
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
+
+            trackEvent(
+                {
+                    event: TrackingEvents.bugBountyOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
     }, []);
 
     return (

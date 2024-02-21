@@ -5,9 +5,11 @@ import {ReactComponent as MenuButton} from "../assets/icons/fi_9121524.svg";
 import {useNavigate} from "react-router-dom";
 import LoginModal from "./LoginModal/LoginModal";
 import {AuthContext} from "../Provider/AuthProvider";
-import {resetTracking} from "../Utils/Analytics";
+import {resetTracking, trackEvent} from "../Utils/Analytics";
 import {auth} from "../firebaseConfig";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {TrackingProperties} from "../Constants/TrackingProperties";
 
 const MobileNavbar = () => {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -41,6 +43,16 @@ const MobileNavbar = () => {
 
     const navigate = useNavigate();
     const navigateTo = (route : string) => {
+        const navLocation = route === '' ? 'Home' : route;
+        trackEvent(
+            {
+                event: TrackingEvents.navigationClick,
+                properties: {
+                    name: navLocation,
+                } as TrackingProperties,
+            },
+            'CONSUMER'
+        );
         navigate(`/${route}`);
     };
 

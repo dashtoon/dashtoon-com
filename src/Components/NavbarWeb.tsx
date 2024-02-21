@@ -8,8 +8,10 @@ import {AuthContext} from "../Provider/AuthProvider";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import {resetTracking} from "../Utils/Analytics";
+import {resetTracking, trackEvent} from "../Utils/Analytics";
 import {auth} from "../firebaseConfig";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {TrackingProperties} from "../Constants/TrackingProperties";
 
 interface NavbarWebProps {
     currentPage: string;
@@ -25,6 +27,17 @@ const NavbarWeb : React.FC<NavbarWebProps> = ({ currentPage }) => {
 
     // Function to navigate to a specific route
     const navigateTo = (route : string) => {
+
+        const navLocation = route === '' ? 'Home' : route;
+        trackEvent(
+            {
+                event: TrackingEvents.navigationClick,
+                properties: {
+                    name: navLocation,
+                } as TrackingProperties,
+            },
+            'CONSUMER'
+        );
         navigate(`/${route}`);
     };
 

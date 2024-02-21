@@ -6,17 +6,21 @@ import '../styles/homeWebStyles.css';
 import NavbarWeb from "../Components/NavbarWeb";
 import {ShowWithViewsAndEpisodeCount} from "../types/Show";
 import {getPopularShows} from "../services/showService";
-import {signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import { Box, Card, CardMedia, CardContent, CardActionArea, Typography } from '@mui/material';
 import {getCDNImageUrl} from "../services/cdnImage";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import Lottie from "lottie-react";
 import LoaderAnimation from '../assets/animations/logoanimation.json';
 import LoginModal from "../Components/LoginModal/LoginModal";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingProperties} from "../Constants/TrackingProperties";
 
 const HomePageWeb: React.FC = () => {
     const [shows, setShows] = useState<ShowWithViewsAndEpisodeCount[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -25,13 +29,25 @@ const HomePageWeb: React.FC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            await auth.authStateReady();
+            if(!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
             const response = await getPopularShows(20);
             setShows(response);
+            trackEvent(
+                {
+                    event: TrackingEvents.homeScreenOpened,
+                    properties: {
+                    } as TrackingProperties,
+                },
+                'CONSUMER'
+            );
             setIsLoading(false);
         };
-
         fetchData();
     }, []);
+
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 

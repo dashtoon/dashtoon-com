@@ -8,6 +8,9 @@ import TCIcon from "../assets/icons/image 357.png";
 import BackButton from "../assets/icons/carbon_arrow-up.png";
 import ForbesIcon from "../assets/icons/forbes.png";
 import DashtoonInTheNews from "../Components/DashtoonInTheNews";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 
 const CompanyContentMobile = () => {
 
@@ -55,6 +58,25 @@ const CompanyContentMobile = () => {
         }
 
     }, [location]);
+
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
+
+            trackEvent(
+                {
+                    event: TrackingEvents.companyScreenOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
+    }, []);
 
     return (
         <div className="company-content-mobile">

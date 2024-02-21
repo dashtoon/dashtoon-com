@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {I18nextProvider} from 'react-i18next';
 import i18n from './i18n';
 import {AuthProvider} from "./Provider/AuthProvider";
+import {trackEvent} from "./Utils/Analytics";
+import {TrackingEvents} from "./Constants/TrackingEvents";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -18,7 +20,20 @@ root.render(
     </I18nextProvider>
 );
 
+function sendToAnalytics({ name, value }: any) {
+    trackEvent(
+        {
+            event: TrackingEvents.webVitals,
+            properties: {
+                name: name,
+                value: value,
+            },
+        },
+        'CONSUMER'
+    );
+}
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals(sendToAnalytics);

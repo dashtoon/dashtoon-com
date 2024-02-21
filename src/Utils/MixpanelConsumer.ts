@@ -5,10 +5,11 @@ import { TrackingEvents } from '../Constants/TrackingEvents';
 import { TrackingProperties } from '../Constants/TrackingProperties';
 
 export const initMixpanelConsumer = () => {
-    mixpanel.init(config.mixpanelConsumerToken ?? '', { debug: false, ignore_dnt: true }, 'consumer');
+    mixpanel.init(config.mixpanelConsumerToken ?? '', { debug: true, ignore_dnt: true }, 'consumer');
 };
 
 const registerSuperProperties = (user: User) => {
+    console.log(user);
     // @ts-ignore
     mixpanel.consumer.register_once({
         userId: user.uid,

@@ -1,14 +1,15 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import AppRoutes from './routes';
 import './App.css';
 import {configureTracking, initTracking, trackEvent} from "./Utils/Analytics";
 import {TrackingEvents} from "./Constants/TrackingEvents";
-import {auth} from "./firebaseConfig";
+import {auth, signInAnonymouslyAndGetToken} from "./firebaseConfig";
 import {TrackingProperties} from "./Constants/TrackingProperties";
 import { createTheme, CssBaseline, ThemeOptions, ThemeProvider } from '@mui/material';
 import { color } from './Constants/Colors';
 import { useTranslation } from 'react-i18next';
+import {User} from "firebase/auth";
 
 declare module '@mui/material/styles' {
     interface Palette {
@@ -71,6 +72,9 @@ declare module '@mui/material/styles' {
 
 function App() {
 
+    const [user, setUser] = useState<User | null>(null);
+
+
     const { i18n } = useTranslation();
     useEffect(() => {
         const lang = localStorage.getItem('i18nextLng');
@@ -80,27 +84,33 @@ function App() {
     }, [i18n]);
 
     useEffect(() => {
-        initTracking();
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            if (auth.currentUser !== null) {
-                // console.log(auth.currentUser);
-                trackEvent(
-                    {
-                        event: TrackingEvents.userLogin,
-                        properties: {
-                            userId: auth.currentUser?.uid,
-                        } as TrackingProperties,
-                    },
-                    'CONSUMER'
-                );
-                configureTracking(auth.currentUser);
+        const unsubscribe = auth.onAuthStateChanged( (user) => {
+            if (user !== null) {
+                if (user.emailVerified) {
+                    trackEvent(
+                        {
+                            event: TrackingEvents.userLogin,
+                            properties: {
+                                userName: auth.currentUser?.displayName,
+                                userEmail: auth.currentUser?.email,
+                                userId: auth.currentUser?.uid,
+                                loginType: user.providerData[0].providerId === 'password' ? 'email' : 'google',
+                            } as TrackingProperties,
+                        },
+                        'CONSUMER'
+                    );
+                }
+                configureTracking(user);
             }
         });
 
         // Clean up the listener when the component unmounts
         return () => unsubscribe();
-    }, [auth.currentUser]);
+    }, []);
 
+    useEffect(() => {
+        initTracking();
+    }, []);
 
     const getDesignTokens = {
         // palette values for dark mode

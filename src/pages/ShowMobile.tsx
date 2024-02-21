@@ -67,12 +67,10 @@ const ShowMobile = () => {
 
     useEffect(() => {
         if (showInformation && showId) {
-            // console.log("entering show screen" + auth.currentUser?.uid);
             trackEvent(
                 {
                     event: TrackingEvents.showOpen,
                     properties: {
-                        userId: auth.currentUser?.uid,
                         showId: showId,
                         showName: showInformation?.name,
                     } as TrackingProperties,

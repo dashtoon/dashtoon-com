@@ -1,13 +1,38 @@
 import React, {useEffect} from 'react';
-// import Navbar from './Navbar'; // Import your Navbar component
-import FooterMobile from '../Components/FooterMobile'; // Import your Footer component
-import '../styles/careersMobileStyles.css'; // Import your stylesheet
-import NavbarWeb from "../Components/NavbarWeb";
+import FooterMobile from '../Components/FooterMobile';
+import '../styles/careersMobileStyles.css';
 import NavbarMobile from "../Components/NavbarMobile";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
+import {useLocation} from "react-router-dom";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 const CareerPage = () => {
+
+    const location = useLocation();
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
+
+            trackEvent(
+                {
+                    event: TrackingEvents.careerScreenOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
+    }, []);
+
     const openLink = (url : string) => {
         window.open(url, '_blank'); // Open the link in a new tab
     };

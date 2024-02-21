@@ -7,7 +7,7 @@ import {
 import { TrackingProperties } from '../Constants/TrackingProperties';
 import { TrackingEvents } from '../Constants/TrackingEvents';
 import { User } from 'firebase/auth';
-
+import {auth} from '../firebaseConfig';
 
 export const initTracking = () => {
     initMixpanelConsumer();
@@ -27,6 +27,11 @@ export interface TrackingRequest {
 }
 
 export const trackEvent = (request: TrackingRequest, type: 'CONSUMER') => {
+    if (auth.currentUser) {
+        request.properties.userId = auth.currentUser.uid || '';
+        request.properties.userName = auth.currentUser.displayName || '';
+        request.properties.userEmail = auth.currentUser.email || '';
+    }
     trackMixpanelConsumerEvent(request.event, request.properties);
     return;
 };

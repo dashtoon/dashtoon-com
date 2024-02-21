@@ -5,7 +5,9 @@ import '../styles/companyWebStyles.css';
 import {Person, peopleData} from "../types/peopleData";
 import DashtoonInTheNews from "../Components/DashtoonInTheNews";
 import {useLocation} from "react-router-dom";
-import {auth} from "../firebaseConfig";
+import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {trackEvent} from "../Utils/Analytics";
+import {TrackingEvents} from "../Constants/TrackingEvents";
 
 
 const CompanyContentWeb = () => {
@@ -17,7 +19,6 @@ const CompanyContentWeb = () => {
         setShowFullList(!showFullList);
     };
 
-    console.log(auth.currentUser);
     useEffect(() => {
         window.scrollTo(0, 0)
         switch (window.location.hash) {
@@ -49,7 +50,27 @@ const CompanyContentWeb = () => {
                 break;
         }
 
-    }, [location])
+    }, [location]);
+
+
+    useEffect(() => {
+        const checkAuthAndTrackEvent = async () => {
+            await auth.authStateReady();
+            if (!auth.currentUser) {
+                await signInAnonymouslyAndGetToken();
+            }
+
+            trackEvent(
+                {
+                    event: TrackingEvents.companyScreenOpened,
+                    properties: {},
+                },
+                'CONSUMER'
+            );
+        };
+
+        checkAuthAndTrackEvent();
+    }, []);
 
     return (
         <div className="company-content-web">
