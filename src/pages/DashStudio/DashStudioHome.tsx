@@ -255,7 +255,7 @@ const StudioPageWeb = () => {
                     <div className={"discordInfoWeb"}>
                         <div className={"joinTitle"}>Join the Community</div>
                         <div className={"joinDescription"}>
-                            Dashtoon Studio is currently in closed Beta. We are providing access
+                            Dashtoon Studio is currently in open Beta. We are providing access
                             on a monthly basis!
                         </div>
                         <button className={"joinButton"}
