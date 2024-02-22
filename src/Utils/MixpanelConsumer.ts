@@ -9,7 +9,7 @@ export const initMixpanelConsumer = () => {
 };
 
 const registerSuperProperties = (user: User) => {
-    console.log(user);
+    // console.log(user);
     // @ts-ignore
     mixpanel.consumer.register_once({
         userId: user.uid,

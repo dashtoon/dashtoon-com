@@ -23,7 +23,7 @@ const MobileNavbar = () => {
     };
 
     const handleCloseModal = () => {
-        console.log("close");
+        // console.log("close");
         setShowModal(false);
     };
 

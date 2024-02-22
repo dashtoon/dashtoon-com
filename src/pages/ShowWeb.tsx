@@ -38,9 +38,8 @@ const ShowWeb: React.FC = () => {
                 if(!auth.currentUser) {
                     await signInAnonymouslyAndGetToken();
                 }
-                console.log("UserSHowScreen" + auth.currentUser?.uid);
 
-                const metaData: string[] = ['BANNER_THUMBNAIL_V2']; // Specify the metadata you need
+                const metaData: string[] = ['BANNER_THUMBNAIL_V2'];
                 const show = await getShowByIdReq(showId ? showId : '', metaData);
                 setShowInformation(show[0]);
                 const episodeList = await getEpisodesList(showId ? showId : '');

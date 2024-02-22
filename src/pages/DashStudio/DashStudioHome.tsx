@@ -44,7 +44,7 @@ const StudioPageWeb = () => {
                 setHasShows(false);
                 setButtonText("Create a Dashtoon");
             }
-            if(auth.currentUser && !auth.currentUser?.isAnonymous) {
+            if (auth.currentUser && !auth.currentUser?.isAnonymous) {
                 const shows = await getMyShows(auth.currentUser?.uid);
                 if (shows && shows.length > 0) {
                     setHasShows(true);
@@ -64,13 +64,12 @@ const StudioPageWeb = () => {
     }, [authCurrent]);
 
 
-
-    const handleButtonClick = (path :string, buttonName: string) => {
+    const handleButtonClick = (path: string, buttonName: string) => {
         trackEvent(
             {
                 event: TrackingEvents.buttonClickedStudioPage,
                 properties: {
-                    name : buttonName,
+                    name: buttonName,
                 },
             },
             'CONSUMER'
@@ -81,7 +80,7 @@ const StudioPageWeb = () => {
                 {
                     event: TrackingEvents.redirectUserToStudio,
                     properties: {
-                        name : buttonName,
+                        name: buttonName,
                     },
                 },
                 'CONSUMER'
@@ -102,169 +101,181 @@ const StudioPageWeb = () => {
         }
     };
 
-    
+
     return (
         <div>
             {/*{isLoading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'black' }}>*/}
             {/*    <Lottie animationData={LoaderAnimation} style={{ width: '500px', height: '500px' }} />*/}
             {/*</div>}*/}
-        <div className="web-page-container">
+            <div className="web-page-container">
 
                 <NavbarWeb currentPage={'create'}></NavbarWeb>
 
 
-            {/* Heading Section */}
-            <div className="heading-section-studio">
+                {/* Heading Section */}
+                <div className="heading-section-studio">
 
-                <h2 className="heading-text-studio">
-                    Create, Publish, Earn
-                </h2>
+                    <h2 className="heading-text-studio">
+                        Create, Publish, Earn
+                    </h2>
 
-                <p className="comic-subtitle">
-                    <strong>Dashtoon Studio makes comic creation feel like a breeze with AI magic!</strong>
-                </p>
-                <button className={"create-dashtoon-button"}
-                        onClick={() => handleButtonClick('/studio/new-dashtoon', 'createButton')}> {buttonText}
-                </button>
-
-                {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
-                <img
-                    className="heading-image"
-                    src={getCDNImageUrl('https://content.dashtoon.ai/assets/Group%20823createDashtoon.png', '1920')} // Replace with your actual image path
-                    alt="Dashtoon Studio Image"
-                />
-            </div>
-
-            {/* Features Section */}
-            <div className="features-section" id={'features'}>
-                <h2 className="features-heading">Features</h2>
-                <div className="features-content">
-                    {/* Text Section */}
-                    <div className="text-section">
-
-                        <p className="features-content-heading">CONSISTENT CHARACTERS</p>
-                        <p className={"features-content-description"}>Choose characters from Dashtoon's character
-                            library or create your own </p>
-                    </div>
-
-                    {/* Image Section */}
-                    <div className="image-section">
-                        <img
-                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-764-1036x747.png', '487', '351')}// Replace with your actual image path
-                            alt="Feature Image"
-                            style={{
-                                width: "487px",
-                                height: "351px"
-                            }}
-                        />
-                    </div>
-                </div>
-                <div className="features-content">
-                    {/* Text Section */}
-
-                    {/* Image Section */}
-                    <div className="image-section">
-                        <img
-                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-763-1256x829.png', '577', '380')} // Replace with your actual image path
-                            alt="Feature Image"
-                            style={{
-                                width: "577px",
-                                height: "380px"
-                            }}
-                        />
-                    </div>
-                    <div className="text-section" style={{alignItems: "flex-end"}}>
-                        <p className="features-content-heading">SO MANY STYLES</p>
-                        <p className={"features-content-description"} style={{textAlign: "right"}}>
-                            Pick a unique style to match your story
-                        </p>
-                    </div>
-                </div>
-
-                <div className="features-content">
-                    {/* Text Section */}
-                    <div className="text-section">
-                        <p className="features-content-heading">AI NATIVE TOOLS</p>
-                        <p className={"features-content-description"}>
-                            Convert storyboards into comics, remove backgrounds, fix faces & upscale images
-                        </p>
-                    </div>
-
-                    {/* Image Section */}
-                    <div className="image-section">
-                        <img
-                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-770-1024x724.png', '406', '287')} // Replace with your actual image path
-                            alt="Feature Image"
-                            style={{
-                                width: "406px",
-                                height: "287px"
-                            }}
-                        />
-                    </div>
-                </div>
-
-                <div className="features-content">
-                    {/* Text Section */}
-                    {/* Image Section */}
-                    <div className="image-section">
-                        <img
-                            src={getCDNImageUrl('https://content.dashtoon.ai/assets/publish.png', '602', '408')}
-                            alt="Feature Image"
-                            style={{
-                                width: "602px",
-                                height: "408px"
-                            }}
-                        />
-                    </div>
-                    <div className="text-section" style={{alignItems: "flex-end"}}>
-                        <p className="features-content-heading">PUBLISH & MONETIZE</p>
-                        <p className={"features-content-description"} style={{textAlign: "right"}}>
-                            Publish comics & monetize through the Dashtoon Reader app
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div className="comic-section-container">
-                <div className="comic-content">
-                    {/*<h1 className="comic-title">Make your first Dashtoon in minutes!</h1>*/}
                     <p className="comic-subtitle">
-                        <strong>Make your first Dashtoon in minutes!</strong>
+                        <strong>Dashtoon Studio makes comic creation feel like a breeze with AI magic!</strong>
                     </p>
-                    <button className={"comic-btn-container"}
-                            onClick={() => handleButtonClick('/studio/new-dashtoon', 'getStarted')}>
-                        Get Started
+                    <button className={"create-dashtoon-button"}
+                            onClick={() => handleButtonClick('/studio/new-dashtoon', 'createButton')}> {buttonText}
                     </button>
-                </div>
-                <div className="youtube-video-container">
-                    <iframe
-                        className="youtube-video"
-                        src="https://www.youtube.com/embed/3KPMuRVufjM?si=ClmfUtSdYV1c7oLg?rel=0&amp;amp;mute=1&amp;showinfo=0&amp;autoplay=1&amp;loop=0"
-                        allowFullScreen
-                    ></iframe>
-                </div>
-            </div>
 
+                    {showModal && <LoginModal open={true} onClose={handleCloseModal}/>}
+                    <img
+                        className="heading-image"
+                        src={getCDNImageUrl('https://content.dashtoon.ai/assets/Group%20823createDashtoon.png', '1920')} // Replace with your actual image path
+                        alt="Dashtoon Studio Image"
+                    />
+                </div>
 
-            <div className={"discord-container-web"}>
-                <img
-                    src={discordImage}
-                    alt="Your Image"
-                    className={"joinDiscordImage"}
-                />
-                <div className={"discordInfoWeb"}>
-                    <div className={"joinTitle"}>Join the Community</div>
-                    <div className={"joinDescription"}>
-                        Dashtoon Studio is currently in closed Beta. We are providing access
-                        on a monthly basis!
+                {/* Features Section */}
+                <div className="features-section" id={'features'}>
+                    <h2 className="features-heading">Features</h2>
+                    <div className="features-content">
+                        {/* Text Section */}
+                        <div className="text-section">
+
+                            <p className="features-content-heading">CONSISTENT CHARACTERS</p>
+                            <p className={"features-content-description"}>Choose characters from Dashtoon's character
+                                library or create your own </p>
+                        </div>
+
+                        {/* Image Section */}
+                        <div className="image-section">
+                            <img
+                                src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-764-1036x747.png', '487', '351')}// Replace with your actual image path
+                                alt="Feature Image"
+                                style={{
+                                    width: "487px",
+                                    height: "351px"
+                                }}
+                            />
+                        </div>
                     </div>
-                    <button className={"joinButton"} onClick={()=> {
+                    <div className="features-content">
+                        {/* Text Section */}
 
-                        window.open('https://discord.com/invite/DwBuquQABM');}}>Join Discord</button>
+                        {/* Image Section */}
+                        <div className="image-section">
+                            <img
+                                src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-763-1256x829.png', '577', '380')} // Replace with your actual image path
+                                alt="Feature Image"
+                                style={{
+                                    width: "577px",
+                                    height: "380px"
+                                }}
+                            />
+                        </div>
+                        <div className="text-section" style={{alignItems: "flex-end"}}>
+                            <p className="features-content-heading">SO MANY STYLES</p>
+                            <p className={"features-content-description"} style={{textAlign: "right"}}>
+                                Pick a unique style to match your story
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="features-content">
+                        {/* Text Section */}
+                        <div className="text-section">
+                            <p className="features-content-heading">AI NATIVE TOOLS</p>
+                            <p className={"features-content-description"}>
+                                Convert storyboards into comics, remove backgrounds, fix faces & upscale images
+                            </p>
+                        </div>
+
+                        {/* Image Section */}
+                        <div className="image-section">
+                            <img
+                                src={getCDNImageUrl('https://content.dashtoon.ai/assets/group-770-1024x724.png', '406', '287')} // Replace with your actual image path
+                                alt="Feature Image"
+                                style={{
+                                    width: "406px",
+                                    height: "287px"
+                                }}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="features-content">
+                        {/* Text Section */}
+                        {/* Image Section */}
+                        <div className="image-section">
+                            <img
+                                src={getCDNImageUrl('https://content.dashtoon.ai/assets/publish.png', '602', '408')}
+                                alt="Feature Image"
+                                style={{
+                                    width: "602px",
+                                    height: "408px"
+                                }}
+                            />
+                        </div>
+                        <div className="text-section" style={{alignItems: "flex-end"}}>
+                            <p className="features-content-heading">PUBLISH & MONETIZE</p>
+                            <p className={"features-content-description"} style={{textAlign: "right"}}>
+                                Publish comics & monetize through the Dashtoon Reader app
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className="comic-section-container">
+                    <div className="comic-content">
+                        {/*<h1 className="comic-title">Make your first Dashtoon in minutes!</h1>*/}
+                        <p className="comic-subtitle">
+                            <strong>Make your first Dashtoon in minutes!</strong>
+                        </p>
+                        <button className={"comic-btn-container"}
+                                onClick={() => handleButtonClick('/studio/new-dashtoon', 'getStarted')}>
+                            Get Started
+                        </button>
+                    </div>
+                    <div className="youtube-video-container">
+                        <iframe
+                            className="youtube-video"
+                            src="https://www.youtube.com/embed/3KPMuRVufjM?si=ClmfUtSdYV1c7oLg?rel=0&amp;amp;mute=1&amp;showinfo=0&amp;autoplay=1&amp;loop=0"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+
+
+                <div className={"discord-container-web"}>
+                    <img
+                        src={discordImage}
+                        alt="Your Image"
+                        className={"joinDiscordImage"}
+                    />
+                    <div className={"discordInfoWeb"}>
+                        <div className={"joinTitle"}>Join the Community</div>
+                        <div className={"joinDescription"}>
+                            Dashtoon Studio is currently in closed Beta. We are providing access
+                            on a monthly basis!
+                        </div>
+                        <button className={"joinButton"}
+                                onClick={
+                                    () => {
+                                        trackEvent(
+                                            {
+                                                event: TrackingEvents.buttonClickedStudioPage,
+                                                properties: {
+                                                    name: 'Join Discord',
+                                                },
+                                            },
+                                            'CONSUMER'
+                                        );
+                                        window.open('https://discord.com/invite/DwBuquQABM');
+                                    }}>Join Discord
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
             <FooterWeb></FooterWeb>
         </div>
     );

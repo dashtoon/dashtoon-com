@@ -82,7 +82,6 @@ const EpisodeMobile: React.FC = () => {
                 {
                     event: TrackingEvents.episodeOpen,
                     properties: {
-                        userId: auth.currentUser?.uid,
                         showId: showId,
                         showName: showInformation?.name,
                         episodeId: episodeId,
