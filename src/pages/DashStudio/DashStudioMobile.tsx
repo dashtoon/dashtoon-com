@@ -26,6 +26,7 @@ const StudioPageMobile = () => {
     const [hasShows, setHasShows] = useState(false);
     const [buttonText, setButtonText] = useState("Create a Dashtoon");
     const authCurrent = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -228,6 +229,28 @@ const StudioPageMobile = () => {
                     </div>
                 </div>
 
+                <div className={"mainContainer-mobile"}>
+                    <div className={"joinTitle-mobile"}>Creator’s Program</div>
+                    <div className={"joinDescription-mobile"}>
+                        Join the Creator’s Program, Monetize your content and reach a global audience
+                    </div>
+                    <button className={"joinButton-mobile"}
+                            onClick={
+                                () => {
+                                    trackEvent(
+                                        {
+                                            event: TrackingEvents.buttonClickedStudioPage,
+                                            properties: {
+                                                name: 'Join Discord',
+                                            },
+                                        },
+                                        'CONSUMER'
+                                    );
+                                    navigate('/creators');
+                                }}>Apply Now
+                    </button>
+                </div>
+
                 <div className="comic-section-container-mobile">
                     <div className="comic-content-mobile">
                         <h1 className="comic-title-mobile">Make your first Dashtoon in minutes!</h1>
@@ -243,28 +266,6 @@ const StudioPageMobile = () => {
                             allowFullScreen
                         ></iframe>
                     </div>
-                </div>
-                <div className={"mainContainer-mobile"}>
-                    <div className={"joinTitle-mobile"}>Join the Community</div>
-                    <div className={"joinDescription-mobile"}>
-                        See what others are creating. Reach out to the moderators in our discord server for faster
-                        access.
-                    </div>
-                    <button className={"joinButton-mobile"}
-                            onClick={
-                                () => {
-                                    trackEvent(
-                                        {
-                                            event: TrackingEvents.buttonClickedStudioPage,
-                                            properties: {
-                                                name : 'Join Discord',
-                                            },
-                                        },
-                                        'CONSUMER'
-                                    );
-                                    window.open('https://discord.com/invite/DwBuquQABM');
-                                }}>Join Discord
-                    </button>
                 </div>
             </div>
             <FooterMobile></FooterMobile>

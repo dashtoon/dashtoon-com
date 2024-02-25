@@ -21,6 +21,8 @@ import TermsAndConditionsMobile from "../pages/TermsAndConditions/TermsAndCondit
 import PrivacyPolicyMobile from "../pages/PrivacyPolicy/PrivacyPolicyMobile";
 import BugBountyMobile from "../pages/BugBounty/BugBountyMobile";
 import VerifyEmail from "../pages/Auth/Verify/VerifyEmail";
+import CreatorsProgramWeb from "../pages/CreatorProgram/CreatorsProgramWeb";
+import CreatorsProgramMobile from "../pages/CreatorProgram/CreatorsProgramMobile";
 
 const DesktopRoutes: React.FC = () => (
     <Routes>
@@ -28,8 +30,9 @@ const DesktopRoutes: React.FC = () => (
         <Route path='/company' element={<CompanyWeb/>}/>
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
         <Route path={'/create'} element={<StudioPage/>} />
+        <Route path={'/creators'} element={<CreatorsProgramWeb/>} />
         <Route path='/' element={<HomePageWeb/>} />
-        <Route path='/careers' element={<CareersWeb/>}/>
+        <Route path='/careers' element={<CareersWeb/>} />
         <Route path='/show/:showId' element={<ShowWeb/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeWeb/>}/>
         <Route path={'/terms-and-conditions'} element={<TermsAndConditions/>} />
@@ -47,6 +50,7 @@ const MobileRoutes: React.FC = () => (
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
         <Route path={'/create'} element={<StudioPageMobile/>} />
         <Route path='/careers' element={<CareersMobile/>} />
+        <Route path={'/creators'} element={<CreatorsProgramMobile/>} />
         <Route path='/show/:showId' element={<ShowMobile/>}/>
         <Route path='/show/:showId/episodes/:episodeId' element={<EpisodeMobile/>}/>
         <Route path={'/terms-and-conditions'} element={<TermsAndConditionsMobile/>} />

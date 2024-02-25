@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './DashStudioHome.css';
 import NavbarWeb from "../../Components/NavbarWeb";
-import discordImage from "../../assets/images/discordImage.png"
+import creatorImage from "../../assets/images/68cf3fab9aa93dfeb6fca710a47b99f1 (1).webp"
 import FooterWeb from "../../Components/FooterWeb";
 import {useLocation, useNavigate} from "react-router-dom";
 import LoginModal from "../../Components/LoginModal/LoginModal";
@@ -10,10 +10,7 @@ import {getCDNImageUrl} from "../../services/cdnImage";
 import {trackEvent} from "../../Utils/Analytics";
 import {TrackingEvents} from "../../Constants/TrackingEvents";
 import {getMyShows} from "../../services/showService";
-import {Show} from "../../types/Show";
 import {AuthContext} from "../../Provider/AuthProvider";
-import Lottie from "lottie-react";
-import LoaderAnimation from "../../assets/animations/logoanimation.json";
 
 const StudioPageWeb = () => {
     const location = useLocation();
@@ -21,6 +18,7 @@ const StudioPageWeb = () => {
     const [hasShows, setHasShows] = useState(false);
     const [buttonText, setButtonText] = useState("Create a Dashtoon");
     const authCurrent = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -225,6 +223,35 @@ const StudioPageWeb = () => {
 
                 </div>
 
+                <div className={"discord-container-web"}>
+                    <img
+                        src={creatorImage}
+                        alt="Your Image"
+                        className={"joinDiscordImage"}
+                    />
+                    <div className={"discordInfoWeb"}>
+                        <div className={"joinTitle"}>Creator’s Program</div>
+                        <div className={"joinDescription"}>
+                            Join the Creator’s Program, Monetize your content and reach a global audience
+                        </div>
+                        <button className={"joinButton"}
+                                onClick={
+                                    () => {
+                                        trackEvent(
+                                            {
+                                                event: TrackingEvents.buttonClickedStudioPage,
+                                                properties: {
+                                                    name: 'Join Discord',
+                                                },
+                                            },
+                                            'CONSUMER'
+                                        );
+                                        navigate('/creators');
+                                    }}>Apply Now
+                        </button>
+                    </div>
+                </div>x
+
                 <div className="comic-section-container">
                     <div className="comic-content">
                         {/*<h1 className="comic-title">Make your first Dashtoon in minutes!</h1>*/}
@@ -242,37 +269,6 @@ const StudioPageWeb = () => {
                             src="https://www.youtube.com/embed/3KPMuRVufjM?si=ClmfUtSdYV1c7oLg?rel=0&amp;amp;mute=1&amp;showinfo=0&amp;autoplay=1&amp;loop=0"
                             allowFullScreen
                         ></iframe>
-                    </div>
-                </div>
-
-
-                <div className={"discord-container-web"}>
-                    <img
-                        src={discordImage}
-                        alt="Your Image"
-                        className={"joinDiscordImage"}
-                    />
-                    <div className={"discordInfoWeb"}>
-                        <div className={"joinTitle"}>Join the Community</div>
-                        <div className={"joinDescription"}>
-                            Dashtoon Studio is currently in open Beta. We are providing access
-                            on a monthly basis!
-                        </div>
-                        <button className={"joinButton"}
-                                onClick={
-                                    () => {
-                                        trackEvent(
-                                            {
-                                                event: TrackingEvents.buttonClickedStudioPage,
-                                                properties: {
-                                                    name: 'Join Discord',
-                                                },
-                                            },
-                                            'CONSUMER'
-                                        );
-                                        window.open('https://discord.com/invite/DwBuquQABM');
-                                    }}>Join Discord
-                        </button>
                     </div>
                 </div>
             </div>

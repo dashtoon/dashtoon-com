@@ -59,11 +59,14 @@ const FooterMobile = () => {
                         <span onClick={() => (window.open('https://studio.dashtoon.ai/'))}>
                              Sign up
                         </span>
+                        <span onClick={() => (navigate('/creators'))}>
+                             Creators
+                        </span>
                     </div>
                 </div>
             </div>
-            <div className="navigation-section-2">
-                <div className="nav-category">
+                <div className="navigation-section-2">
+                    <div className="nav-category">
                     <div className="category-title">Careers</div>
                     <div className="explore-opportunities">
                         <Link to={"https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36"}
