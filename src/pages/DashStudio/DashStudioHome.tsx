@@ -11,6 +11,7 @@ import {trackEvent} from "../../Utils/Analytics";
 import {TrackingEvents} from "../../Constants/TrackingEvents";
 import {getMyShows} from "../../services/showService";
 import {AuthContext} from "../../Provider/AuthProvider";
+import FooterWebStudio from "../../Components/FooterWebStudio";
 
 const StudioPageWeb = () => {
     const location = useLocation();
@@ -272,7 +273,7 @@ const StudioPageWeb = () => {
                     </div>
                 </div>
             </div>
-            <FooterWeb></FooterWeb>
+            <FooterWebStudio></FooterWebStudio>
         </div>
     );
 };

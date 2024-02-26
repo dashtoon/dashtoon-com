@@ -5,6 +5,7 @@ export const getCDNImageUrl = (url: string, width: string | undefined, height?: 
     if (!url.includes('content.dashtoon.ai')) {
         return url; // Return the URL as is if it doesn't contain 'content.dashtoon.ai'
     }
+
     if (!url.includes(cdnUrl) && !url.startsWith('blob') && width && height) {
         return `${cdnUrl}fit=cover,width=${width},height=${height}/${url}`;
     } else if (!url.includes(cdnUrl) && !url.startsWith('blob')) {

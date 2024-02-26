@@ -13,6 +13,7 @@ import GlobalPromotionImage from "../../assets/images/Das (10).webp";
 import PersonalSuccessImage from "../../assets/images/Dashtoon Studio (11).webp";
 import PublishAndEarnImage from "../../assets/images/Dashtoon Studio (10).webp";
 import CommunityImage from "../../assets/images/Dashtoon (1).webp";
+import FooterWebStudio from "../../Components/FooterWebStudio";
 
 
 const CreatorsProgramWeb = () => {
@@ -182,7 +183,7 @@ const CreatorsProgramWeb = () => {
                 </div>
 
             </div>
-            <FooterWeb></FooterWeb>
+            <FooterWebStudio></FooterWebStudio>
         </div>
 );
 };

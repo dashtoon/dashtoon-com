@@ -13,6 +13,7 @@ import PublishAndEarnImage from "../../assets/images/Dashtoon Studio (10).webp";
 import CommunityImage from "../../assets/images/Dashtoon (1).webp";
 import NavbarMobile from "../../Components/NavbarMobile";
 import FooterMobile from "../../Components/FooterMobile";
+import FooterMobileStudio from "../../Components/FooterWebStudioMobile";
 
 
 const CreatorsProgramMobile = () => {
@@ -176,7 +177,7 @@ const CreatorsProgramMobile = () => {
 
 
             </div>
-            <FooterMobile></FooterMobile>
+            <FooterMobileStudio></FooterMobileStudio>
         </div>
     );
 };
