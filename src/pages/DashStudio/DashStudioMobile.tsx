@@ -124,12 +124,9 @@ const StudioPageMobile = () => {
 
                 <div className="heading-section-studio-mobile">
                     <h2 className="heading-text-studio-mobile">
-                        Create, Publish, Earn
+                        Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                     </h2>
 
-                    <p className="comic-title-mobile">
-                        Dashtoon Studio makes comic creation feel like a breeze with AI magic!
-                    </p>
                     <button className={"create-dashtoon-button-mobile"}
                             onClick={() => handleButtonClick('/studio/new-dashtoon', 'createButton')}> {buttonText}
                     </button>

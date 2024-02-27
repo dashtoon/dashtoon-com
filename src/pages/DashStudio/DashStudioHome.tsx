@@ -115,12 +115,9 @@ const StudioPageWeb = () => {
                 <div className="heading-section-studio">
 
                     <h2 className="heading-text-studio">
-                        Create, Publish, Earn
+                        Dashtoon Studio makes comic creation feel like a breeze with AI magic!
                     </h2>
 
-                    <p className="comic-subtitle">
-                        <strong>Dashtoon Studio makes comic creation feel like a breeze with AI magic!</strong>
-                    </p>
                     <button className={"create-dashtoon-button"}
                             onClick={() => handleButtonClick('/studio/new-dashtoon', 'createButton')}> {buttonText}
                     </button>

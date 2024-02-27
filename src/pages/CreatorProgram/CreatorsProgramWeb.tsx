@@ -73,7 +73,7 @@ const CreatorsProgramWeb = () => {
                     </h2>
                     <p>
                         <strong>With the Dashtoon Studio Creator’s Program, monetize your content and reach a global
-                            audience!</strong>
+                            audience</strong>
                     </p>
                     <button className={"create-dashtoon-button"}
                             onClick={() => handleButtonClick('Apply Now')}> Apply Now
@@ -93,10 +93,9 @@ const CreatorsProgramWeb = () => {
                         <div className="photo-frame">
                             <img className="image-holder" alt="Rectangle"
                                  src={PublishAndEarnImage}/>
-                            <p className="caption-container">Publish and earn with Dashtoons</p>
+                            <p className="caption-container">Publish and earn with Dashtoon</p>
                             <p className="join-our-creators">
-                                Join our creator's program today. Publish your webcomic on the Dashtoon mobile to 2000
-                                USD per month.
+                                Join our creator's program today. Publish your webcomic on the Dashtoon mobile app.
                             </p>
                         </div>
                         <div className="photo-frame">
@@ -104,8 +103,7 @@ const CreatorsProgramWeb = () => {
                                  src={GlobalPromotionImage}/>
                             <p className="caption-container">Global Promotion and Marketing Support</p>
                             <p className="join-our-creators">
-                                As part of our creators program, Dashtoon invests and promotes promising creators across
-                                various platforms globally.
+                                As part of our creators program, we invest and promote promising webcomics globally.
                             </p>
                         </div>
                     </div>
@@ -124,9 +122,7 @@ const CreatorsProgramWeb = () => {
                                  src={CommunityImage}/>
                             <p className="caption-container">Exclusive Community and Networking events</p>
                             <p className="join-our-creators">
-                                Gain access to our exclusive creator's lounge on Discord and access to invite-only
-                                workshops for ideas, collaboration, feedback from other top creators and the Dashtoon
-                                content team.
+                                Gain access to our exclusive creator's lounge on Discord and access to invite-only workshops for ideas, collaboration and feedback from other top creators and the Dashtoon content team.
                             </p>
                         </div>
                     </div>

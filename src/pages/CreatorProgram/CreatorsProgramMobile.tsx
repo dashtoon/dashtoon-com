@@ -68,11 +68,11 @@ const CreatorsProgramMobile = () => {
                 <div className="heading-section-creators-mobile">
 
                     <h2 className="heading-text-creators-mobile">
-                        Create, Publish, Earn
+                        Create, Publish & Earn
                     </h2>
                     <p>
                         <strong>With the Dashtoon Studio Creator’s Program, monetize your content and reach a global
-                            audience!</strong>
+                            audience</strong>
                     </p>
                     <button className={"create-dashtoon-button-mobile"}
                             onClick={() => handleButtonClick('Apply Now')}> Apply Now
@@ -91,10 +91,9 @@ const CreatorsProgramMobile = () => {
                         <div className="photo-frame-mobile">
                             <img className="image-holder-mobile" alt="Rectangle"
                                  src={PublishAndEarnImage}/>
-                            <p className="caption-container-mobile">Publish and earn with Dashtoons</p>
+                            <p className="caption-container-mobile">Publish and earn with Dashtoon</p>
                             <p className="join-our-creators-mobile">
-                                Join our creator's program today. Publish your webcomic on the Dashtoon mobile to 2000
-                                USD per month.
+                                Join our creator's program today. Publish your webcomic on the Dashtoon mobile app.
                             </p>
                         </div>
                         <div className="photo-frame-mobile">
@@ -102,8 +101,7 @@ const CreatorsProgramMobile = () => {
                                  src={GlobalPromotionImage}/>
                             <p className="caption-container-mobile">Global Promotion and Marketing Support</p>
                             <p className="join-our-creators-mobile">
-                                As part of our creators program, Dashtoon invests and promotes promising creators across
-                                various platforms globally.
+                                As part of our creators program, we invest and promote promising webcomics globally.
                             </p>
                         </div>
                     </div>
@@ -122,9 +120,7 @@ const CreatorsProgramMobile = () => {
                                  src={CommunityImage}/>
                             <p className="caption-container-mobile">Exclusive Community and Networking events</p>
                             <p className="join-our-creators-mobile">
-                                Gain access to our exclusive creator's lounge on Discord and access to invite-only
-                                workshops for ideas, collaboration, feedback from other top creators and the Dashtoon
-                                content team.
+                                Gain access to our exclusive creator's lounge on Discord and access to invite-only workshops for ideas, collaboration and feedback from other top creators and the Dashtoon content team.
                             </p>
                         </div>
                     </div>
