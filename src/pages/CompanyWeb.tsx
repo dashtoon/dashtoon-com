@@ -8,6 +8,7 @@ import {useLocation} from "react-router-dom";
 import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
 import {trackEvent} from "../Utils/Analytics";
 import {TrackingEvents} from "../Constants/TrackingEvents";
+import {getCDNImageUrl} from "../services/cdnImage";
 
 
 const CompanyContentWeb = () => {
@@ -91,7 +92,7 @@ const CompanyContentWeb = () => {
                 <div className={`people-web-container ${showFullList ? 'expanded' : ''}`}>
                     {peopleData.map((person, index) => (
                         <div key={person.id} className={`person-card ${index >= 3 && !showFullList ? 'hidden' : ''}`}>
-                            <img className="person-image" src={person.imageSrc} alt={person.name}/>
+                            <img className="person-image" src={getCDNImageUrl(person.imageSrc, '202', '202')} alt={person.name}/>
                             <div className={'person-details'}>
                             <div className="person-name">{person.name}</div>
                             <div className="person-position">{person.position}</div>

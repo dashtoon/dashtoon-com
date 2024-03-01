@@ -11,6 +11,7 @@ import DashtoonInTheNews from "../Components/DashtoonInTheNews";
 import {trackEvent} from "../Utils/Analytics";
 import {TrackingEvents} from "../Constants/TrackingEvents";
 import {auth, signInAnonymouslyAndGetToken} from "../firebaseConfig";
+import {getCDNImageUrl} from "../services/cdnImage";
 
 const CompanyContentMobile = () => {
 
@@ -98,7 +99,7 @@ const CompanyContentMobile = () => {
                 <div className={`people-web-container-mobile ${showFullList ? 'expanded' : ''}`}>
                     {peopleData.slice(0, showFullList ? peopleData.length : 3).map((person, index) => (
                         <div key={person.id} className={`person-card-mobile ${index >= 3 && !showFullList ? 'hidden' : ''}`}>
-                            <img className="person-image-mobile" src={person.imageSrc} alt={person.name}/>
+                            <img className="person-image-mobile" src={getCDNImageUrl(person.imageSrc, '202', '202')} alt={person.name}/>
                             <div className={'person-details-mobile'}>
                             <div className="person-name-mobile">{person.name}</div>
                             <div className="person-position-mobile">{person.position}</div>
