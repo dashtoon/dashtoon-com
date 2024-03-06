@@ -1,10 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Allow: /$
-Allow: /company
-Allow: /careers
-Allow: /create
-Allow: /bug-bounty
-Allow: /privacy-policy
-Allow: /terms-and-conditions
-Disallow: /
+Disallow: /show/
+Disallow: /studio
