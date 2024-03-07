@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './CreatorsProgramWeb.css';
 import NavbarWeb from "../../Components/NavbarWeb";
-import discordImage from "../../assets/images/discordImage.png"
+import discordImage from "../../assets/images/discordImage.png";
 import FooterWeb from "../../Components/FooterWeb";
 import {useLocation, useNavigate} from "react-router-dom";
 import {auth, signInAnonymouslyAndGetToken} from "../../firebaseConfig";
@@ -9,10 +9,10 @@ import {getCDNImageUrl} from "../../services/cdnImage";
 import {trackEvent} from "../../Utils/Analytics";
 import {TrackingEvents} from "../../Constants/TrackingEvents";
 import {AuthContext} from "../../Provider/AuthProvider";
-import GlobalPromotionImage from "../../assets/images/Das (10).webp";
-import PersonalSuccessImage from "../../assets/images/Dashtoon Studio (11).webp";
+import GlobalPromotionImage from "../../assets/images/Das (14).png";
+import PersonalSuccessImage from "../../assets/images/Das (13).png";
 import PublishAndEarnImage from "../../assets/images/Dashtoon Studio (10).webp";
-import CommunityImage from "../../assets/images/Dashtoon (1).webp";
+import CommunityImage from "../../assets/images/Dashtoon Studio (15) 1.png";
 import FooterWebStudio from "../../Components/FooterWebStudio";
 
 
@@ -86,7 +86,6 @@ const CreatorsProgramWeb = () => {
                     />
                 </div>
 
-                {/* Features Section */}
                 <div className="perksSection" id={'perks'}>
                     <h2 className="perksHeading" style={{marginBottom: '-40px'}}>Perks and benefits</h2>
                     <div className={"perksContainer"}>
@@ -95,7 +94,7 @@ const CreatorsProgramWeb = () => {
                                  src={PublishAndEarnImage}/>
                             <p className="caption-container">Publish and earn with Dashtoon</p>
                             <p className="join-our-creators">
-                                Join our creator's program today. Publish your webcomic on the Dashtoon mobile app.
+                                Join our creator's program today. Publish on the Dashtoon mobile app.
                             </p>
                         </div>
                         <div className="photo-frame">
@@ -103,7 +102,7 @@ const CreatorsProgramWeb = () => {
                                  src={GlobalPromotionImage}/>
                             <p className="caption-container">Global Promotion and Marketing Support</p>
                             <p className="join-our-creators">
-                                As part of our creators program, we invest and promote promising webcomics globally.
+                                As part of our creators program, we invest and promote promising dashtoons globally.
                             </p>
                         </div>
                     </div>
