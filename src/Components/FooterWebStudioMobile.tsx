@@ -18,14 +18,14 @@ const FooterMobileStudio = () => {
                         <div className="logo-text">DASHTOON</div>
                     </div>
                     <div className="social-icons">
-                    <div>
-                    <Link to="https://www.instagram.com/dashtoonstudio/" className="vimeo-social"><InstagramIcon
-                        className="vimeo-social"/></Link>
-                    <Link to="https://www.youtube.com/@dashtoonstudio" className="youtube-logo"><YouTubeIcon
-                        className="vimeo-social"/></Link>
-                    <Link to="https://discord.com/invite/DwBuquQABM" className="tiktok-logo"><DiscordIcon
-                        className="vimeo-social"/></Link>
-                    </div>
+                        <div>
+                            <Link to="https://www.instagram.com/dashtoonstudio/" className="vimeo-social"><InstagramIcon
+                                className="vimeo-social"/></Link>
+                            <Link to="https://www.youtube.com/@dashtoonstudio" className="youtube-logo"><YouTubeIcon
+                                className="vimeo-social"/></Link>
+                            <Link to="https://discord.com/invite/DwBuquQABM" className="tiktok-logo"><DiscordIcon
+                                className="vimeo-social"/></Link>
+                        </div>
                     </div>
                     <p className="copyright">©2024 Dashverse. All rights reserved.</p>
                 </div>
@@ -33,7 +33,9 @@ const FooterMobileStudio = () => {
                     <div className="nav-category">
                         <div className="category-title">Company</div>
                         <div className="nav-links">
-                        <span onClick={()=> {navigate('/company/#about')}}>
+                        <span onClick={() => {
+                            navigate('/company/#about')
+                        }}>
                                 About
                         </span>
                             <span onClick={() => {
@@ -69,6 +71,14 @@ const FooterMobileStudio = () => {
                             <Link to={"https://dashtoon.notion.site/Work-Dashtoon-bb502d8112114e89b75573614c7ded36"}
                                   className="explore-opportunities-web">Explore Opportunities</Link>
                         </div>
+                    </div>
+                </div>
+                <div className="nav-category">
+                    <div className="category-title">Authors</div>
+                    <div className="nav-links">
+                        <span onClick={() => {
+                            navigate('/authors')
+                        }}>Authors Program</span>
                     </div>
                 </div>
             </div>

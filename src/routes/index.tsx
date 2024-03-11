@@ -23,6 +23,8 @@ import BugBountyMobile from "../pages/BugBounty/BugBountyMobile";
 import VerifyEmail from "../pages/Auth/Verify/VerifyEmail";
 import CreatorsProgramWeb from "../pages/CreatorProgram/CreatorsProgramWeb";
 import CreatorsProgramMobile from "../pages/CreatorProgram/CreatorsProgramMobile";
+import AuthorsProgramMobile from "../pages/AuthorsProgram/AuthorsProgramMobile";
+import AuthorsProgramWeb from "../pages/AuthorsProgram/AuthorsProgramWeb";
 
 const DesktopRoutes: React.FC = () => (
     <Routes>
@@ -30,6 +32,7 @@ const DesktopRoutes: React.FC = () => (
         <Route path='/company' element={<CompanyWeb/>}/>
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
         <Route path={'/create'} element={<StudioPage/>} />
+        <Route path='/authors' element={<AuthorsProgramWeb/>} ></Route>
         <Route path={'/creators'} element={<CreatorsProgramWeb/>} />
         <Route path='/' element={<HomePageWeb/>} />
         <Route path='/careers' element={<CareersWeb/>} />
@@ -47,6 +50,7 @@ const MobileRoutes: React.FC = () => (
         <Route path='/*' element={<InvalidUrlPage />} />
         <Route path='/' element={<HomePageMobile/>} />
         <Route path='/company' element={<CompanyMobile/>}/>
+        <Route path='/authors' element={<AuthorsProgramMobile/>} ></Route>
         <Route path='/mobile/show/:showId' element={<InstallApp/>}/>
         <Route path={'/create'} element={<StudioPageMobile/>} />
         <Route path='/careers' element={<CareersMobile/>} />

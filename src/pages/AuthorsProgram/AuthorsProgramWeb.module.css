@@ -1,0 +1,177 @@
+/* styles.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&display=swap');
+
+.CreatorsContainer {
+    /* Add styles for the CreatorsContainer */
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headingSectionCreators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headingTextCreators {
+    /* Add styles for the heading-text-creators */
+    padding: 0 200px;
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica, sans-serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%; /* 78px */
+    margin-top: 100px;
+    margin-bottom: 0px;
+}
+
+.headingSectionCreators p {
+    /* Add styles for the heading-section-creators p */
+    color: #FCFCFC;
+    text-align: center;
+    font-family: Geologica;
+    width: auto;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 200%;
+    padding: 0 229px;
+}
+
+.createDashtoonButton {
+
+    display: inline-flex;
+    margin-top: 40px;
+    height: 69px;
+    padding: 22.5px 36px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+    border: transparent;
+    cursor: pointer;
+}
+
+.headingImage {
+    /* Add styles for the heading-image */
+    width: 1019px;
+    height: 573.188px;
+    flex-shrink: 0;
+    margin-top: 60px;
+}
+
+.perksSection {
+    /* Add styles for the perksSection */
+    display: flex;
+    flex-direction: column;
+    gap : 120px;
+    padding: 0 120px;
+    margin-top: 100px;
+}
+
+.perksHeading {
+    color: #FFFFFF;
+    font-family: Geologica;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 200%; /* 32px */
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.perksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 114px;
+}
+
+.photoFrame {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 456px;
+}
+
+.imageHolder {
+
+    height: 280px;
+    object-fit: cover;
+    width: 465px;
+}
+
+.captionContainer {
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 43.2px */
+    margin: 0;
+}
+
+.joinOurCreators {
+    /* Add styles for the join-our-creators */
+    align-self: stretch;
+    color:  #CFCFCF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    margin: 0;
+}
+
+.stepNumber {
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 128px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.stepHeading {
+    color: #FFF;
+
+    font-family: Geologica;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.stepText {
+    color: #CFCFCF;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.signUpSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 150px;
+    border-radius: 8px; /* Optional: if you want rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

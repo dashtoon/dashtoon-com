@@ -48,8 +48,12 @@ const FooterWebStudio = () => {
                             <span onClick={() => {
                                 navigate('/company/#people')
                             }}>Team</span>
-                            <span onClick={()=> {navigate('/company/#awards')}} >Awards</span>
-                            <span onClick={()=> {navigate('/company/#inTheNews')}} >In the News</span>
+                            <span onClick={() => {
+                                navigate('/company/#awards')
+                            }}>Awards</span>
+                            <span onClick={() => {
+                                navigate('/company/#inTheNews')
+                            }}>In the News</span>
                         </div>
                     </div>
                     <div className="nav-category-web">
@@ -73,11 +77,25 @@ const FooterWebStudio = () => {
                                   className={"explore-opportunities-web"}>Explore Opportunities</Link>
                         </div>
                     </div>
+                    <div className="nav-category-web">
+                        <div className="category-title-web">Authors</div>
+                        <div className="nav-links-web">
+                            <span onClick={() => {
+                                navigate('/authors')
+                            }}>Authors Program</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className={"legal-Web"}>
-                <button className="transparentButton" onClick={()=> {navigate('/terms-and-conditions')}}>Terms & Conditions</button>
-                <button className="transparentButton" onClick={()=> {navigate('/privacy-policy')}}>Privacy Policy</button>
+                <button className="transparentButton" onClick={() => {
+                    navigate('/terms-and-conditions')
+                }}>Terms & Conditions
+                </button>
+                <button className="transparentButton" onClick={() => {
+                    navigate('/privacy-policy')
+                }}>Privacy Policy
+                </button>
                 <button className="transparentButton" onClick={()=> {navigate('/bug-bounty')}}>Bug Bounty</button>
             </div>
         </footer>

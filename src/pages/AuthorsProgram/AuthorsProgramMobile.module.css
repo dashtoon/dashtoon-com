@@ -1,0 +1,152 @@
+.creatorsContainerMobile {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.headingSectionCreatorsMobile {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headingTextCreatorsMobile {
+    text-align: center;
+    font-family: Geologica;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%; /* 41.6px */
+    margin-top: 50px;
+}
+
+.headingSectionCreatorsMobile p {
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 35px */
+}
+
+.createDashtoonButtonMobile {
+    display: inline-flex;
+    padding: 8px 21px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    border-radius: 40px;
+    border: transparent;
+    background: #3090FC;
+    backdrop-filter: blur(12.899999618530273px);
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */ /* 35px */
+}
+
+.headingImageMobile {
+    width: 325px;
+    height: 193px;
+    flex-shrink: 0;
+    margin-top: 60px;
+}
+
+.perksSectionMobile {
+    display: flex;
+    flex-direction: column;
+    gap : 60px;
+}
+
+.perksHeadingMobile {
+    color: #FFFFFF;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 200%; /* 32px */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.perksContainerMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+}
+
+.photoFrameMobile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 290px;
+}
+
+.imageHolderMobile {
+    height: 222px;
+    object-fit: cover;
+    width: 290px;
+}
+
+.captionContainerMobile {
+    color: #FFF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.joinOurCreatorsMobile {
+    color: #CFCFCF;
+    text-align: center;
+    font-family: Geologica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+}
+
+.stepNumberMobile {
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 128px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 153.6px */
+}
+
+.stepHeadingMobile {
+    color: #FFF;
+    font-family: Geologica;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+.stepTextMobile {
+    color: #CFCFCF;
+    font-family: Geologica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.signUpSectionMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    box-shadow: 0 30px 40px rgba(0,0,0,.1);
+}
