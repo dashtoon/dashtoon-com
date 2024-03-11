@@ -42,7 +42,7 @@ const AuthorsProgramWeb = () => {
                         Convert your novel into a webcomic. For Free!
                     </h2>
                     <p>
-                        <strong>With our DashAuthors Program, we will help you turn your novel into a stunning webcomic for our readers across the globe.
+                        <strong>With our DashAuthors Program, we will help you turn your Novels into stunning Webcomics for our readers across the globe.
                             No costs for you. Competitive royalties.
                         </strong>
                     </p>
@@ -53,7 +53,7 @@ const AuthorsProgramWeb = () => {
                     <img
                         className={styles.headingImage}
                         src={getCDNImageUrl('https://content.dashtoon.ai/assets/AuthorsProgrammeBanner.png', '1920')}
-                        alt="Creators Image"
+                        alt="Authors Program"
                     />
                 </div>
 
@@ -61,7 +61,7 @@ const AuthorsProgramWeb = () => {
                     <h2 className={styles.perksHeading} style={{marginBottom: '-40px'}}>Perks and benefits</h2>
                     <div className={styles.perksContainer}>
                         <div className={styles.photoFrame}>
-                            <img className={styles.imageHolder} alt="Rectangle"
+                            <img className={styles.imageHolder} alt="Authors Program"
                                  src={getCDNImageUrl('https://content.dashtoon.ai/assets/PublishAndEarnWithDashtoon.png', '465', '280')}/>
                             <p className={styles.captionContainer}>Publish and earn with Dashtoon</p>
                             <p className={styles.joinOurCreators}>
@@ -70,7 +70,7 @@ const AuthorsProgramWeb = () => {
                             </p>
                         </div>
                         <div className={styles.photoFrame}>
-                            <img className={styles.imageHolder} alt="Rectangle"
+                            <img className={styles.imageHolder} alt="Authors Program"
                                  src={getCDNImageUrl('https://content.dashtoon.ai/assets/ReadersAcrossTheGlobe.png', '465', '280')}/>
                             <p className={styles.captionContainer}>Global Audience and Promotion</p>
                             <p className={styles.joinOurCreators}>
@@ -80,7 +80,7 @@ const AuthorsProgramWeb = () => {
                     </div>
                     <div className={styles.perksContainer}>
                         <div className={styles.photoFrame}>
-                            <img className={styles.imageHolder} alt="Rectangle"
+                            <img className={styles.imageHolder} alt="Authors Program"
                                  src={getCDNImageUrl('https://content.dashtoon.ai/assets/ProfessionalTeam.png', '465', '280')}/>
                             <p className={styles.captionContainer}>Production Guarantee</p>
                             <p className={styles.joinOurCreators}>
@@ -89,7 +89,7 @@ const AuthorsProgramWeb = () => {
                             </p>
                         </div>
                         <div className={styles.photoFrame}>
-                            <img className={styles.imageHolder} alt="Rectangle"
+                            <img className={styles.imageHolder} alt="Authors Program"
                                  src={getCDNImageUrl('https://content.dashtoon.ai/assets/HassleFreeProcess.png', '465', '280')}/>
                             <p className={styles.captionContainer}>Hassle Free Process
                             </p>

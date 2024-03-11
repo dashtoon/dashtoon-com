@@ -46,7 +46,7 @@ const AuthorsProgramMobile = () => {
                             Convert your novel into a webcomic. For Free!
                         </h2>
                         <p>
-                            <strong>With our DashAuthors Program, we will help you turn your novel into a stunning webcomic for our readers across the globe.
+                            <strong>With our DashAuthors Program, we will help you turn your Novels into stunning Webcomics for our readers across the globe.
                                 No costs for you. Competitive royalties.</strong>
                         </p>
                         <button className={styles.createDashtoonButtonMobile}
@@ -56,7 +56,7 @@ const AuthorsProgramMobile = () => {
                         <img
                             className={styles.headingImageMobile}
                             src={getCDNImageUrl('https://content.dashtoon.ai/assets/AuthorsProgrammeBanner.png', '1920')}
-                            alt="Creators Image"
+                            alt="Authors Program"
                         />
                     </div>
 
@@ -64,7 +64,7 @@ const AuthorsProgramMobile = () => {
                         <h2 className={styles.perksHeadingMobile} style={{ marginBottom: '-40px' }}>Perks and benefits</h2>
                         <div className={styles.perksContainerMobile}>
                             <div className={styles.photoFrameMobile}>
-                                <img className={styles.imageHolderMobile} alt="Rectangle"
+                                <img className={styles.imageHolderMobile} alt="Authors Program"
                                      src={getCDNImageUrl('https://content.dashtoon.ai/assets/PublishAndEarnWithDashtoon.png', '290')} />
                                 <p className={styles.captionContainerMobile}>Publish and earn with Dashtoon</p>
                                 <p className={styles.joinOurCreatorsMobile}>
@@ -72,7 +72,7 @@ const AuthorsProgramMobile = () => {
                                 </p>
                             </div>
                             <div className={styles.photoFrameMobile}>
-                                <img className={styles.imageHolderMobile} alt="Rectangle"
+                                <img className={styles.imageHolderMobile} alt="Authors Program"
                                      src={getCDNImageUrl('https://content.dashtoon.ai/assets/ReadersAcrossTheGlobe.png', '290')} />
                                 <p className={styles.captionContainerMobile}>Global Promotion and Marketing Support</p>
                                 <p className={styles.joinOurCreatorsMobile}>
@@ -82,7 +82,7 @@ const AuthorsProgramMobile = () => {
                         </div>
                         <div className={styles.perksContainerMobile}>
                             <div className={styles.photoFrameMobile}>
-                                <img className={styles.imageHolderMobile} alt="Rectangle"
+                                <img className={styles.imageHolderMobile} alt="Authors Program"
                                      src={getCDNImageUrl('https://content.dashtoon.ai/assets/ProfessionalTeam.png', '290')} />
                                 <p className={styles.captionContainerMobile}>Production Guarantee</p>
                                 <p className={styles.joinOurCreatorsMobile}>
@@ -90,7 +90,7 @@ const AuthorsProgramMobile = () => {
                                 </p>
                             </div>
                             <div className={styles.photoFrameMobile}>
-                                <img className={styles.imageHolderMobile} alt="Rectangle"
+                                <img className={styles.imageHolderMobile} alt="Authors Program"
                                      src={getCDNImageUrl('https://content.dashtoon.ai/assets/HassleFreeProcess.png', '290')} />
                                 <p className={styles.captionContainerMobile}>Hassle Free Process</p>
                                 <p className={styles.joinOurCreatorsMobile}>
