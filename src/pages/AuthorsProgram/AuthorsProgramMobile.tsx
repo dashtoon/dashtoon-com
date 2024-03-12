@@ -43,10 +43,10 @@ const AuthorsProgramMobile = () => {
                     <div className={styles.headingSectionCreatorsMobile}>
 
                         <h2 className={styles.headingTextCreatorsMobile}>
-                            Convert your novel into a webcomic. For Free!
+                            Convert your Novels into Webcomics. For Free!
                         </h2>
                         <p>
-                            <strong>With our DashAuthors Program, we will help you turn your Novels into stunning Webcomics for our readers across the globe.
+                            <strong>With our DashAuthors Program, we will help you turn your novels into stunning webcomics for our readers across the globe.
                                 No costs for you. Competitive royalties.</strong>
                         </p>
                         <button className={styles.createDashtoonButtonMobile}
