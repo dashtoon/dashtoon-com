@@ -8,8 +8,13 @@ import FooterWeb from "../../Components/FooterWeb";
 import styles from './AuthorsProgramWeb.module.css';
 import {trackEvent} from "../../Utils/Analytics";
 import {TrackingEvents} from "../../Constants/TrackingEvents";
+import {useLocation} from "react-router-dom";
+
+
 
 const AuthorsProgramWeb = () => {
+    const location = useLocation();
+
     useEffect(() => {
         const checkAuthAndTrackEvent = async () => {
             await auth.authStateReady();
@@ -20,6 +25,10 @@ const AuthorsProgramWeb = () => {
 
         checkAuthAndTrackEvent();
     }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
 
 
     const handleButtonClick = (buttonName: string) => {

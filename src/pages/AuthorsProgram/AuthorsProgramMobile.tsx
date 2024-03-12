@@ -10,9 +10,13 @@ import styles from './AuthorsProgramMobile.module.css';
 import {AuthContext} from "../../Provider/AuthProvider";
 import NavbarMobile from "../../Components/NavbarMobile";
 import FooterMobile from "../../Components/FooterMobile";
+import {useLocation} from "react-router-dom";
 
 
 const AuthorsProgramMobile = () => {
+
+    const location = useLocation();
+
     const authCurrent = useContext(AuthContext);
 
     useEffect(() => {
@@ -26,6 +30,9 @@ const AuthorsProgramMobile = () => {
         checkAuthAndTrackEvent();
     }, [authCurrent]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
 
     const handleButtonClick = (buttonName: string) => {
 
